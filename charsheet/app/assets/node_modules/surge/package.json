@@ -1,0 +1,72 @@
+{
+  "name": "surge",
+  "version": "0.16.0",
+  "description": "CDN for front-end developers",
+  "author": {
+    "name": "Brock Whitten",
+    "email": "brock@chloi.io"
+  },
+  "bin": {
+    "surge": "./lib/cli.js"
+  },
+  "dependencies": {
+    "du": "0.1.0",
+    "fstream-ignore": "1.0.2",
+    "is-domain": "0.0.1",
+    "moniker": "0.1.2",
+    "netrc": "0.1.4",
+    "prompt": "~0.2.14",
+    "progress": "1.1.8",
+    "request": "2.40.0",
+    "split": "0.3.1",
+    "surge-ignore": "0.2.0",
+    "tar": "1.0.0",
+    "tar.gz": "0.1.1",
+    "url-parse-as-address": "1.0.0",
+    "read": "1.0.5",
+    "minimist": "1.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "nixt": "0.4.1",
+    "should": "7.1.0"
+  },
+  "license": "ISC",
+  "main": "./lib/surge.js",
+  "ignore": [
+    "test"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sintaxi/surge.git"
+  },
+  "gitHead": "ac857423a7bbcbeace8f10eb0763f7cd2b874947",
+  "bugs": {
+    "url": "https://github.com/sintaxi/surge/issues"
+  },
+  "homepage": "https://github.com/sintaxi/surge",
+  "_id": "surge@0.16.0",
+  "_shasum": "f377241b8cf702f3d403441f2c816065c989e809",
+  "_from": "surge@>=0.16.0 <0.17.0",
+  "_npmVersion": "2.14.4",
+  "_nodeVersion": "4.1.2",
+  "_npmUser": {
+    "name": "sintaxi",
+    "email": "brock@sintaxi.com"
+  },
+  "maintainers": [
+    {
+      "name": "sintaxi",
+      "email": "brock@sintaxi.com"
+    }
+  ],
+  "dist": {
+    "shasum": "f377241b8cf702f3d403441f2c816065c989e809",
+    "tarball": "http://registry.npmjs.org/surge/-/surge-0.16.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/surge/-/surge-0.16.0.tgz"
+}
