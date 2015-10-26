@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'characters/index'
+
+  get 'characters/show'
+
   root 'pages#main'
 
   get 'pages/:id/dashboard' => 'pages#dashboard'
