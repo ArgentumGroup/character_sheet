@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'characters/index'
+  get 'characters/index' => 'characters#index'
 
-  get 'characters/show'
+  get 'characters/:id/show' => 'characters#show'
 
   root 'pages#main'
 
