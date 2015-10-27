@@ -46,3 +46,4 @@ group :development do
 end
 
 gem 'react-rails', '~> 1.4.0'
+gem 'rails-erd'
