@@ -1,3 +1,270 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// 
+// 
+
+#container {
+
+	#charData{
+
+		div {
+
+			p {
+
+				margin: 0;
+			}
+
+			margin: 5px;
+		}
+
+		border: 1px solid black;
+		width: 300px;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		height: 166px;
+	}
+
+	position: relative;
+    height: 1110px;
+    border: 1px solid black;
+    width: 890px;
+}
+
+#armorStats {
+
+	#armorClassBlock {
+
+		div {
+
+			margin-left: 25px;
+		}
+
+		text-align: center;
+		margin: 5px;
+		display: flex;
+		height: 108px;
+	}
+
+	margin: 0;
+    position: absolute;
+    border: 1px solid black;
+    width: 498px;
+    top: 0%;
+    right: 88px;
+}
+
+#healthandDeathSaves {
+
+		div {
+
+
+			p {
+
+				margin: 5px;
+			}
+
+			input {
+
+				margin: 0px;
+			}
+			width: 39%;
+			text-align: center;
+		}
+
+	border: 1px solid black;
+	display:flex;	
+}
+
+#saves {
+
+	h4 {
+
+		margin: 0;
+	}
+
+	div {
+
+		input {
+			margin: 0;
+		}
+	}	
+}
+
+#statsBlock {
+
+	p {
+
+		margin-left: 8px;
+	}
+
+	border: 1px solid black;
+	width: 300px;
+}
+
+#weaponsAndArmor {
+
+	#weapons {
+
+		border: 1px solid black;
+		height: 400px;
+		width: 400px;
+	}
+
+	#armor {
+
+		border: 1px solid black;
+		height: 400px;
+		width: 400px;
+	}
+
+	display: flex;
+	border: 1px solid black;
+	width: 800px;
+}
+
+#skillsAbilsMagicItems {
+
+		#skillsBar {
+
+			div {
+
+				p{
+		
+					text-align: right;
+					margin-right: 16%;
+				}
+
+				input {
+
+					float: left;
+    				margin-left: 16%;
+				}
+
+			    position: absolute;
+			    right: 46%;
+			    top: -26%;
+			    transform: rotate(-90deg);
+			    height: 700px;
+			    width: 475px;
+			    border: 1px solid black;
+			    background-color: white;
+			    visibility: hidden;
+			}
+
+			width: 25%;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		#skillsBar:hover > div {
+
+			visibility: visible;
+		}
+
+		#abilitiesBar {
+
+			div {
+
+				position: absolute;
+			    right: 43%;
+    			top: -27%;
+    			transform: rotate(-90deg);
+    			height: 700px;
+    			width: 475px;
+			    border: 1px solid black;
+			    background-color: white;
+			    visibility: hidden;
+			}
+
+			width: 25%;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		#abilitiesBar:hover > div {
+
+			visibility: visible;
+		}
+		
+		#spellsBar {
+
+			div {
+
+				position: absolute;
+				right: 12%;
+				top: -27%;
+				transform: rotate(-90deg);
+				height: 700px;
+				width: 475px;
+			    border: 1px solid black;
+			    background-color: white;
+			    visibility: hidden;
+			}
+
+			width: 25%;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		#spellsBar:hover > div {
+
+			visibility: visible;
+		}
+
+
+	#itemsBar {
+
+			div {
+
+				position: absolute;
+				right: 11%;
+				top: -26%;
+				transform: rotate(-90deg);
+				height: 700px;
+				width: 475px;
+			    border: 1px solid black;
+			    background-color: white;
+			    visibility: hidden;
+			}
+
+			width: 25%;
+			text-align: center;
+			border: 1px solid black;
+		}
+
+		#itemsBar:hover > div {
+
+			visibility: visible;
+		}
+
+	position: absolute;
+    top: 46%;
+    right: -57.5%;
+    width: 1110px;
+    height: 89px;
+    border: 1px solid black;
+    transform: rotate(90deg);
+    display: flex;
+}
+
+#traitsBox {
+
+	div {
+
+		textarea {
+
+			height: 232px;
+    		width: 166px;
+		}
+
+		width: 25%;
+    	margin-left: 14px;
+	}
+
+	display: flex;
+    width: 800px;
+    height: 308px;
+    border: 1px solid black;
+}
