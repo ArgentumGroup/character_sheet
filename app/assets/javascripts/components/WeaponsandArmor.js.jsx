@@ -1,6 +1,17 @@
 var WeaponsandArmor = React.createClass({
 
+	_getWeapons: function(){
+
+		var ajaxData = {url: './weapons', success: function(responseData){
+			console.log(responseData)}}
+		$.ajax(ajaxData)
+	},
+	
+
+
 	render: function(){
+
+		this._getWeapons()
 
 		return(
 			<div id='weaponsAndArmor'>

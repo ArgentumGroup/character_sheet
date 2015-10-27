@@ -130,6 +130,18 @@
 
 			div {
 
+				p{
+		
+					text-align: right;
+					margin-right: 16%;
+				}
+
+				input {
+
+					float: left;
+    				margin-left: 16%;
+				}
+
 			    position: absolute;
 			    right: 46%;
 			    top: -26%;
@@ -226,7 +238,7 @@
 
 			visibility: visible;
 		}
-		
+
 	position: absolute;
     top: 46%;
     right: -57.5%;
