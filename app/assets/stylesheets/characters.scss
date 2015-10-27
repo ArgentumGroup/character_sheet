@@ -37,17 +37,21 @@
 
 		div {
 
-			margin: 5px;
+			margin: 15px;
 		}
 
 		text-align: center;
 		margin: 5px;
 		display: flex;
+		height: 151px;
 	}
 
 	margin: 0;
-	border: 1px solid black;
-	width: 450px;
+    position: absolute;
+    border: 1px solid black;
+    width: 498px;
+    top: 0%;
+    right: 88px;
 }
 
 #healthandDeathSaves {
@@ -57,6 +61,15 @@
 
 		div {
 
+			p {
+
+				margin: 5px;
+			}
+
+			input {
+
+				margin: 11px;
+			}
 			width: 50%;
 			text-align: center;
 		}
@@ -92,9 +105,30 @@
 #skillsAbilsMagicItems {
 
 	position: absolute;
-    top: 45%;
-    right: -47%;
-    width: 100%;
+    top: 46%;
+    right: -56%;
+    width: 1083px;
+    height: 86px;
     border: 1px solid black;
     transform: rotate(90deg);
+}
+
+#traitsBox {
+
+	div {
+
+		textarea {
+
+			height: 232px;
+    		width: 166px;
+		}
+
+		width: 25%;
+    	margin-left: 14px;
+	}
+
+	display: flex;
+    width: 800px;
+    height: 308px;
+    border: 1px solid black;
 }

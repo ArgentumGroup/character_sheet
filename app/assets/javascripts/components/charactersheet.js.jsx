@@ -9,6 +9,7 @@ var CharacterSheet = React.createClass({
 				<HealthandArmorClass />
 				<WeaponsandArmor />
 				<SkillsAbilsMagicItems />
+				<TraitsandFlaws />
 			</div>	
 			)
 	}
