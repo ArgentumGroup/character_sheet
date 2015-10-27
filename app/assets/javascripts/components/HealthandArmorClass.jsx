@@ -19,6 +19,15 @@ var HealthandArmorClass = React.createClass({
 					</div>	
 				</div>
 				<div id="healthandDeathSaves">
+					<div id="saves">
+						<h4>Saves</h4>
+						<p>Strength<input type="number"/></p>
+						<p>Dexterity<input type="number"/></p>
+						<p>Constitution<input type="number"/></p>
+						<p>Intelligence<input type="number"/></p>
+						<p>Wisdom<input type="number"/></p>
+						<p>Charisma<input type="number"/></p>
+					</div>
 					<div>
 						<p>Maximum Health</p>
 						<input type='number'/>
@@ -29,7 +38,7 @@ var HealthandArmorClass = React.createClass({
 					</div>
 					<div>
 						<h3>Death Saves</h3>
-						<p> Successes :
+						<p>Successes :
 							<select>
 								<option>0</option>
 								<option>1</option>
