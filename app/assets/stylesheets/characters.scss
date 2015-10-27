@@ -1,3 +1,100 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// 
+// 
+
+#container {
+
+	#charData{
+
+		div {
+
+			p {
+
+				margin: 0;
+			}
+
+			margin: 5px;
+		}
+
+		border: 1px solid black;
+		width: 300px;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+	}
+
+	position: relative;
+	height: 1085px;
+	border: 1px solid black;
+	width: 890px;
+}
+
+#armorStats {
+
+	#armorClassBlock {
+
+		div {
+
+			margin: 5px;
+		}
+
+		text-align: center;
+		margin: 5px;
+		display: flex;
+	}
+
+	margin: 0;
+	border: 1px solid black;
+	width: 450px;
+}
+
+#healthandDeathSaves {
+
+	border: 1px solid black;
+	display:flex;
+
+		div {
+
+			width: 50%;
+			text-align: center;
+		}
+}
+
+#statsBlock {
+
+	border: 1px solid black;
+	width: 300px;
+}
+
+#weaponsAndArmor {
+
+	#weapons {
+
+		border: 1px solid black;
+		height: 400px;
+		width: 400px;
+	}
+
+	#armor {
+
+		border: 1px solid black;
+		height: 400px;
+		width: 400px;
+	}
+
+	display: flex;
+	border: 1px solid black;
+	width: 800px;
+}
+
+#skillsAbilsMagicItems {
+
+	position: absolute;
+    top: 45%;
+    right: -47%;
+    width: 100%;
+    border: 1px solid black;
+    transform: rotate(90deg);
+}
