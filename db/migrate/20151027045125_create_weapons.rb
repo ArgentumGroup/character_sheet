@@ -1,7 +1,7 @@
 class CreateWeapons < ActiveRecord::Migration
   def change
     create_table :weapons do |t|
-      t.string :type
+      t.string :weapon_type
       t.string :category
       t.string :name
       t.integer :cost

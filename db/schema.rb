@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151027045125) do
   enable_extension "plpgsql"
 
   create_table "armors", force: :cascade do |t|
-    t.string   "type"
+    t.string   "armor_type"
     t.string   "name"
     t.integer  "cost"
     t.integer  "armor_class"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151027045125) do
   end
 
   create_table "weapons", force: :cascade do |t|
-    t.string   "type"
+    t.string   "weapon_type"
     t.string   "category"
     t.string   "name"
     t.integer  "cost"
