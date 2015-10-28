@@ -29,6 +29,7 @@ var HealthandArmorClass = React.createClass({
 						<p>Charisma<input type="number"/></p>
 					</div>
 					<div>
+						<h4>Health</h4>
 						<p>Maximum Health</p>
 						<input type='number'/>
 						<p>Current Health</p>
