@@ -70,7 +70,13 @@ var WeaponsandArmor = React.createClass({
 						<li>Weapon Type: {equippedWeapon.weapon_type}</li>
 						<li>Damage Type: {equippedWeapon.damage_type}</li>
 						<li>Damage Dice: {equippedWeapon.damage_die_number}d{equippedWeapon.damage_die_type}</li>
-					</ul>	
+					</ul>
+					<div id="makeAttackBox">
+						<h4>Make an Attack</h4>
+						<div>
+							<p>{equippedWeapon.name}</p>
+						</div>	
+					</div>	 	
 				</div>
 				<div id='armor'>
 					<h4>Armors</h4>

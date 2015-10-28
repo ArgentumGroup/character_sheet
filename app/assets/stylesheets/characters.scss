@@ -38,6 +38,11 @@
 
 		div {
 
+			input {
+
+				text-align: right;
+			}
+
 			margin-left: 25px;
 		}
 
@@ -110,6 +115,7 @@
 
 		float: right;
 		margin-right: 8px;
+		text-align: right;
 	}
 
 	border: 1px solid black;
@@ -174,7 +180,7 @@
 				input {
 
 					float: left;
-    				margin-left: 16%;
+    				margin-left: 10%;
 				}
 
 			    position: absolute;
