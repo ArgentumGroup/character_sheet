@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get 'characters/index' => 'characters#index', as: 'characters'
   get 'characters/:id/show' => 'characters#show', as: 'character'
 
-  resources :armors, :weapons, defaults: {format: :json}
+  namespace :api do
+    post 'users' => 'users#create'
+    resources :armors, :weapons, defaults: {format: :json}
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
