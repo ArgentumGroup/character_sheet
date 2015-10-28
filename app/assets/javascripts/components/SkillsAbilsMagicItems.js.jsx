@@ -1,10 +1,5 @@
 var SkillsAbilsMagicItems = React.createClass({
 
-
-	
-
-
-
 	render: function(){
 
 		return(
