@@ -1,8 +1,12 @@
 var WeaponsandArmor = React.createClass({
+
+	getInitialState: function(){
+		return {equippedWeapon: '', equippedArmor:''}
+	},
 	
 	_displayWeapons: function(weapon){
 		return (
-			<option key={weapon.name}>{weapon.name}, {weapon.weapon_type}, Damage Type: {weapon.damage_type}, Damage: {weapon.damage_die_number}d{weapon.damage_die_type}</option>
+			<option key={weapon.name}>{weapon.name}</option>
 			)
 	},
 
@@ -18,18 +22,34 @@ var WeaponsandArmor = React.createClass({
 		var stealth = this._stealth(armor)
 
 		return(
-			<option key={armor.name}>{armor.name}, {armor.armor_type}, AC: {armor.armor_class}, Stealth Disadvantage: {stealth}</option>
+			<option key={armor.name}>{armor.name}</option>
 			)
 	},
 
 	_equipWeapons: function(){
-		console.log(this.refs.selectedWeapon.getDOMNode().value)
+
+		var self = this
+		this.props.weaponsData.forEach(function(weapon){
+			if(weapon.name === self.refs.selectedWeapon.value){
+				self.setState({equippedWeapon: weapon})
+				console.log(self.state.equippedWeapon)
+			}
+		})
+		// console.log(this.refs.selectedWeapon.getDOMNode().value)
 
 	},
 
-	render: function(){
+	_equipArmor: function(){
+		var self = this
+		this.props.armorsData.forEach(function(armor){
+			if(armor.name === self.refs.selectedArmor.value){
+				self.setState({equippedArmor: armor})
+				console.log(self.state.equippedArmor)
+			}
+		})
+	},
 
-		console.log('hello',this.props.weaponsData)
+	render: function(){
 		
 		
 		return(
@@ -40,14 +60,17 @@ var WeaponsandArmor = React.createClass({
 						{this.props.weaponsData.map(this._displayWeapons)}
 					</select>
 					<button onClick={this._equipWeapons}>Equip</button>
-					<h4>Equipped Weapons</h4>
+					<h4>Equipped Weapon</h4>
+					<p>{this.state.equippedWeapon.name}</p>
 				</div>
 				<div id='armor'>
 					<h4>Armors</h4>
 					<select ref='selectedArmor'>
 						{this.props.armorsData.map(this._displayArmors)}
 					</select>
-					<button>Equip</button>
+					<button onClick={this._equipArmor}>Equip</button>
+					<h4>Equipped Armor</h4>
+					<p>{this.state.equippedArmor.name}</p>
 				</div>
 			</div>	
 			)

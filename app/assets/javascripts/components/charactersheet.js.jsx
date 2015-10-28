@@ -1,6 +1,6 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[], equippedWeapon:[]}
+		return {count:0,weaponsData:[], armorsData:[]}
 	},
 
 	componentWillMount: function(){
