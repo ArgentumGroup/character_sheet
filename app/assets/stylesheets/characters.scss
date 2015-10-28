@@ -44,7 +44,7 @@
 		text-align: center;
 		margin: 5px;
 		display: flex;
-		height: 108px;
+		height: 102px;
 	}
 
 	margin: 0;
@@ -104,6 +104,12 @@
 		margin-left: 8px;
 	}
 
+	input {
+
+		float: right;
+		margin-right: 8px;
+	}
+
 	border: 1px solid black;
 	width: 300px;
 }
@@ -112,16 +118,38 @@
 
 	#weapons {
 
-		border: 1px solid black;
-		height: 400px;
-		width: 400px;
+		button{
+
+			margin-left: 10px;
+		}
+
+		ul {
+
+			list-style: none;
+		}
+
+	    border: 1px solid black;
+	    height: 400px;
+	    width: 380px;
+	    padding-left: 20px;
 	}
 
 	#armor {
 
+		button {
+
+			margin-left: 10px;
+		}
+
+		ul {
+
+			list-style: none;
+		}
+
 		border: 1px solid black;
 		height: 400px;
-		width: 400px;
+		width: 380px;
+		padding-left: 20px;
 	}
 
 	display: flex;

@@ -11,15 +11,16 @@ var WeaponsandArmor = React.createClass({
 	},
 
 	_stealth: function(armor){
-		if(armor.stealth_disadvantage === false){
+		if(armor.stealth_disadvantage === undefined){
+			return ('')
+		}
+		else if(armor.stealth_disadvantage === false){
 			return ('No')
 		}
 		else return ('Yes')
 	},
 
 	_displayArmors: function(armor){
-
-		var stealth = this._stealth(armor)
 
 		return(
 			<option key={armor.name}>{armor.name}</option>
@@ -36,7 +37,7 @@ var WeaponsandArmor = React.createClass({
 			}
 		})
 		// console.log(this.refs.selectedWeapon.getDOMNode().value)
-
+		// <p>{this._stealth(equippedArmor)}</p>
 	},
 
 	_equipArmor: function(){
@@ -50,8 +51,10 @@ var WeaponsandArmor = React.createClass({
 	},
 
 	render: function(){
-		
-		
+
+		var equippedWeapon = this.state.equippedWeapon,
+			equippedArmor = this.state.equippedArmor
+				
 		return(
 			<div id='weaponsAndArmor'>
 				<div id='weapons'>
@@ -61,7 +64,13 @@ var WeaponsandArmor = React.createClass({
 					</select>
 					<button onClick={this._equipWeapons}>Equip</button>
 					<h4>Equipped Weapon</h4>
-					<p>{this.state.equippedWeapon.name}</p>
+					<ul>
+						<li>Weapon Name: {equippedWeapon.name}</li>
+						<li>Weapon Category: {equippedWeapon.category}</li>
+						<li>Weapon Type: {equippedWeapon.weapon_type}</li>
+						<li>Damage Type: {equippedWeapon.damage_type}</li>
+						<li>Damage Dice: {equippedWeapon.damage_die_number}d{equippedWeapon.damage_die_type}</li>
+					</ul>	
 				</div>
 				<div id='armor'>
 					<h4>Armors</h4>
@@ -70,7 +79,12 @@ var WeaponsandArmor = React.createClass({
 					</select>
 					<button onClick={this._equipArmor}>Equip</button>
 					<h4>Equipped Armor</h4>
-					<p>{this.state.equippedArmor.name}</p>
+					<ul>
+						<li>Armor Name: {equippedArmor.name}</li>
+						<li>Armor Class: {equippedArmor.armor_class}</li>
+						<li>Armor Type: {equippedArmor.armor_type}</li>
+						<li>Stealth Disadvantage: {this._stealth(equippedArmor)}</li>
+					</ul>
 				</div>
 			</div>	
 			)
