@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   root 'pages#main'
   get 'pages/:id/dashboard' => 'pages#dashboard'
 
-  get 'sign_in' => 'users#sign_in', as: 'sign_in'
-  get 'sign_up' => 'users#sign_up', as: 'sign_up'
+  get 'sign_in' => 'sessions#new', as: 'sign_in'
+  post 'sign_in' => 'sessions#create'
+  delete 'sign_in' => 'sessions#destroy', as: 'sign_out'
 
-  get 'characters/index' => 'characters#index', as: 'characters'
-  get 'characters/:id/show' => 'characters#show', as: 'character'
+  get 'sign_up' => 'users#new', as: 'sign_up'
+
+  get 'profile/:username' => 'characters#index', as: 'profile'
+  get 'profile/:username/:character_id/show' => 'characters#show', as: 'character'
 
   namespace :api do
     post 'users' => 'users#create'
