@@ -79,7 +79,9 @@
 		}
 
 	border: 1px solid black;
-	display:flex;	
+	display:flex;
+	height: 294px;
+    padding-top: 15px;
 }
 
 #saves {
@@ -129,7 +131,7 @@
 		}
 
 	    border: 1px solid black;
-	    height: 400px;
+	    height: 370px;
 	    width: 380px;
 	    padding-left: 20px;
 	}
@@ -147,7 +149,7 @@
 		}
 
 		border: 1px solid black;
-		height: 400px;
+		height: 370px;
 		width: 380px;
 		padding-left: 20px;
 	}
@@ -298,6 +300,6 @@
 
 	display: flex;
     width: 800px;
-    height: 308px;
+    height: 312px;
     border: 1px solid black;
 }
