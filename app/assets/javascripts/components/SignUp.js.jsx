@@ -7,11 +7,13 @@ var SignUp = React.createClass({
 			type: "POST",
 			url: "api/users",
 			data: {
-				username: this.refs.username.value,
-				password: this.refs.password.value
+				user:{
+					email: this.refs.email.value,
+					name: this.refs.name.value,
+				} 
 			},
 			success:(function(){console.log('hello')}),
-			dataType: JSON
+			dataType: 'json'
 		})
 	},
 
@@ -22,8 +24,8 @@ var SignUp = React.createClass({
 			<div id='SignUp'>
 				<h1>Create your account here.</h1>
 				<div id='userDataBlock'>
-					<input ref='username' type='text' placeholder="Email"/>
-					<input ref='password' type='password' placeholder="Password"/>
+					<input ref='email' type='text' placeholder="Email"/>
+					<input ref='name' type='text' placeholder="Name"/>
 					<button onClick={this._getUsernameandPassword}>Create User!</button>
 				</div>	
 			</div>	
