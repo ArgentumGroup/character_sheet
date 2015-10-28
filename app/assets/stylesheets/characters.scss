@@ -44,7 +44,7 @@
 		text-align: center;
 		margin: 5px;
 		display: flex;
-		height: 108px;
+		height: 102px;
 	}
 
 	margin: 0;
@@ -59,6 +59,10 @@
 
 		div {
 
+			h4 {
+
+				margin: 0;
+			}
 
 			p {
 
@@ -68,13 +72,16 @@
 			input {
 
 				margin: 0px;
+				text-align: right;
 			}
 			width: 39%;
 			text-align: center;
 		}
 
 	border: 1px solid black;
-	display:flex;	
+	display:flex;
+	height: 294px;
+    padding-top: 15px;
 }
 
 #saves {
@@ -99,6 +106,12 @@
 		margin-left: 8px;
 	}
 
+	input {
+
+		float: right;
+		margin-right: 8px;
+	}
+
 	border: 1px solid black;
 	width: 300px;
 }
@@ -107,16 +120,38 @@
 
 	#weapons {
 
-		border: 1px solid black;
-		height: 400px;
-		width: 400px;
+		button{
+
+			margin-left: 10px;
+		}
+
+		ul {
+
+			list-style: none;
+		}
+
+	    border: 1px solid black;
+	    height: 370px;
+	    width: 380px;
+	    padding-left: 20px;
 	}
 
 	#armor {
 
+		button {
+
+			margin-left: 10px;
+		}
+
+		ul {
+
+			list-style: none;
+		}
+
 		border: 1px solid black;
-		height: 400px;
-		width: 400px;
+		height: 370px;
+		width: 380px;
+		padding-left: 20px;
 	}
 
 	display: flex;
@@ -265,6 +300,6 @@
 
 	display: flex;
     width: 800px;
-    height: 308px;
+    height: 312px;
     border: 1px solid black;
 }

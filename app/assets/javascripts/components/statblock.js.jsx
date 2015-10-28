@@ -4,6 +4,7 @@ var StatsBlock = React.createClass({
 
 		return(
 			<div id='statsBlock'>
+				<p>Profiency Bonus <input type='number'/></p>
 				<p>Strength <input type='number'/></p>
 				<p>Dexterity <input type='number'/></p>
 				<p>Constitution <input type='number'/></p>

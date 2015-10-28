@@ -1,13 +1,52 @@
 var CharacterSheet = React.createClass({
+	getInitialState:function(){
+		return {count:0,weaponsData:[], armorsData:[]}
+	},
+
+	componentWillMount: function(){
+
+		console.log('mounting')
+
+	var weaponsData,
+		armorsData,
+		ajaxArmorData = {url:'../../armors',success: function(responseData){
+			armorsData = responseData
+			return (armorsData)
+		}},
+
+		ajaxWeaponData = {url: '../../weapons', success: function(responseData){
+			weaponsData = responseData
+			return (weaponsData)
+		}}
+	
+	// var weaponsData = 
+	$.ajax(ajaxWeaponData).then((d)=>{
+		this.props.weaponsData = d
+		console.log('retrieving weapons',d)
+		this.setState({weaponsData:d.weapons})
+		})
+
+	$.ajax(ajaxArmorData).then((d)=>{
+		this.props.armorsData = d
+		console.log('retrieving armors', d)
+		this.setState({armorsData:d.armors})
+		})
+	},
 
 	render: function(){
+
+
+	// function(){
+	// 	console.log(weaponsData.weapons)
+	// 	return(weaponsData.weapons)
+	// 	})
 
 		return(
 			<div id="container">
 				<NameInfoBox />
 				<StatsBlock />
 				<HealthandArmorClass />
-				<WeaponsandArmor />
+				<WeaponsandArmor armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
 				<SkillsAbilsMagicItems />
 				<TraitsandFlaws />
 			</div>	
