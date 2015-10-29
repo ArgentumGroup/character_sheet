@@ -9,12 +9,12 @@ var CharacterSheet = React.createClass({
 
 	var weaponsData,
 		armorsData,
-		ajaxArmorData = {url:'../../armors',success: function(responseData){
+		ajaxArmorData = {url:'api/armors',success: function(responseData){
 			armorsData = responseData
 			return (armorsData)
 		}},
 
-		ajaxWeaponData = {url: '../../weapons', success: function(responseData){
+		ajaxWeaponData = {url: 'api/weapons', success: function(responseData){
 			weaponsData = responseData
 			return (weaponsData)
 		}}

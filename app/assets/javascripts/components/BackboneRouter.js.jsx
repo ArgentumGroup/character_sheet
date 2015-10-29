@@ -6,20 +6,26 @@ $( document ).ready(function() {
 		routes:{
 
 			'signup': 'showSignUp',
-			'profile': 'showProfile'
+			'profile': 'showProfile',
+			'signin': 'showSignIn'
 
+		},
+
+		showSignIn: function(){
+	
+			ReactDOM.render( <SignIn/>, document.querySelector('#container'))
 		},
 
 		showSignUp(){
 			console.log('backbone and nothingness')
 
-			ReactDOM.render( <SignUp/> , document.querySelector('#container') )
+			ReactDOM.render( <SignUp/> , document.querySelector('#container'))
 		},
 
 		showProfile() {
 			console.log('na na na nana na')
 
-			ReactDOM.render( <ProfilePage />, documnet.querySelector('#container'))
+			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
 		},
 		initialize: function(){
 			console.log('getting routey')
