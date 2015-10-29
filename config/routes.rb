@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   get 'profile/:username/:character_id/show' => 'characters#show', as: 'character'
 
   namespace :api do
-    post 'users' => 'users#create'
-    resources :armors, :weapons, defaults: {format: :json}
+    resources :users, :armors, :weapons, defaults: {format: :json}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
