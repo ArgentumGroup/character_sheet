@@ -8,10 +8,11 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new params.require(:user).permit(:name, :email, :password, :password_confirmation)
     if @user.save
-      render json: @user, callback: 'updateCurrentUser'
+      render json: @user
       sign_in @user
     else
-      json: @user.errors
+      render json: @user.errors
     end
   end
+
 end
