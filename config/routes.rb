@@ -1,18 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'pages#main'
-  get 'pages/:id/dashboard' => 'pages#dashboard'
-
-  get 'sign_in' => 'sessions#new', as: 'sign_in'
-  post 'sign_in' => 'sessions#create'
-  delete 'sign_in' => 'sessions#destroy', as: 'sign_out'
-
-  get 'sign_up' => 'users#new', as: 'sign_up'
-
-  get 'profile/:username' => 'characters#index', as: 'profile'
-  get 'profile/:username/:character_id/show' => 'characters#show', as: 'character'
+  root 'application#main'
 
   namespace :api do
+    post 'sign_in' => 'sessions#create'
+    delete 'sign_in' => 'sessions#destroy'
     resources :users, :armors, :weapons, defaults: {format: :json}
   end
 

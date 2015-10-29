@@ -13,8 +13,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def sign_in
+  def sign_in(user)
     session[:user_id] = user.id
+  end
+
+  def main
   end
 
 end
