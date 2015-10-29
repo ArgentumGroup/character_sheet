@@ -7,10 +7,10 @@ end
 def create
   @user = User.new params.require(:user).permit(:name, :email, :password, :password_confirmation)
   if @user.save
-    render json: @user
+    render json: @user, callback: 'updateCurrentUser'
     sign_in @user
   else
-    render status: 422, json: @user.errors
+    json: @user.errors
   end
 end
 
