@@ -20,6 +20,7 @@ var TraitsandFlaws = React.createClass({
 					<p>Flaws</p>
 					<textarea rows="10" columns="10"/>
 				</div>
+				<button>Save this data.</button>
 			</div>
 			)
 	}

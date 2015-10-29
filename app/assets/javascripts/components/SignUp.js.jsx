@@ -10,9 +10,14 @@ var SignUp = React.createClass({
 				user:{
 					email: this.refs.email.value,
 					name: this.refs.name.value,
+					password: this.refs.password.value,
+					password_confirmation: this.refs.confirm_password.value
 				} 
 			},
-			success:(function(){console.log('hello')}),
+			success:(function(){
+				alert('Success!')
+				location.hash = 'profile'
+			}),
 			dataType: 'json'
 		})
 	},
@@ -26,6 +31,8 @@ var SignUp = React.createClass({
 				<div id='userDataBlock'>
 					<input ref='email' type='text' placeholder="Email"/>
 					<input ref='name' type='text' placeholder="Name"/>
+					<input ref='password' type='password' placeholder="Password"/>
+					<input ref='confirm_password' type='password' placeholder="Confirm Password"/>
 					<button onClick={this._getUsernameandPassword}>Create User!</button>
 				</div>	
 			</div>	

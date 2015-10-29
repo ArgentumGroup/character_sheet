@@ -94,6 +94,7 @@ var NameInfoBox = React.createClass({
 					<p>Level</p>
 					<input type='number'/>		
 				</div>
+				<button>Save player info.</button>
 			</div>	
 			)
 	}
