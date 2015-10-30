@@ -18,8 +18,10 @@ var DMView = React.createClass({
 		return (
 			<div id="dmView">
 				<h1>Campaign Name</h1>
-					<ul>
-					{}
+				<ul>
+					{players.map(this._activePlayers)}
+				</ul>
+			</div>		
 
 
 			)
