@@ -9,8 +9,8 @@ class Api::SessionsController < ApplicationController
     password = params[:password]
     user = User.find_by email: email
     if user.present? && user.authenticate(password)
-      sign_in user
-      # redirect_to profile_path, notice: "Happy gaming!"
+      # sign_in user
+      session[:user_id] = user.id
     else
       render :new
     end
