@@ -11,6 +11,7 @@ Weapon.delete_all
 AbilityScore.delete_all
 Character.delete_all
 User.delete_all
+Campaign.delete_all
 
 armors = Armor.create!([
   {armor_type: 'Light', name: 'Padded', cost: 500, armor_class: 11, stealth_disadvantage: false, weight: 8},
@@ -78,8 +79,8 @@ ability_scores = AbilityScore.create! ([
   ])
 
 campaigns = Campaign.create! ([
-  {name: 'First campaign'},
-  {name: 'Second campaign'},
+  {name: 'First campaign', user_id: 1},
+  {name: 'Second campaign', user_id: 2},
   ])
 
 characters = Character.create! ([
