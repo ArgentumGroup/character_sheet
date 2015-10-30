@@ -78,10 +78,7 @@ ability_scores = AbilityScore.create! ([
   {name: 'Charisma'}
   ])
 
-campaigns = Campaign.create! ([
-  {name: 'First campaign', user_id: 1},
-  {name: 'Second campaign', user_id: 2},
-  ])
+
 
 characters = Character.create! ([
   {name: 'First character', level: '3', race: 'Elf, wood', klass: 'Cleric', campaign_id: 1, user_id: 1},
@@ -90,3 +87,16 @@ characters = Character.create! ([
   {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass: 'Rogue', campaign_id: 2, user_id: 1},
   {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass: 'Rogue', campaign_id: 1, user_id: 1},
   ])
+
+users = User.create! ([
+  {name: "Dr. Fart", email: "Fart@clown.co", password: "12345678"},
+  {name: "Dr. Poop, II", email: "poop@clown.co", password: "12345678"}
+])
+
+characters.each do |character|
+  users.each do |user|
+    ['First campaign', 'Second campaign'].each do |campaign_name|
+      Campaign.create! name: campaign_name, user: user, character: character
+    end
+  end
+end
