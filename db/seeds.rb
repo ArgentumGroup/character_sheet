@@ -84,19 +84,24 @@ characters = Character.create! ([
   {name: 'First character', level: '3', race: 'Elf, wood', klass: 'Cleric', campaign_id: 1, user_id: 1},
   {name: 'Second character', level: '8', race: 'Elf, high', klass: 'Wizard', campaign_id: 2, user_id: 1},
   {name: 'Third character', level: '1', race: 'Human, base', klass: 'Fighter', campaign_id: 2, user_id: 2},
-  {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass: 'Rogue', campaign_id: 2, user_id: 1},
-  {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass: 'Rogue', campaign_id: 1, user_id: 1},
+  {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass: 'Rogue', campaign_id: 2, user_id: 2},
+  {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass: 'Rogue', campaign_id: 1, user_id: 2},
+  ])
+
+campaigns = Campaign.create! ([
+  {name: 'First Campaign'},
+  {name: 'Second Campaign'}
   ])
 
 users = User.create! ([
   {name: "Dr. Fart", email: "Fart@clown.co", password: "12345678"},
-  {name: "Dr. Poop, II", email: "poop@clown.co", password: "12345678"}
+  # {name: "Dr. Poop, II", email: "poop@clown.co", password: "12345678"}
 ])
 
-characters.each do |character|
-  users.each do |user|
-    ['First campaign', 'Second campaign'].each do |campaign_name|
-      Campaign.create! name: campaign_name, user: user, character: character
-    end
-  end
-end
+# characters.each do |character|
+#   users.each do |user|
+#     ['First campaign', 'Second campaign'].each do |campaign_name|
+#       Campaign.create! name: campaign_name, user: user, character: character
+#     end
+#   end
+# end

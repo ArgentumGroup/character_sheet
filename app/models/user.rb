@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :campaigns
-  has_many :characters, through: :campaigns
+  has_many :characters
+  has_many :campaigns, through: :characters
 end

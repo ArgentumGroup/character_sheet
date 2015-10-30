@@ -7,7 +7,7 @@ json.characters do
     json.character_level character.level
     json.character_race character.race
     json.character_class character.klass
-    json.character_campaign_id character.campaign_id
     json.character_user_id character.user_id
+    json.character_campaign character.campaign
   end
 end
