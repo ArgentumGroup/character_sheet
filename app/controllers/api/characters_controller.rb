@@ -6,4 +6,8 @@ class Api::CharactersController < ApplicationController
     @user = @current_user
   end
 
+  def show
+    
+  end
+
 end
