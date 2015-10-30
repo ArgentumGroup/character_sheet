@@ -12,7 +12,7 @@ class Api::SessionsController < ApplicationController
       # sign_in user
       session[:user_id] = user.id
     else
-      render :new
+      # render json: ?.errors
     end
   end
 
