@@ -13,6 +13,14 @@
  				{console.log("here's data biotch", responseData)
  				return responseData})
  				})
+
+ 		$.ajax(
+ 			{url: 'api/characters',
+ 			dataType: 'json',
+ 			success: (function(responseData)
+ 				{console.log("heres chracters", responseData)
+ 				return responseData})
+ 				})
  	},
 
  	_showCharacters:function(character){
