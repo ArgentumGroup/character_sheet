@@ -15,7 +15,6 @@ var SignUp = React.createClass({
 				} 
 			},
 			success:(function(){
-				console.log(updateCurrentUser)
 				alert('Success!')
 				location.hash = 'profile'
 			}),

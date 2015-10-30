@@ -7,11 +7,12 @@ $( document ).ready(function() {
 
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
-			'signin': 'showSignIn'
+			'signin': 'showSignIn',
+			'character': 'showCharacterbuilder'
 
 		},
 
-		showSignIn: function(){
+		showSignIn(){
 	
 			ReactDOM.render( <SignIn/>, document.querySelector('#container'))
 		},
@@ -20,6 +21,11 @@ $( document ).ready(function() {
 			console.log('backbone and nothingness')
 
 			ReactDOM.render( <SignUp/> , document.querySelector('#container'))
+		},
+
+		showCharacterbuilder(){
+
+			ReactDOM.render( <CharacterSheet/> , document.querySelector('#container'))
 		},
 
 		showProfile() {
