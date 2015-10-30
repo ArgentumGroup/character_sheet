@@ -15,15 +15,30 @@
  				})
  	},
 
+ 	_showCharacters:function(character){
+
+ 		return(
+ 			<CharacterList 
+ 				characterlist={this.props.characterlist}
+ 				character={character}/>
+ 			)
+ 	},
+
  	render: function(){
 
- 		this._retrieveUserInfo()
-
- 		var userData = responseData
+ 		var characters = this.props.characterlist
 
  		return (
  			<div id="ProfilePage">
- 				<h1>hello</h1>
+ 				<h1>Welcome current User!</h1>
+ 				<div id='characterList'>
+	 				<ul>
+	 					{characters.map(this._showCharacters)}
+	 				</ul>
+ 				</div>
+ 				<div id="recentActivity">
+ 					<p>Recent stuff goes here.</p>
+ 				</div>	
  			</div>
  			)
 
