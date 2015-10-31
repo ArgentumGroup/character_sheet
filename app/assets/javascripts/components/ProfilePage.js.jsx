@@ -23,6 +23,19 @@
  				})
  	},
 
+ 	_logOut: function(){
+
+ 			$.ajax({
+			type: "DELETE",
+			url: "api/sign_in",
+			success: (function(){
+				alert('logging you out.')
+				location.hash = "signin"
+			})
+		})
+ 	},
+
+
  	_showCharacters:function(character){
 
  		return(
@@ -38,10 +51,10 @@
 
  		return (
  			<div id="ProfilePage">
+ 				<button onClick={this._logOut}>Log Out</button>
  				<h1>Welcome current User!</h1>
  				<div id='characterList'>
 	 				<ul>
-	 					{characters.map(this._showCharacters)}
 	 				</ul>
  				</div>
  				<div id="recentActivity">

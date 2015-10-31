@@ -11,6 +11,7 @@ class Api::SessionsController < ApplicationController
     if user.present? && user.authenticate(password)
       # sign_in user
       session[:user_id] = user.id
+      render root_path
     else
       # render json: ?.errors
     end
