@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     post 'sign_in' => 'sessions#create'
     delete 'sign_in' => 'sessions#destroy'
-    resources :users, :characters, :armors, :weapons, defaults: {format: :json}
+    resources :users, :characters, :campaigns, :armors, :weapons, defaults: {format: :json}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

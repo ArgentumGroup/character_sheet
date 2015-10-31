@@ -1,0 +1,1 @@
+json.campaigns @user.campaigns
