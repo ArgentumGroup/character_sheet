@@ -7,7 +7,7 @@ class Api::CharactersController < ApplicationController
   end
 
   def show
-    
+
   end
 
 end
