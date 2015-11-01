@@ -10,14 +10,6 @@
  		var self = this
 
  		$.ajax(
- 			{url: 'api/users',
- 			dataType: 'json',
- 			success: (function(responseData)
- 				{console.log("here's data biotch", responseData)
- 				return responseData})
- 				})
-
- 		$.ajax(
  			{url: 'api/characters',
  			dataType: 'json',
  			success: (function(responseData)
