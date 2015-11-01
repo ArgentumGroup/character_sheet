@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cleric: false
+  wizard: false
+  level: 1
+  casting_time: MyString
+  range: MyString
+  verbal: false
+  somatic: false
+  material: false
+  components: MyString
+  duration: MyString
+  description: MyText
+
+two:
+  name: MyString
+  cleric: false
+  wizard: false
+  level: 1
+  casting_time: MyString
+  range: MyString
+  verbal: false
+  somatic: false
+  material: false
+  components: MyString
+  duration: MyString
+  description: MyText
