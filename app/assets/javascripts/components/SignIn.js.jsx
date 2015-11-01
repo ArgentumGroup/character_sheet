@@ -1,16 +1,14 @@
 var SignIn = React.createClass({
 
-	
+
 	_logIn: function(){
 
 		$.ajax({
 			type: "POST",
 			url: "api/sign_in",
 			data: {
-				user:{
-					email: this.refs.email.value,
-					password: this.refs.password.value,
-				} 
+				email: this.refs.email.value,
+				password: this.refs.password.value,
 			},
 			success:(function(){
 				location.hash = 'profile'
@@ -40,8 +38,8 @@ var SignIn = React.createClass({
 					<button onClick={this._logIn}>Click to Sign in</button>
 					<a href="/#signup">Don't have an account? Sign up here!</a>
 					<button onClick={this._logOut}>Log Out</button>
-				</div>	
-			</div>	
+				</div>
+			</div>
 			)
 	}
 })
