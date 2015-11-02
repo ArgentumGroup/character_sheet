@@ -8,7 +8,7 @@ $( document ).ready(function() {
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
-			'buildcharacter': 'showCharacterbuilder'
+			'newcharacter': 'showCharacterbuilder'
 
 		},
 
@@ -24,7 +24,7 @@ $( document ).ready(function() {
 
 		showCharacterbuilder(){
 
-			ReactDOM.render( <CharacterSheet/> , document.querySelector('#container'))
+			ReactDOM.render( <NewCharacter/> , document.querySelector('#container'))
 		},
 
 		showProfile(){

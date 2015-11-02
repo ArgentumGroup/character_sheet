@@ -53,7 +53,7 @@
  	},
 
  	_createCharacter: function(){
- 		location.hash = "buildcharacter"
+ 		location.hash = "newcharacter"
  	},
 
  	render: function(){
@@ -64,7 +64,7 @@
  		return (
  			<div id="ProfilePage">
  				<button onClick={this._logOut}>Log Out</button>
- 				<h1>Welcome current User!</h1>
+ 				<h1>Welcome {}!</h1>
  				<button onClick={this._createCharacter}>Create new Character</button>
  				<div id='characterList'>
 	 				<ul>

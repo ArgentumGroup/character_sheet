@@ -61,6 +61,7 @@ var NameInfoBox = React.createClass({
 		var subRace,
 			select = ReactDOM.findDOMNode(this.refs.race),
 			value = $(select).val()
+			
 		if(value === 'dwarf'){
 			$("#subRace1").text('Mountain Dwarf')
 			$("#subRace2").text('Hill Dwarf')
