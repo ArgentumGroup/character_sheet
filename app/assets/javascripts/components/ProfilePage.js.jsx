@@ -52,6 +52,10 @@
  			)
  	},
 
+ 	_createCharacter: function(){
+ 		location.hash = "buildcharacter"
+ 	},
+
  	render: function(){
 
 		var characters = this.state.charactersData 
