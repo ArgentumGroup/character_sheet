@@ -8,7 +8,7 @@ $( document ).ready(function() {
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
-			'character': 'showCharacterbuilder'
+			'buildcharacter': 'showCharacterbuilder'
 
 		},
 
@@ -18,7 +18,6 @@ $( document ).ready(function() {
 		},
 
 		showSignUp(){
-			console.log('backbone and nothingness')
 
 			ReactDOM.render( <SignUp/> , document.querySelector('#container'))
 		},
@@ -28,11 +27,11 @@ $( document ).ready(function() {
 			ReactDOM.render( <CharacterSheet/> , document.querySelector('#container'))
 		},
 
-		showProfile() {
-			console.log('na na na nana na')
-
+		showProfile(){
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
+		
 		},
+		
 		initialize: function(){
 			console.log('getting routey')
 			Backbone.history.start()
