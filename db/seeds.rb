@@ -8,7 +8,7 @@
 
 Armor.delete_all
 Weapon.delete_all
-AbilityScore.delete_all
+# AbilityScore.delete_all
 Character.delete_all
 User.delete_all
 Campaign.delete_all
@@ -26,7 +26,10 @@ armors = Armor.create!([
   {armor_type: 'Heavy', name: 'Chain mail', cost: 7500, armor_class: 16, strength_requirement: 13, stealth_disadvantage: true, weight: 55},
   {armor_type: 'Heavy', name: 'Splint', cost: 20000, armor_class: 17, strength_requirement: 15, stealth_disadvantage: true, weight: 60},
   {armor_type: 'Heavy', name: 'Plate', cost: 150000, armor_class: 18, strength_requirement: 15, stealth_disadvantage: true, weight: 65},
-  {armor_type: 'Shield', name: 'Shield', cost: 1000, armor_class: 2, stealth_disadvantage: false, weight: 6},
+  ])
+
+shields = Shield.create!([
+  {name: 'Shield', cost: 1000, armor_class: 2, stealth_disadvantage: false, weight: 6},
   ])
 
 weapons = Weapon.create!([
@@ -69,14 +72,14 @@ weapons = Weapon.create!([
   {weapon_type: 'Ranged', category: 'Martial', name: 'Net', cost: 100, weight: 3},
   ])
 
-ability_scores = AbilityScore.create! ([
-  {name: 'Strength'},
-  {name: 'Dexterity'},
-  {name: 'Constitution'},
-  {name: 'Intelligence'},
-  {name: 'Wisdom'},
-  {name: 'Charisma'}
-  ])
+# ability_scores = AbilityScore.create! ([
+#   {name: 'Strength'},
+#   {name: 'Dexterity'},
+#   {name: 'Constitution'},
+#   {name: 'Intelligence'},
+#   {name: 'Wisdom'},
+#   {name: 'Charisma'}
+#   ])
 
 
 
