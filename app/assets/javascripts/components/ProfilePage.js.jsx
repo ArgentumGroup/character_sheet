@@ -1,7 +1,7 @@
  var ProfilePage = React.createClass({
 
  	getInitialState:function(){
- 		return {count: 0, charactersData:[], campaigns:[], currentUser:[]}
+ 		return {count: 0, charactersData:[], campaigns:[]}
  	},
 
  	componentWillMount: function(){
@@ -13,8 +13,8 @@
  			{url: 'api/characters',
  			dataType: 'json'
  			}).then(function(responseData){
- 					self.setState({charactersData: responseData.characters.characters, currentUser:responseData.characters.id})
- 						console.log("more teenages", self.state.charactersData, self.state.currentUser)})
+ 					self.setState({charactersData: responseData.characters.characters})
+ 						console.log("more teenages", self.state.charactersData)})
 
  		$.ajax(
  			{url: 'api/campaigns',

@@ -1,4 +1,18 @@
 var NewCharacter = React.createClass({
+
+		getInitialState:function(){
+			return {currentUser:[]}
+		}, 
+
+		componentWillMount:function(){
+			var self = this
+			$.ajax(
+ 				{url: 'api/characters',
+ 				dataType: 'json'
+ 				}).then(function(responseData){
+ 					self.setState({currentUser: responseData.characters.user_id})
+ 				})
+		},
 	
 		_onRaceSelect: function(){
 		var select = ReactDOM.findDOMNode(this.refs.race),
@@ -46,6 +60,19 @@ var NewCharacter = React.createClass({
 
 	},
 
+	_saveCharacter:function(){
+
+		$.ajax({
+			type: "POST",
+			url: "api/characters",
+			data: {character:
+					{user_id: this.state.currentUser,
+					campaign: 2}
+					}
+		})
+
+	},
+
 	render:function(){
 
 		return(
@@ -76,10 +103,6 @@ var NewCharacter = React.createClass({
 						<option id='subRace2'></option>	
 					</select>
 				</div>
-				<div>
-					<p>Level</p>
-					<input type='number'/>
-				</div>
 				<div>	
 					<p>Class</p>
 					<select onChange={this._classSelect} ref="class">
@@ -90,7 +113,8 @@ var NewCharacter = React.createClass({
 						<option value="cleric" >Cleric</option>
 					</select>
 					<div id="classDescription">
-					</div>		
+					</div>
+					<button onClick={this._saveCharacter}>Submit your character!</button>	
 				</div>
 			</div>	
 				)
