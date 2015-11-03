@@ -1,8 +1,7 @@
 var NewCharacter = React.createClass({
 	
 		_onRaceSelect: function(){
-		var subRace,
-			select = ReactDOM.findDOMNode(this.refs.race),
+		var select = ReactDOM.findDOMNode(this.refs.race),
 			value = $(select).val()
 			
 		if(value === 'dwarf'){
@@ -25,7 +24,25 @@ var NewCharacter = React.createClass({
 	},
 
 	_classSelect:function(){
-
+		var select = ReactDOM.findDOMNode(this.refs.class),
+			value = $(select).val()
+		if(value === 'rogue'){
+			console.log('rogue')
+			$("#classDescription").html("<h3>Rogue</h3>\
+										<p>Do you want to skulk in the shadows? Striking with deadly precision and tumbling from danger? If yes then Rogue is for you!</p>")
+		}
+		if(value === 'fighter'){
+			$("#classDescription").html("<h3>Fighter</h3>\
+										<p>Do you like to rush head first into battle, wielding all manner of deadly weapons? Do you like being the biggest, strongest, most threatening person in the room? Then Fighter will be your calling.</p>")
+		}
+		if(value === 'cleric'){
+			$("#classDescription").html("<h3>Cleric</h3>\
+										<p>Do you want to wear your faith like armor, smiting your foes and healing your friends with the power of the gods? Reach out and touch faith, with a Cleric</p>")
+		}
+		if(value === 'wizard'){
+			$("#classDescription").html("<h3>Wizard</h3>\
+										<p>Are you fan of dusty tomes, eldritch formulae, and pulling back the curtain of reality? Do you want to tap into the ambient energy of nature, bending it to your will? Wizard will be your calling.")
+		}
 
 	},
 
@@ -66,12 +83,14 @@ var NewCharacter = React.createClass({
 				<div>	
 					<p>Class</p>
 					<select onChange={this._classSelect} ref="class">
-						<option disabled defaultValue>Class</option>
+						<option disabled selected>Class</option>
 						<option value="rogue">Rogue</option>
 						<option value="fighter">Fighter</option>
 						<option value="wizard">Wa-wa-wa-wyzzrrddd</option>
 						<option value="cleric" >Cleric</option>
-					</select>			
+					</select>
+					<div id="classDescription">
+					</div>		
 				</div>
 			</div>	
 				)
