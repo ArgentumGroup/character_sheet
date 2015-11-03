@@ -1,7 +1,7 @@
  var ProfilePage = React.createClass({
 
  	getInitialState:function(){
- 		return {count: 0, charactersData:[]}
+ 		return {count: 0, charactersData:[], campaigns:[], currentUser:[]}
  	},
 
  	componentWillMount: function(){
@@ -10,24 +10,19 @@
  		var self = this
 
  		$.ajax(
- 			{url: 'api/users',
- 			dataType: 'json',
- 			success: (function(responseData)
- 				{console.log("here's data biotch", responseData)
- 				return responseData})
- 				})
+ 			{url: 'api/characters',
+ 			dataType: 'json'
+ 			}).then(function(responseData){
+ 					self.setState({charactersData: responseData.characters.characters, currentUser:responseData.characters.id})
+ 						console.log("more teenages", self.state.charactersData, self.state.currentUser)})
 
  		$.ajax(
- 			{url: 'api/characters',
- 			dataType: 'json',
- 			success: (function(responseData)
- 				{console.log("heres chracters", responseData.characters.characters)})
- 				}).then(function(responseData){
- 					console.log('teenagers.')
- 					self.setState({charactersData: responseData.characters.characters})
- 						console.log("more teenages", self.state.charactersData)})
-
-
+ 			{url: 'api/campaigns',
+ 			dataType: 'json'
+ 			}).then(function(responseData){
+ 				self.setState({campaigns: responseData.campaigns})
+ 					console.log("bingo bango" , self.state.campaigns)
+ 			})		
  	},
 
  	_logOut: function(){
@@ -48,9 +43,20 @@
  		return(
  			<CharacterList 
  				characterlist={this.state.characterData}
- 				character={character}/>
+ 				character={character}
+ 				/>
  			)
  	},
+
+ 	// _showCampaigns:function(campaign){
+
+ 	// 	return(
+ 	// 		<CampaignList 
+ 	// 			campaigns={this.state.campaigns}
+ 	// 			campaign={campaign}
+ 	// 			/>
+ 	// 		)
+ 	// },
 
  	_createCharacter: function(){
  		location.hash = "newcharacter"
@@ -58,7 +64,7 @@
 
  	render: function(){
 
-		var characters = this.state.charactersData 
+		var characters = this.state.charactersData
 		console.log(characters)
 
  		return (

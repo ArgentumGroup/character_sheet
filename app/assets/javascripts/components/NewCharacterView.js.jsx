@@ -41,7 +41,7 @@ var NewCharacter = React.createClass({
 		}
 		if(value === 'wizard'){
 			$("#classDescription").html("<h3>Wizard</h3>\
-										<p>Are you fan of dusty tomes, eldritch formulae, and pulling back the curtain of reality? Do you want to tap into the ambient energy of nature, bending it to your will? Wizard will be your calling.")
+										<p>Are you fan of dusty tomes, eldritch formulae, and pulling back the curtain of reality? Do you want to tap into the ambient energy of nature, bending it to your will? Wizard will be your calling.</p>")
 		}
 
 	},
