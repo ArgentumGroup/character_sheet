@@ -19,22 +19,39 @@ var NewCharacter = React.createClass({
 			value = $(select).val()
 			
 		if(value === 'dwarf'){
-			$("#subRace1").text('Mountain Dwarf')
-			$("#subRace2").text('Hill Dwarf')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='mountain dwarf'>Mountain Dwarf</option>\
+									<option value='hill dwarf'>Hill Dwarf</option>")
 		}
 		if(value === 'elf'){
-			$("#subRace1").text('High Elf')
-			$("#subRace2").text('Wood Elf')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='high elf'>High Elf</option>\
+									<option value='wood elf'>Wood Elf</option>")
 		}			
 		if(value === 'halfling'){
-			$("#subRace1").text('Stout')
-			$("#subRace2").text('Lightfoot')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='stout'>Stout</option>\
+									<option value='lightfoot'>Lightfoot</option>")
 		}
 		if(value === 'human'){
-			$("#subRace1").text('Human')
-			$("#subRace2").text('Hooman')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='human'>Human</option>\
+									<option value='hooman'>Hooman</option>")
 		}
 		this.forceUpdate()
+	},
+
+	_showAbilityScores: function(){
+
+		ReactDOM.render(<StatsBlock/>, document.querySelector("#newCharStatBlock"))
+
+		// $("#newCharStatBlock").html("<p>Strength <input ref='strength' type='number'/></p>\
+		// 							<p>Dexterity <input ref='dexterity' type='number'/></p>\
+		// 							<p>Constitution <input ref='constitution' type='number'/></p>\
+		// 							<p>Intelligence <input ref='intelligence' type='number'/></p>\
+		// 							<p>Wisdom <input ref='wisdom' type='number'/></p>\
+		// 							<p>Charisma <input ref='charisma' type='number'/></p>\
+		// 							<button>Save Stats</button>")
 	},
 
 	_classSelect:function(){
@@ -60,19 +77,17 @@ var NewCharacter = React.createClass({
 
 	},
 
-
-
 	render:function(){
 
 		return(
 			<div id="newCharacter">			
 				<div>				
 					<p>Player Name</p>
-					<input type='text' placeholder='Player Name'/>
+					<input ref="PlayerName" type='text' placeholder='Player Name'/>
 				</div>
 				<div>	
 					<p>Character Name</p>
-					<input type='text' placeholder='Character Name'/>
+					<input ref="CharName" type='text' placeholder='Character Name'/>
 				</div>
 				<div>
 					<p>Race</p>
@@ -86,10 +101,7 @@ var NewCharacter = React.createClass({
 				</div>	
 				<div>
 					<p>Sub-Race</p>
-					<select>
-						<option disabled selected>Sub Race</option>
-						<option id='subRace1'></option>
-						<option id='subRace2'></option>	
+					<select id="selectSubRace" ref="subRace">	
 					</select>
 				</div>
 				<div>	
@@ -101,9 +113,11 @@ var NewCharacter = React.createClass({
 						<option value="wizard">Wa-wa-wa-wyzzrrddd</option>
 						<option value="cleric" >Cleric</option>
 					</select>
+					<input onClick={this._showAbilityScores} type="checkbox"/>
 					<div id="classDescription">
 					</div>
-					<button onClick={this._saveCharacter}>Submit your character!</button>	
+					<div id='newCharStatBlock'>
+					</div>	
 				</div>
 			</div>	
 				)
