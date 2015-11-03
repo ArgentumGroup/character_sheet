@@ -15,28 +15,28 @@ class Api::CharactersController < ApplicationController
 
     if @character.save
 
-      abilscores = AbilityScoreBlock.create!([
+      @abilscores = AbilityScoreBlock.create!([
         {strength: 8, dexterity: 8, constitution: 8, intelligence: 8, wisdom: 8, charisma: 8}
         ])
-      skillblock = SkillBlock.create!([{}])
-      spelllist = SpellList.create!([{}])
+      @skillblock = SkillBlock.create!([{}])
+      @spelllist = SpellList.create!([{}])
 
       capblock = CapabilityBlock.create!([
-        {character_id: @character.id, ability_score_block_id: abilscores.id, skill_block_id: skillblock.id, spell_list_id: spelllist.id}
+        {character_id: @character.id, ability_score_block_id: @abilscores.first.id, skill_block_id: @skillblock.first.id, spell_list_id: @spelllist.first.id}
         ])
 
-      char_inventory = Inventory.create!([
+      @char_inventory = Inventory.create!([
         {character_id: @character.id}
         ])
 
       char_armor = CharacterArmorItem.create!([
-        {inventory_id: @charinventory.id, armor_id: 1}
+        {inventory_id: @char_inventory.first.id, armor_id: 1}
         ])
       char_shield = CharacterShieldItem.create!([
-        {inventory_id: @charinventory.id, shield_id: 1}
+        {inventory_id: @char_inventory.first.id, shield_id: 1}
         ])
       char_weapon = CharacterWeaponItem.create!([
-        {inventory_id: @charinventory.id, weapon_id: 1}
+        {inventory_id: @char_inventory.first.id, weapon_id: 1}
         ])
     end
   end
