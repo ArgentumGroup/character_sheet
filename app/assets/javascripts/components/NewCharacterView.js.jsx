@@ -3,7 +3,7 @@ var NewCharacter = React.createClass({
 // because i hate things.
 
 		getInitialState:function(){
-			return {currentUser:[]}
+			return {currentUser:''}
 		}, 
 
 		componentWillMount:function(){
@@ -66,11 +66,13 @@ var NewCharacter = React.createClass({
 
 		$.ajax({
 			type: "POST",
-			url: "api/characters",
-			data: {character:
-					{user_id: this.state.currentUser,
-					campaign: 2}
-					}
+ 			url: "api/characters",
+  			data: {
+    			character:{
+      				user_id: this.state.currentUser,
+      				campaign_id: 2
+    				}
+  				}
 		})
 
 	},
