@@ -60,20 +60,7 @@ var NewCharacter = React.createClass({
 
 	},
 
-	_saveCharacter:function(){
 
-		$.ajax({
-			type: "POST",
- 			url: "api/characters",
-  			data: {
-    			character:{
-      				user_id: this.state.currentUser,
-      				campaign_id: 2
-    				}
-  				}
-		})
-
-	},
 
 	render:function(){
 

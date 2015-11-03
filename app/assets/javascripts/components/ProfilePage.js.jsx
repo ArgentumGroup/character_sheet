@@ -1,7 +1,7 @@
  var ProfilePage = React.createClass({
 
  	getInitialState:function(){
- 		return {count: 0, charactersData:[], campaigns:[]}
+ 		return {count: 0, charactersData:[], campaigns:[], currentUser:''}
  	},
 
  	componentWillMount: function(){
@@ -14,15 +14,21 @@
  			dataType: 'json'
  			}).then(function(responseData){
  					self.setState({charactersData: responseData.characters.characters})
- 						console.log("more teenages", self.state.charactersData)})
+ 				})
 
  		$.ajax(
  			{url: 'api/campaigns',
  			dataType: 'json'
  			}).then(function(responseData){
  				self.setState({campaigns: responseData.campaigns})
- 					console.log("bingo bango" , self.state.campaigns)
- 			})		
+ 				})	
+
+		$.ajax(
+			{url: 'api/characters',
+			dataType: 'json'
+			}).then(function(responseData){
+				self.setState({currentUser: responseData.characters.user_id})
+			})
  	},
 
  	_logOut: function(){
@@ -37,6 +43,25 @@
 		})
  	},
 
+ 	_saveCharacter:function(){
+
+		$.ajax({
+			type: "POST",
+ 			url: "api/characters",
+  			data: {
+    			character:{
+      				user_id: this.state.currentUser,
+      				campaign_id: 2
+    				}
+  				}
+		})
+
+	},
+
+	_editCharacter:function(){
+
+		location.hash = "newcharacter"
+	},
 
  	_showCharacters:function(character){
 
@@ -60,6 +85,17 @@
 
  	_createCharacter: function(){
  		location.hash = "newcharacter"
+
+ 				$.ajax({
+			type: "POST",
+ 			url: "api/characters",
+  			data: {
+    			character:{
+      				user_id: this.state.currentUser,
+      				campaign_id: 2
+    				}
+  				}
+		})
  	},
 
  	render: function(){
