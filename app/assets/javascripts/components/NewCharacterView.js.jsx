@@ -1,5 +1,7 @@
 var NewCharacter = React.createClass({
 
+// because i hate things.
+
 		getInitialState:function(){
 			return {currentUser:[]}
 		}, 
