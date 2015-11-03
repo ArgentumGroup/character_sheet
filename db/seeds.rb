@@ -14,6 +14,7 @@ User.delete_all
 Campaign.delete_all
 
 armors = Armor.create!([
+  {armor_type: 'None', name: 'Unarmored', cost: 0, armor_class: 10, stealth_disadvantage: false, weight: 0},
   {armor_type: 'Light', name: 'Padded', cost: 500, armor_class: 11, stealth_disadvantage: false, weight: 8},
   {armor_type: 'Light', name: 'Leather', cost: 1000, armor_class: 11, stealth_disadvantage: false, weight: 10},
   {armor_type: 'Light', name: 'Studded leather', cost: 4500, armor_class: 12, stealth_disadvantage: false, weight: 13},
@@ -29,10 +30,12 @@ armors = Armor.create!([
   ])
 
 shields = Shield.create!([
+  {name: 'None', cost: 0, armor_class: 0, stealth_disadvantage: false, weight: 0},
   {name: 'Shield', cost: 1000, armor_class: 2, stealth_disadvantage: false, weight: 6},
   ])
 
 weapons = Weapon.create!([
+  {weapon_type: 'Melee', category: 'Unarmed', name: 'Unarmed Strike', cost: 0, damage_die_number: 1, damage_die_type: 1, damage_type: 'bludgeoning', weight: 0},
   {weapon_type: 'Melee', category: 'Simple', name: 'Club', cost: 10, damage_die_number: 1, damage_die_type: 4, damage_type: 'bludgeoning', weight: 2},
   {weapon_type: 'Melee', category: 'Simple', name: 'Dagger', cost: 200, damage_die_number: 1, damage_die_type: 4, damage_type: 'piercing', weight: 1},
   {weapon_type: 'Melee', category: 'Simple', name: 'Greatclub', cost: 20, damage_die_number: 1, damage_die_type: 8, damage_type: 'bludgeoning', weight: 10},
