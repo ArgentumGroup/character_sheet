@@ -8,8 +8,8 @@ $( document ).ready(function() {
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
-			'newcharacter': 'showCharacterbuilder'
-			'viewcharacter' : 'viewcharacter'
+			'newcharacter': 'showCharacterbuilder',
+			'viewcharacter' : 'viewCharacter'
 
 		},
 
@@ -33,7 +33,7 @@ $( document ).ready(function() {
 		
 		},
 
-		viewcharacter(){
+		viewCharacter(){
 
 			ReactDOM.render( <CharacterSheet />, document.querySelector('#container'))
 		},
