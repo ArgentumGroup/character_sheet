@@ -5,6 +5,18 @@ class ApplicationController < ActionController::Base
 
   before_action do
     @current_user = User.find_by id: session[:user_id]
+    @current_character = Character.User.find_by id: session[:character_id]
+
+    # @current_character_inventory = @current_character.inventory
+    #
+    # @current_character_armor_items = @current_character_inventory.character_armor_items
+    # @current_character_shield_items = @current_character_inventory.character_shield_items
+    # @current_character_weapon_items = @current_character_inventory.character_weapon_items
+    #
+    # @current_character_capability_block = @current_character.capability_block
+    # @current_character_skill_items = @current_character_capability_block.character_skill_items
+    # @current_character_spell_items = @current_character_capability_block.character_spell_items
+
   end
 
   def authenticate_user!
