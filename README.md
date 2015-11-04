@@ -49,10 +49,10 @@ To add a new armor/shield/weapon to a particular character's inventory:
 
 ```JSX
   type: "POST"
-  url: "api/character_armor/shield/weapon_item"
+  url: "api/character_armor_item"
   data: {
-    character_armor/shield/weapon_item:{
-      armor/shield/weapon_id: theIdOfWhateverArmorOrShieldOrWeaponYouWantToAdd
+    character_armor_item:{
+      armor_id: theIdOfWhateverArmorYouWantToAdd
     }
   }
 ```
@@ -61,8 +61,8 @@ To remove a armor/shield/weapon from a particular character's inventory:
 
 ```JSX
   type: "DELETE"
-  url: "api/character_armor/shield/weapon_item"
+  url: "api/character_armor_item"
   data: {
-    id: theIdOfWhateverCharacterArmorItemOrCharacterShieldItemOrCharactorWeaponItemYouWantToRemove
+    id: theIdOfWhateverCharacterArmorItemYouWantToRemove
   }
 ```
