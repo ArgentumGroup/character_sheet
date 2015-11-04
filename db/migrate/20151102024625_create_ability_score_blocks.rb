@@ -7,6 +7,7 @@ class CreateAbilityScoreBlocks < ActiveRecord::Migration
       t.integer :intelligence
       t.integer :wisdom
       t.integer :charisma
+      t.integer :capability_block_id
 
       t.timestamps null: false
     end

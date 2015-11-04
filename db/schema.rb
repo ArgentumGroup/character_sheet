@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20151102024906) do
     t.integer  "intelligence"
     t.integer  "wisdom"
     t.integer  "charisma"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "armors", force: :cascade do |t|
@@ -47,11 +48,8 @@ ActiveRecord::Schema.define(version: 20151102024906) do
 
   create_table "capability_blocks", force: :cascade do |t|
     t.integer  "character_id"
-    t.integer  "spell_list_id"
-    t.integer  "ability_score_block_id"
-    t.integer  "skill_block_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "character_armor_items", force: :cascade do |t|
@@ -104,8 +102,9 @@ ActiveRecord::Schema.define(version: 20151102024906) do
 
   create_table "skill_blocks", force: :cascade do |t|
     t.integer  "skill_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "skills", force: :cascade do |t|
@@ -117,8 +116,9 @@ ActiveRecord::Schema.define(version: 20151102024906) do
 
   create_table "spell_lists", force: :cascade do |t|
     t.integer  "spell_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "spells", force: :cascade do |t|

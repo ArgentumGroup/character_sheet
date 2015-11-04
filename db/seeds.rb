@@ -111,3 +111,15 @@ users = User.create! ([
 #     end
 #   end
 # end
+
+# {"game"=>
+#   {"name"=>"championship", "teams_attributes"=>
+#     [ {"result"=>"won", "players_attributes"=>{"name"=>"Bob"}},
+#       {"result"=>"lost", "players_attributes"=>{"name"=>"Tad"}}]}}
+#
+# But should be:
+#
+# {"game"=>
+#   {"name"=>"championship", "teams_attributes"=>
+#     [ {"result"=>"won", "players_attributes"=>[{"name"=>"Bob"}]},
+#     {"result"=>"lost", "players_attributes"=>[{"name"=>"Tad"}]}]}}
