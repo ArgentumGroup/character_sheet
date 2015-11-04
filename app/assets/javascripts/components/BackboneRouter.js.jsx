@@ -9,6 +9,7 @@ $( document ).ready(function() {
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
 			'newcharacter': 'showCharacterbuilder'
+			'viewcharacter' : 'viewcharacter'
 
 		},
 
@@ -30,6 +31,11 @@ $( document ).ready(function() {
 		showProfile(){
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
 		
+		},
+
+		viewcharacter(){
+
+			ReactDOM.render( <CharacterSheet />, document.querySelector('#container'))
 		},
 		
 		initialize: function(){

@@ -20,23 +20,23 @@ var NewCharacter = React.createClass({
 			
 		if(value === 'dwarf'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
-									<option value='mountain dwarf'>Mountain Dwarf</option>\
-									<option value='hill dwarf'>Hill Dwarf</option>")
+									<option value='Dwarf, Mountain'>Mountain Dwarf</option>\
+									<option value='Dwarf, Hill'>Hill Dwarf</option>")
 		}
 		if(value === 'elf'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
-									<option value='high elf'>High Elf</option>\
-									<option value='wood elf'>Wood Elf</option>")
+									<option value='Elf, High'>High Elf</option>\
+									<option value='Elf, Wood'>Wood Elf</option>")
 		}			
 		if(value === 'halfling'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
-									<option value='stout'>Stout</option>\
-									<option value='lightfoot'>Lightfoot</option>")
+									<option value='Halfling, Stout'>Stout</option>\
+									<option value='Halfling, Lightfoot'>Lightfoot</option>")
 		}
 		if(value === 'human'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
-									<option value='human'>Human</option>\
-									<option value='hooman'>Hooman</option>")
+									<option value='Human'>Human</option>\
+									<option value='Hooman'>Hooman</option>")
 		}
 		this.forceUpdate()
 	},
@@ -44,14 +44,6 @@ var NewCharacter = React.createClass({
 	_showAbilityScores: function(){
 
 		ReactDOM.render(<StatsBlock/>, document.querySelector("#newCharStatBlock"))
-
-		// $("#newCharStatBlock").html("<p>Strength <input ref='strength' type='number'/></p>\
-		// 							<p>Dexterity <input ref='dexterity' type='number'/></p>\
-		// 							<p>Constitution <input ref='constitution' type='number'/></p>\
-		// 							<p>Intelligence <input ref='intelligence' type='number'/></p>\
-		// 							<p>Wisdom <input ref='wisdom' type='number'/></p>\
-		// 							<p>Charisma <input ref='charisma' type='number'/></p>\
-		// 							<button>Save Stats</button>")
 	},
 
 	_classSelect:function(){
