@@ -11,8 +11,8 @@ json.characters do
     json.character_class character.klass
     json.character_capabilities do
       json.ability_scores character.ability_score_block
-      json.skills character.skill_block
-      json.spells character.spell_list
+      json.skills character.character_skill_items
+      json.spells character.character_spell_items
     end
     json.inventory do
       json.armors character.character_armor_items

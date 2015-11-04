@@ -66,6 +66,20 @@ ActiveRecord::Schema.define(version: 20151102024906) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "character_skill_items", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "character_spell_items", force: :cascade do |t|
+    t.integer  "spell_id"
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "character_weapon_items", force: :cascade do |t|
     t.integer  "inventory_id"
     t.integer  "weapon_id"
@@ -100,25 +114,11 @@ ActiveRecord::Schema.define(version: 20151102024906) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "skill_blocks", force: :cascade do |t|
-    t.integer  "skill_id"
-    t.integer  "capability_block_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
   create_table "skills", force: :cascade do |t|
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "name"
     t.string   "governing_ability"
-  end
-
-  create_table "spell_lists", force: :cascade do |t|
-    t.integer  "spell_id"
-    t.integer  "capability_block_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
   end
 
   create_table "spells", force: :cascade do |t|

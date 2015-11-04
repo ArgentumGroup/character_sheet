@@ -11,7 +11,6 @@ var StatsBlock = React.createClass({
 				<p>Intelligence <input type='number'/></p>
 				<p>Wisdom <input type='number'/></p>
 				<p>Charisma <input type='number'/></p>
-				<button>Save Stats</button>
 			</div>	
 			)
 	}

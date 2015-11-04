@@ -19,22 +19,31 @@ var NewCharacter = React.createClass({
 			value = $(select).val()
 			
 		if(value === 'dwarf'){
-			$("#subRace1").text('Mountain Dwarf')
-			$("#subRace2").text('Hill Dwarf')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='Dwarf, Mountain'>Mountain Dwarf</option>\
+									<option value='Dwarf, Hill'>Hill Dwarf</option>")
 		}
 		if(value === 'elf'){
-			$("#subRace1").text('High Elf')
-			$("#subRace2").text('Wood Elf')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='Elf, High'>High Elf</option>\
+									<option value='Elf, Wood'>Wood Elf</option>")
 		}			
 		if(value === 'halfling'){
-			$("#subRace1").text('Stout')
-			$("#subRace2").text('Lightfoot')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='Halfling, Stout'>Stout</option>\
+									<option value='Halfling, Lightfoot'>Lightfoot</option>")
 		}
 		if(value === 'human'){
-			$("#subRace1").text('Human')
-			$("#subRace2").text('Hooman')
+			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
+									<option value='Human'>Human</option>\
+									<option value='Hooman'>Hooman</option>")
 		}
 		this.forceUpdate()
+	},
+
+	_showAbilityScores: function(){
+
+		ReactDOM.render(<StatsBlock/>, document.querySelector("#newCharStatBlock"))
 	},
 
 	_classSelect:function(){
@@ -60,19 +69,17 @@ var NewCharacter = React.createClass({
 
 	},
 
-
-
 	render:function(){
 
 		return(
 			<div id="newCharacter">			
 				<div>				
 					<p>Player Name</p>
-					<input type='text' placeholder='Player Name'/>
+					<input ref="PlayerName" type='text' placeholder='Player Name'/>
 				</div>
 				<div>	
 					<p>Character Name</p>
-					<input type='text' placeholder='Character Name'/>
+					<input ref="CharName" type='text' placeholder='Character Name'/>
 				</div>
 				<div>
 					<p>Race</p>
@@ -86,10 +93,7 @@ var NewCharacter = React.createClass({
 				</div>	
 				<div>
 					<p>Sub-Race</p>
-					<select>
-						<option disabled selected>Sub Race</option>
-						<option id='subRace1'></option>
-						<option id='subRace2'></option>	
+					<select id="selectSubRace" ref="subRace">	
 					</select>
 				</div>
 				<div>	
@@ -101,9 +105,11 @@ var NewCharacter = React.createClass({
 						<option value="wizard">Wa-wa-wa-wyzzrrddd</option>
 						<option value="cleric" >Cleric</option>
 					</select>
+					<input onClick={this._showAbilityScores} type="checkbox"/>
 					<div id="classDescription">
 					</div>
-					<button onClick={this._saveCharacter}>Submit your character!</button>	
+					<div id='newCharStatBlock'>
+					</div>	
 				</div>
 			</div>	
 				)
