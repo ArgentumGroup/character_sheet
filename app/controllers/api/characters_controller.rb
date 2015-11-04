@@ -11,41 +11,61 @@ class Api::CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new params.require(:character).permit(:user_id, :campaign_id)
+    @character = Character.new character_params
 
     if @character.save
 
-      @abilscores = AbilityScoreBlock.create!([
-        {strength: 8, dexterity: 8, constitution: 8, intelligence: 8, wisdom: 8, charisma: 8}
-        ])
-      @skillblock = SkillBlock.create!([{}])
-      @spelllist = SpellList.create!([{}])
-
-      capblock = CapabilityBlock.create!([
-        {character_id: @character.id, ability_score_block_id: @abilscores.first.id, skill_block_id: @skillblock.first.id, spell_list_id: @spelllist.first.id}
-        ])
-
-      @char_inventory = Inventory.create!([
+      @capblock = CapabilityBlock.create!(
         {character_id: @character.id}
-        ])
+        )
+
+      @abilscores = AbilityScoreBlock.create!(
+        {strength: 8, dexterity: 8, constitution: 8, intelligence: 8, wisdom: 8, charisma: 8, capability_block_id: @capblock.id}
+        )
+      @skillblock = CharacterSkillItem.create!({capability_block_id: @capblock.id})
+      @spelllist = CharacterSpellItem.create!({capability_block_id: @capblock.id})
+
+      @char_inventory = Inventory.create!(
+        {character_id: @character.id}
+        )
 
       char_armor = CharacterArmorItem.create!([
-        {inventory_id: @char_inventory.first.id, armor_id: 1}
+        {inventory_id: @char_inventory.id, armor_id: 1}
         ])
       char_shield = CharacterShieldItem.create!([
-        {inventory_id: @char_inventory.first.id, shield_id: 1}
+        {inventory_id: @char_inventory.id, shield_id: 1}
         ])
       char_weapon = CharacterWeaponItem.create!([
-        {inventory_id: @char_inventory.first.id, weapon_id: 1}
+        {inventory_id: @char_inventory.id, weapon_id: 1}
         ])
     end
   end
 
   def update
+    character_params
     @character = Character.find(params[:id])
     if @character.update_attributes(character_params)
       render :show
     end
   end
+
+  private
+    def character_params
+      params.require(:character).permit(:user_id, :campaign_id, :name, :level, :klass, :race,
+        capability_block_attributes:
+          [ ability_score_block_attributes:
+              [ :id, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma ],
+            character_skill_item_attributes:
+              [ :id, :skill_id ],
+            character_spell_item_attributes:
+              [ :id, :spell_id ]
+          ],
+        inventory_attributes:
+          [ character_armor_items_attributes: [],
+            character_shield_items_attributes: [],
+            character_weapon_items_attributes: []
+          ]
+        )
+    end
 
 end

@@ -1,3 +1,3 @@
 class Spell < ActiveRecord::Base
-  belongs_to :spell_list
+  has_many :character_spell_items
 end

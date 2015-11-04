@@ -1,3 +1,3 @@
 class Skill < ActiveRecord::Base
-  belongs_to :skill_block
+  has_many :character_skill_items
 end
