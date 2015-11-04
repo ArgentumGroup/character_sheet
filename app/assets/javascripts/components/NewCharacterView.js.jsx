@@ -43,7 +43,7 @@ var NewCharacter = React.createClass({
 
 	_showAbilityScores: function(){
 
-		ReactDOM.render(<StatsBlock/>, document.querySelector("#newCharStatBlock"))
+		ReactDOM.render(<NewCharStatBlock/>, document.querySelector("#newCharStatBlock"))
 	},
 
 	_classSelect:function(){
@@ -98,7 +98,7 @@ var NewCharacter = React.createClass({
 				</div>
 				<div>	
 					<p>Class</p>
-					<select onChange={this._classSelect} ref="class">
+					<select  id="classSelect" onChange={this._classSelect} ref="class">
 						<option disabled selected>Class</option>
 						<option value="rogue">Rogue</option>
 						<option value="fighter">Fighter</option>
