@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action do
     @current_user = User.find_by id: session[:user_id]
-    @current_character = Character.User.find_by id: session[:character_id]
+    @current_character = Character.find_by id: session[:character_id]
 
     # @current_character_inventory = @current_character.inventory
     #
