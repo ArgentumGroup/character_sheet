@@ -54,7 +54,7 @@
       				campaign_id: 2
     				}
   				}
-		})
+		}).then(function(){location.hash = "newcharacter"})
 
 	},
 
