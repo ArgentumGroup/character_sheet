@@ -1,6 +1,6 @@
-class CreateSkillBlocks < ActiveRecord::Migration
+class CreateCharacterSkillItems < ActiveRecord::Migration
   def change
-    create_table :skill_blocks do |t|
+    create_table :character_skill_items do |t|
       t.integer :skill_id
       t.integer :capability_block_id
 

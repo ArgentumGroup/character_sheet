@@ -1,6 +1,6 @@
-class CreateSpellLists < ActiveRecord::Migration
+class CreateCharacterSpellItems < ActiveRecord::Migration
   def change
-    create_table :spell_lists do |t|
+    create_table :character_spell_items do |t|
       t.integer :spell_id
       t.integer :capability_block_id
 

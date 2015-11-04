@@ -1,3 +1,4 @@
 class Campaign < ActiveRecord::Base
-  belongs_to :character
+  has_many :characters
+  has_many :users, through: :characters
 end
