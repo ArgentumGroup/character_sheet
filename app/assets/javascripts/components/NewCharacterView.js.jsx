@@ -1,7 +1,7 @@
 var NewCharacter = React.createClass({
 
 		getInitialState:function(){
-			return {currentUser:''}
+			return {currentUser:'', checked:'no'}
 		}, 
 
 		componentWillMount:function(){
@@ -43,7 +43,13 @@ var NewCharacter = React.createClass({
 
 	_showAbilityScores: function(){
 
-		ReactDOM.render(<NewCharStatBlock/>, document.querySelector("#newCharStatBlock"))
+		this.setState({checked: 'yes'})
+		ReactDOM.render(<NewCharStatBlock saveChar={this._saveChar} checked={this.state.checked}/>, document.querySelector("#newCharStatBlock"))
+		if(this.state.checked === 'yes'){
+			this.setState({checked: 'no'})
+		}
+
+
 	},
 
 	_classSelect:function(){
@@ -66,20 +72,38 @@ var NewCharacter = React.createClass({
 			$("#classDescription").html("<h3>Wizard</h3>\
 										<p>Are you fan of dusty tomes, eldritch formulae, and pulling back the curtain of reality? Do you want to tap into the ambient energy of nature, bending it to your will? Wizard will be your calling.</p>")
 		}
+	},
 
+	_saveChar: function(){
+
+		var classes = ReactDOM.findDOMNode(this.refs.class),
+			charClass = $(classes).val()
+			name = this.refs.charName.value,
+			level = this.refs.level.value,
+			races = ReactDOM.findDOMNode(this.refs.subRace)
+			selectedRace = $(races).val()
+			console.log('saving')
+			$.ajax({
+			type: "PATCH",
+ 			url: "api/characters/" + character_id,
+  			data: {
+    			character_name: name,
+    			character_level: level,
+    			character_class: charClass,
+    			character_race: selectedRace
+    			}
+  				})
 	},
 
 	render:function(){
 
+		console.log('this is where magic happens...hopefully', this.props.characterId)
+
 		return(
 			<div id="newCharacter">			
-				<div>				
-					<p>Player Name</p>
-					<input ref="PlayerName" type='text' placeholder='Player Name'/>
-				</div>
 				<div>	
 					<p>Character Name</p>
-					<input ref="CharName" type='text' placeholder='Character Name'/>
+					<input ref="charName" type='text' placeholder='Character Name'/>
 				</div>
 				<div>
 					<p>Race</p>
@@ -96,7 +120,9 @@ var NewCharacter = React.createClass({
 					<select id="selectSubRace" ref="subRace">	
 					</select>
 				</div>
-				<div>	
+				<div>
+					<p>Level</p>
+					<input ref='level' type='number'/>
 					<p>Class</p>
 					<select  id="classSelect" onChange={this._classSelect} ref="class">
 						<option disabled selected>Class</option>

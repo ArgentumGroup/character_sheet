@@ -8,7 +8,6 @@ $( document ).ready(function() {
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
-			'newcharacter': 'showCharacterbuilder',
 			'viewcharacter' : 'viewCharacter'
 
 		},

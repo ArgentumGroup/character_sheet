@@ -1,7 +1,7 @@
  var ProfilePage = React.createClass({
 
  	getInitialState:function(){
- 		return {count: 0, charactersData:[], campaigns:[], currentUser:''}
+ 		return {count: 0, charactersData:[], campaigns:[], currentUser:'', characterId:''}
  	},
 
  	componentWillMount: function(){
@@ -54,7 +54,9 @@
       				campaign_id: 2
     				}
   				}
-		}).then(function(){location.hash = "newcharacter"})
+		}).then(function(){
+			location.hash = "newcharacter"
+			ReactDOM})
 
 	},
 
@@ -86,7 +88,14 @@
  	_createCharacter: function(){
  		location.hash = "newcharacter"
 
- 				$.ajax({
+ 		var characters = this.state.charactersData,
+ 			lastCharacter = characters[characters.length-1]
+
+		console.log(characters)
+		console.log(lastCharacter)
+ 		this.setState({characterId: lastCharacter })
+
+ 		$.ajax({
 			type: "POST",
  			url: "api/characters",
   			data: {
@@ -95,18 +104,25 @@
       				campaign_id: 2
     				}
   				}
+		}).then(function(){
+			ReactDOM.render(<NewCharacter characterId={this.state.characterId}/>, document.querySelector('#container'))
 		})
+
+		
  	},
 
  	render: function(){
 
-		var characters = this.state.charactersData
+		var characters = this.state.charactersData,
+			lastCharacter = characters[characters.length-1]
+
 		console.log(characters)
+		console.log('heres last character',lastCharacter)
 
  		return (
  			<div id="ProfilePage">
  				<button onClick={this._logOut}>Log Out</button>
- 				<h1>Welcome {}!</h1>
+ 				<h1>Welcome!</h1>
  				<button onClick={this._createCharacter}>Create new Character</button>
  				<div id='characterList'>
 	 				<ul>
