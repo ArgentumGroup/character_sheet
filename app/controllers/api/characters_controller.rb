@@ -4,14 +4,16 @@ class Api::CharactersController < ApplicationController
   def index
     # @characters = Character.all
     @user = @current_user
-    session.delete :character_id
+    if @current_character.present?
+      session.delete :character_id
+    end
   end
 
   def show
     @character = Character.find(params[:id])
-    if @current_character.isblank?
-      session[character_id:] = @character.id
-      @current_character = Character.User.find_by id: session[:character_id]
+    if @current_character.nil?
+      session[:character_id] = @character.id
+      @current_character = Character.find_by id: session[:character_id]
     end
   end
 
@@ -44,7 +46,7 @@ class Api::CharactersController < ApplicationController
         {inventory_id: @char_inventory.id, weapon_id: 1}
         ])
 
-      session[character_id:] = @character.id
+      session[:character_id] = @character.id
     end
   end
 
