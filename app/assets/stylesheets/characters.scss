@@ -4,7 +4,7 @@
 // 
 // 
 
-#container {
+#charContainer {
 
 	#charData{
 
@@ -307,4 +307,22 @@
     width: 800px;
     height: 277px;
     border: 1px solid black;
+}
+
+#newCharacter {
+
+	#classSelect{
+
+		margin-bottom: 20px;
+	}
+
+	#newCharStatBlock {
+
+		input {
+
+			float: right;
+		}
+	}
+
+	width:300px;
 }

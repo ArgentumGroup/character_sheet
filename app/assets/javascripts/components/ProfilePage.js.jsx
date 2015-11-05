@@ -43,21 +43,6 @@
 		})
  	},
 
- 	_saveCharacter:function(){
-
-		$.ajax({
-			type: "POST",
- 			url: "api/characters",
-  			data: {
-    			character:{
-      				user_id: this.state.currentUser,
-      				campaign_id: 2
-    				}
-  				}
-		}).then(function(){location.hash = "newcharacter"})
-
-	},
-
 	_editCharacter:function(){
 
 		location.hash = "newcharacter"
@@ -73,20 +58,15 @@
  			)
  	},
 
- 	// _showCampaigns:function(campaign){
-
- 	// 	return(
- 	// 		<CampaignList 
- 	// 			campaigns={this.state.campaigns}
- 	// 			campaign={campaign}
- 	// 			/>
- 	// 		)
- 	// },
-
  	_createCharacter: function(){
- 		location.hash = "newcharacter"
 
- 				$.ajax({
+ 		var characters = this.state.charactersData,
+ 			lastCharacter = characters[characters.length-1]
+
+		console.log(characters)
+		console.log(lastCharacter)
+
+ 		$.ajax({
 			type: "POST",
  			url: "api/characters",
   			data: {
@@ -95,18 +75,25 @@
       				campaign_id: 2
     				}
   				}
-		})
+ 		
+		}) 
+			
+		ReactDOM.render(<NewCharacter charactersData={this.state.charactersData}/>, document.querySelector('#container'))
+		
  	},
 
  	render: function(){
 
-		var characters = this.state.charactersData
+		var characters = this.state.charactersData,
+			lastCharacter = characters[characters.length-1]
+
 		console.log(characters)
+		console.log('heres last character',lastCharacter)
 
  		return (
  			<div id="ProfilePage">
  				<button onClick={this._logOut}>Log Out</button>
- 				<h1>Welcome {}!</h1>
+ 				<h1>Welcome!</h1>
  				<button onClick={this._createCharacter}>Create new Character</button>
  				<div id='characterList'>
 	 				<ul>

@@ -42,7 +42,7 @@ var CharacterSheet = React.createClass({
 	// 	})
 
 		return(
-			<div id="container">
+			<div id="charContainer">
 				<NameInfoBox />
 				<StatsBlock />
 				<HealthandArmorClass />

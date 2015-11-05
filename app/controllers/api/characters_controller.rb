@@ -52,7 +52,7 @@ class Api::CharactersController < ApplicationController
 
   def update
     if @current_character.update_attributes(character_params)
-      render :show
+      render json: @current_character
     end
   end
 

@@ -8,7 +8,6 @@ $( document ).ready(function() {
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
-			'newcharacter': 'showCharacterbuilder',
 			'viewcharacter' : 'viewCharacter'
 
 		},
@@ -23,10 +22,10 @@ $( document ).ready(function() {
 			ReactDOM.render( <SignUp/> , document.querySelector('#container'))
 		},
 
-		showCharacterbuilder(){
+		// showCharacterbuilder(){
 
-			ReactDOM.render( <NewCharacter/> , document.querySelector('#container'))
-		},
+		// 	ReactDOM.render( <NewCharacter/> , document.querySelector('#container'))
+		// },
 
 		showProfile(){
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
