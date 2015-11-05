@@ -43,11 +43,6 @@
 		})
  	},
 
-	_editCharacter:function(){
-
-		location.hash = "newcharacter"
-	},
-
  	_showCharacters:function(character){
 
  		return(
@@ -65,6 +60,7 @@
  				campaigns={this.state.campaigns}
  				campaign={campaign}
  				characters={this.state.charactersData}
+ 				currentUser={this.state.currentUser}
  				/>)
  	},
 

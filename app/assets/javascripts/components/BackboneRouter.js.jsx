@@ -22,19 +22,9 @@ $( document ).ready(function() {
 			ReactDOM.render( <SignUp/> , document.querySelector('#container'))
 		},
 
-		// showCharacterbuilder(){
-
-		// 	ReactDOM.render( <NewCharacter/> , document.querySelector('#container'))
-		// },
-
 		showProfile(){
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
 		
-		},
-
-		viewCharacter(){
-
-			ReactDOM.render( <CharacterSheet />, document.querySelector('#container'))
 		},
 		
 		initialize: function(){

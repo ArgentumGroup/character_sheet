@@ -1,11 +1,14 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[]}
+		return {count:0,weaponsData:[], armorsData:[], currentCharacter:[]
+		}
 	},
 
 	componentWillMount: function(){
 
 		console.log('mounting')
+
+		var self = this
 
 	var weaponsData,
 		armorsData,
@@ -31,7 +34,15 @@ var CharacterSheet = React.createClass({
 		console.log('retrieving armors', d)
 		this.setState({armorsData:d.armors})
 		})
-	},
+
+	$.ajax({
+		type:"GET",
+		url: "api/characters/" + this.props.character_id.toString(),
+		dataType:'json'
+		}).then(function(responseData){
+			self.setState({currentCharacter:responseData.character})
+		})
+	},	
 
 	render: function(){
 
@@ -40,14 +51,16 @@ var CharacterSheet = React.createClass({
 	// 	console.log(weaponsData.weapons)
 	// 	return(weaponsData.weapons)
 	// 	})
+		
+		console.log("here is the currentCharacter" ,this.state.currentCharacter)
 
 		return(
 			<div id="charContainer">
 				<NameInfoBox />
 				<StatsBlock />
-				<HealthandArmorClass />
-				<WeaponsandArmor armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
-				<SkillsAbilsMagicItems />
+				<HealthandArmorClass/>
+				<WeaponsandArmor  armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
+				<SkillsAbilsMagicItems character={this.props.character} />
 				<TraitsandFlaws />
 			</div>	
 			)
@@ -57,71 +70,53 @@ var CharacterSheet = React.createClass({
 
 var NameInfoBox = React.createClass({
 
-	_onRaceSelect: function(){
-		var subRace,
-			select = ReactDOM.findDOMNode(this.refs.race),
-			value = $(select).val()
+	// _onRaceSelect: function(){
+	// 	var subRace,
+	// 		select = ReactDOM.findDOMNode(this.refs.race),
+	// 		value = $(select).val()
 			
-		if(value === 'dwarf'){
-			$("#subRace1").text('Mountain Dwarf')
-			$("#subRace2").text('Hill Dwarf')
-		}
-		if(value === 'elf'){
-			$("#subRace1").text('High Elf')
-			$("#subRace2").text('Wood Elf')
-		}			
-		if(value === 'halfling'){
-			$("#subRace1").text('Stout')
-			$("#subRace2").text('Lightfoot')
-		}
-		if(value === 'human'){
-			$("#subRace1").text('Human')
-			$("#subRace2").text('Hooman')
-		}
-		this.forceUpdate()
-	},
+	// 	if(value === 'dwarf'){
+	// 		$("#subRace1").text('Mountain Dwarf')
+	// 		$("#subRace2").text('Hill Dwarf')
+	// 	}
+	// 	if(value === 'elf'){
+	// 		$("#subRace1").text('High Elf')
+	// 		$("#subRace2").text('Wood Elf')
+	// 	}			
+	// 	if(value === 'halfling'){
+	// 		$("#subRace1").text('Stout')
+	// 		$("#subRace2").text('Lightfoot')
+	// 	}
+	// 	if(value === 'human'){
+	// 		$("#subRace1").text('Human')
+	// 		$("#subRace2").text('Hooman')
+	// 	}
+	// 	this.forceUpdate()
+	// },
 
 	render: function(){
+	
 
 			
 		return(
 			<div id='charData'>	
 				<div>				
 					<p>Player Name</p>
-					<input type='text' placeholder='Player Name'/>
+					<input ref='playerName' type='text' placeholder='Player Name'/>
 				</div>
 				<div>	
 					<p>Character Name</p>
-					<input type='text' placeholder='Character Name'/>
+					<input id='characterName' ref="characterName" type='text' placeholder='Character Name'/>
 				</div>
 				<div>
 					<p>Race</p>
-					<select onChange={this._onRaceSelect} id='race' ref="race">
-						<option disabled selected>Race</option>
-						<option value='dwarf'>Dwarf</option>
-						<option value='elf'>Elf</option>
-						<option value='halfling'>Halfling</option>
-						<option value='human'>Human</option>
-					</select>	
-				</div>	
-				<div>
-					<p>Sub-Race</p>
-					<select>
-						<option disabled selected>Sub Race</option>
-						<option id='subRace1'></option>
-						<option id='subRace2'></option>	
-					</select>
+					<input ref='race' type="text" placeholder='Race'/>
 				</div>
 				<div>
 					<p>Level</p>
-					<input type='number'/>
+					<input ref='level' type='number'/>
 					<p>Class</p>
-					<select>
-						<option>Rogue</option>
-						<option>Fighter</option>
-						<option>Wa-wa-wa-wyzzrrddd</option>
-						<option>Cleric</option>
-					</select>			
+					<input ref="class" type='text' placeholder="Class"/>		
 				</div>
 				<button>Save player info.</button>
 			</div>	

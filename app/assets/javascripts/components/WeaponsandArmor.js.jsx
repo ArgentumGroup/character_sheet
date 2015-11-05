@@ -32,12 +32,20 @@ var WeaponsandArmor = React.createClass({
 		var self = this
 		this.props.weaponsData.forEach(function(weapon){
 			if(weapon.name === self.refs.selectedWeapon.value){
-				self.setState({equippedWeapon: weapon})
+				self.setState({equippedWeapon: weapon.id})
 				console.log(self.state.equippedWeapon)
 			}
 		})
-		// console.log(this.refs.selectedWeapon.getDOMNode().value)
-		// <p>{this._stealth(equippedArmor)}</p>
+		console.log("posting to inventory", this.state.equippedWeapon)
+
+		$.ajax({
+			type: "POST",
+  			url: "api/character_weapon_items",
+  			data: {character_weapon_item:{
+      						weapon_id: this.state.equippedWeapon
+    								}
+  			}
+		})
 	},
 
 	_equipArmor: function(){
@@ -63,13 +71,9 @@ var WeaponsandArmor = React.createClass({
 						{this.props.weaponsData.map(this._displayWeapons)}
 					</select>
 					<button onClick={this._equipWeapons}>Equip</button>
-					<h4>Equipped Weapon</h4>
+					<h4>Equipped Weapons</h4>
 					<ul>
-						<li>Weapon Name: {equippedWeapon.name}</li>
-						<li>Weapon Category: {equippedWeapon.category}</li>
-						<li>Weapon Type: {equippedWeapon.weapon_type}</li>
-						<li>Damage Type: {equippedWeapon.damage_type}</li>
-						<li>Damage Dice: {equippedWeapon.damage_die_number}d{equippedWeapon.damage_die_type}</li>
+						<p>Placeholder</p>	
 					</ul>
 					<div id="makeAttackBox">
 						<h4>Make an Attack</h4>

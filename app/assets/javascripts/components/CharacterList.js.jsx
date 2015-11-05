@@ -1,8 +1,19 @@
 var CharacterList = React.createClass({
 
+	_editChar(){
+
+		var characterId = this.props.character.character_id
+
+		ReactDOM.render(<CharacterSheet character_id={characterId}/>, document.querySelector("#container"))
+	},
+
+
+
 	render: function(){
 
 		var character = this.props.character
+
+		console.log("hello", character)
 
 		return(
 			<li>

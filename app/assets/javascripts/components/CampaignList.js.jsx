@@ -2,26 +2,28 @@ var CampaignList = React.createClass({
 
  	_createCharacter: function(){
 
-		var characters = this.props.charactersData,
-			lastCharacter = characters[characters.length-1]
+		var characters = this.props.characters,
+			currentUser = this.props.currentUser,
+			campaign = this.props.campaign.id
+		
 
-	console.log(characters)
-	console.log(lastCharacter)
+	console.log('ninja turtles', characters)
+	console.log('masterblaster',lastCharacter)
 
 		$.ajax({
 		type: "POST",
 			url: "api/characters",
 			data: {
 			character:{
-  				user_id: this.state.currentUser,
-  				campaign_id: 2
+  				user_id: currentUser,
+  				campaign_id: campaign
 				}
 				}
 		
 	}) 
 		
 	ReactDOM.render(<NewCharacter 
-						charactersData={this.state.charactersData}
+						charactersData={this.props.characters}
 						/>, document.querySelector('#container'))
 		
  	},

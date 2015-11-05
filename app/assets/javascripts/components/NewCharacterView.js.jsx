@@ -1,7 +1,7 @@
 var NewCharacter = React.createClass({
 
 		getInitialState:function(){
-			return {currentUser:'', checked:'no'}
+			return {currentUser:'', checked:'no', currentCharacter:''}
 		},
 
 		componentWillMount:function(){
@@ -11,18 +11,11 @@ var NewCharacter = React.createClass({
 			console.log(character_id);
 			console.log(real_character_id);
 			$.ajax(
- 				{url: 'api/characters/' + character_id,
+ 				{url: 'api/characters/' + real_character_id,
  				dataType: 'json'
  				}).then(function(responseData){
- 					self.setState({currentUser: responseData.character_user_id})
+ 					self.setState({currentUser: responseData.character_user_id,currentCharacter: responseData.character})
  				})
-
-			$.ajax(
-				{url: 'api/characters/' + character_id,
-				dataType: 'json'
-				}).then(function(responseData){
-					self.setState({currentCharacter: responseData.character})
-				})
 		},
 
 		_onRaceSelect: function(){
@@ -96,6 +89,7 @@ var NewCharacter = React.createClass({
     			race: selectedRace}
   				}
   			})
+  			ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
 
 	_returnToProfile(){
