@@ -43,6 +43,7 @@ var NewCharacter = React.createClass({
 
 	_showAbilityScores: function(){
 
+
 		this.setState({checked: 'yes'})
 		ReactDOM.render(<NewCharStatBlock saveChar={this._saveChar} checked={this.state.checked}/>, document.querySelector("#newCharStatBlock"))
 		if(this.state.checked === 'yes'){
@@ -97,7 +98,7 @@ var NewCharacter = React.createClass({
 
 	render:function(){
 
-		console.log('this is where magic happens...hopefully', this.props.characterId)
+		console.log('this is where magic happens...hopefully', this.props)
 
 		return(
 			<div id="newCharacter">			

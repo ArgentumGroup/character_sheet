@@ -1,7 +1,7 @@
  var ProfilePage = React.createClass({
 
  	getInitialState:function(){
- 		return {count: 0, charactersData:[], campaigns:[], currentUser:'', characterId:''}
+ 		return {count: 0, charactersData:[], campaigns:[], currentUser:''}
  	},
 
  	componentWillMount: function(){
@@ -43,23 +43,6 @@
 		})
  	},
 
- 	_saveCharacter:function(){
-
-		$.ajax({
-			type: "POST",
- 			url: "api/characters",
-  			data: {
-    			character:{
-      				user_id: this.state.currentUser,
-      				campaign_id: 2
-    				}
-  				}
-		}).then(function(){
-			location.hash = "newcharacter"
-			ReactDOM})
-
-	},
-
 	_editCharacter:function(){
 
 		location.hash = "newcharacter"
@@ -75,25 +58,13 @@
  			)
  	},
 
- 	// _showCampaigns:function(campaign){
-
- 	// 	return(
- 	// 		<CampaignList 
- 	// 			campaigns={this.state.campaigns}
- 	// 			campaign={campaign}
- 	// 			/>
- 	// 		)
- 	// },
-
  	_createCharacter: function(){
- 		location.hash = "newcharacter"
 
  		var characters = this.state.charactersData,
  			lastCharacter = characters[characters.length-1]
 
 		console.log(characters)
 		console.log(lastCharacter)
- 		this.setState({characterId: lastCharacter })
 
  		$.ajax({
 			type: "POST",
@@ -104,10 +75,10 @@
       				campaign_id: 2
     				}
   				}
-		}).then(function(){
-			ReactDOM.render(<NewCharacter characterId={this.state.characterId}/>, document.querySelector('#container'))
-		})
-
+ 		
+		}) 
+			
+		ReactDOM.render(<NewCharacter characterId={this.state.characterId} charactersData={this.state.charactersData}/>, document.querySelector('#container'))
 		
  	},
 
