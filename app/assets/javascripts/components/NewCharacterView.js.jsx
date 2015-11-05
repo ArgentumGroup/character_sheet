@@ -101,6 +101,7 @@ var NewCharacter = React.createClass({
 	_returnToProfile(){
 
 		location.hash = 'profile'
+		ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
 
 	_showAbilityScores: function(){
@@ -144,10 +145,10 @@ var NewCharacter = React.createClass({
 					<p>Class</p>
 					<select  id="classSelect" onChange={this._classSelect} ref="class">
 						<option disabled selected>Class</option>
-						<option value="rogue">Rogue</option>
-						<option value="fighter">Fighter</option>
-						<option value="wizard">Wa-wa-wa-wyzzrrddd</option>
-						<option value="cleric" >Cleric</option>
+						<option value="Rogue">Rogue</option>
+						<option value="Fighter">Fighter</option>
+						<option value="Wizard">Wa-wa-wa-wyzzrrddd</option>
+						<option value="Cleric" >Cleric</option>
 					</select>
 					<input onClick={this._showAbilityScores} type="checkbox"/>
 					<div id="classDescription">

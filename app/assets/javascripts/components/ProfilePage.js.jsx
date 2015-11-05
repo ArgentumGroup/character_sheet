@@ -58,33 +58,20 @@
  			)
  	},
 
- 	_createCharacter: function(){
+ 	_showCampaigns:function(campaign){
 
- 		var characters = this.state.charactersData,
- 			lastCharacter = characters[characters.length-1]
-
-		console.log(characters)
-		console.log(lastCharacter)
-
- 		$.ajax({
-			type: "POST",
- 			url: "api/characters",
-  			data: {
-    			character:{
-      				user_id: this.state.currentUser,
-      				campaign_id: 2
-    				}
-  				}
- 		
-		}) 
-			
-		ReactDOM.render(<NewCharacter charactersData={this.state.charactersData}/>, document.querySelector('#container'))
-		
+ 		return(
+ 			<CampaignList 
+ 				campaigns={this.state.campaigns}
+ 				campaign={campaign}
+ 				characters={this.state.charactersData}
+ 				/>)
  	},
 
  	render: function(){
 
 		var characters = this.state.charactersData,
+			campaigns = this.state.campaigns
 			lastCharacter = characters[characters.length-1]
 
 		console.log(characters)
@@ -94,11 +81,15 @@
  			<div id="ProfilePage">
  				<button onClick={this._logOut}>Log Out</button>
  				<h1>Welcome!</h1>
- 				<button onClick={this._createCharacter}>Create new Character</button>
  				<div id='characterList'>
 	 				<ul>
 	 					{characters.map(this._showCharacters)}
 	 				</ul>
+ 				</div>
+ 				<div id='campaignList'>
+ 					<ul>
+ 						{campaigns.map(this._showCampaigns)}
+ 					</ul>	
  				</div>
  				<div id="recentActivity">
  					<p>Recent stuff goes here.</p>
