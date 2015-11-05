@@ -41,25 +41,13 @@ var NewCharacter = React.createClass({
 		this.forceUpdate()
 	},
 
-	_showAbilityScores: function(){
-
-
-		this.setState({checked: 'yes'})
-		ReactDOM.render(<NewCharStatBlock saveChar={this._saveChar} checked={this.state.checked}/>, document.querySelector("#newCharStatBlock"))
-		if(this.state.checked === 'yes'){
-			this.setState({checked: 'no'})
-		}
-
-
-	},
-
 	_classSelect:function(){
 		var select = ReactDOM.findDOMNode(this.refs.class),
 			value = $(select).val()
 		if(value === 'rogue'){
 			console.log('rogue')
 			$("#classDescription").html("<h3>Rogue</h3>\
-										<p>Do you want to skulk in the shadows? Striking with deadly precision and tumbling from danger? If yes then Rogue is for you!</p>")
+										<p>Do you want to skulk in the shadows, striking with deadly precision and tumbling from danger? If yes then Rogue is for you!</p>")
 		}
 		if(value === 'fighter'){
 			$("#classDescription").html("<h3>Fighter</h3>\
@@ -82,23 +70,35 @@ var NewCharacter = React.createClass({
 			name = this.refs.charName.value,
 			level = this.refs.level.value,
 			races = ReactDOM.findDOMNode(this.refs.subRace)
-			selectedRace = $(races).val()
+			selectedRace = $(races).val(),
+			character_id = this.props.charactersData[this.props.charactersData.length-1].character_id.toString()
+			console.log(character_id)
+
 			console.log('saving')
 			$.ajax({
 			type: "PATCH",
  			url: "api/characters/" + character_id,
-  			data: {
+  			data: {character:{
     			character_name: name,
     			character_level: level,
     			character_class: charClass,
-    			character_race: selectedRace
-    			}
-  				})
+    			character_race: selectedRace}
+  				}
+  			})
+	},
+
+	_showAbilityScores: function(){
+
+
+		this.setState({checked: 'yes'})
+		ReactDOM.render(<NewCharStatBlock saveChar={this._saveChar} checked={this.state.checked}/>, document.querySelector("#newCharStatBlock"))
+		if(this.state.checked === 'yes'){
+			this.setState({checked: 'no'})
+		}
+
 	},
 
 	render:function(){
-
-		console.log('this is where magic happens...hopefully', this.props)
 
 		return(
 			<div id="newCharacter">			

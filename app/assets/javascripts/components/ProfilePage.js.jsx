@@ -78,7 +78,7 @@
  		
 		}) 
 			
-		ReactDOM.render(<NewCharacter characterId={this.state.characterId} charactersData={this.state.charactersData}/>, document.querySelector('#container'))
+		ReactDOM.render(<NewCharacter charactersData={this.state.charactersData}/>, document.querySelector('#container'))
 		
  	},
 
