@@ -12,10 +12,14 @@ json.character do
   end
   json.inventory do
     json.armors @character.character_armor_items do |item|
-      json.armor_piece item.armor
+      json.equipped_armor item.armor
     end
-    json.shields @character.character_shield_items
-    json.weapons @character.character_weapon_items
+    json.shields @character.character_shield_items do |item|
+      json.equipped_shield item.shield
+    end
+    json.weapons @character.character_weapon_items do |item|
+      json.equipped_weapons item.weapon
+    end
   end
   json.character_campaign @character.campaign
 end
