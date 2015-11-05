@@ -1,3 +1,4 @@
 class CharacterWeaponItem < ActiveRecord::Base
-  has_many :weapons
+  belongs_to :inventory
+  belongs_to :weapon
 end

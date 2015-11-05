@@ -1,3 +1,4 @@
 class CharacterShieldItem < ActiveRecord::Base
-  has_many :shields
+  belongs_to :inventory
+  belongs_to :shield
 end
