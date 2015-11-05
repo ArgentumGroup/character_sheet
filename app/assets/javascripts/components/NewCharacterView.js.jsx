@@ -2,22 +2,33 @@ var NewCharacter = React.createClass({
 
 		getInitialState:function(){
 			return {currentUser:'', checked:'no'}
-		}, 
+		},
 
 		componentWillMount:function(){
 			var self = this
+			var character_id = this.props.charactersData[this.props.charactersData.length-1].character_id
+			var real_character_id = (character_id + 1).toString()
+			console.log(character_id);
+			console.log(real_character_id);
 			$.ajax(
- 				{url: 'api/characters',
+ 				{url: 'api/characters/' + character_id,
  				dataType: 'json'
  				}).then(function(responseData){
- 					self.setState({currentUser: responseData.characters.user_id})
+ 					self.setState({currentUser: responseData.character_user_id})
  				})
+
+			$.ajax(
+				{url: 'api/characters/' + character_id,
+				dataType: 'json'
+				}).then(function(responseData){
+					self.setState({currentCharacter: responseData.character})
+				})
 		},
-	
+
 		_onRaceSelect: function(){
 		var select = ReactDOM.findDOMNode(this.refs.race),
 			value = $(select).val()
-			
+
 		if(value === 'dwarf'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
 									<option value='Dwarf, Mountain'>Mountain Dwarf</option>\
@@ -27,7 +38,7 @@ var NewCharacter = React.createClass({
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
 									<option value='Elf, High'>High Elf</option>\
 									<option value='Elf, Wood'>Wood Elf</option>")
-		}			
+		}
 		if(value === 'halfling'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
 									<option value='Halfling, Stout'>Stout</option>\
@@ -71,7 +82,7 @@ var NewCharacter = React.createClass({
 			level = this.refs.level.value,
 			races = ReactDOM.findDOMNode(this.refs.subRace)
 			selectedRace = $(races).val(),
-			character_id = this.props.charactersData[this.props.charactersData.length-1].character_id.toString()
+			character_id = this.state.currentCharacter.character_id.toString()
 			console.log(character_id)
 
 			console.log('saving')
@@ -79,10 +90,10 @@ var NewCharacter = React.createClass({
 			type: "PATCH",
  			url: "api/characters/" + character_id,
   			data: {character:{
-    			character_name: name,
-    			character_level: level,
-    			character_class: charClass,
-    			character_race: selectedRace}
+    			name: name,
+    			level: level,
+    			klass: charClass,
+    			race: selectedRace}
   				}
   			})
 	},
@@ -101,8 +112,8 @@ var NewCharacter = React.createClass({
 	render:function(){
 
 		return(
-			<div id="newCharacter">			
-				<div>	
+			<div id="newCharacter">
+				<div>
 					<p>Character Name</p>
 					<input ref="charName" type='text' placeholder='Character Name'/>
 				</div>
@@ -114,11 +125,11 @@ var NewCharacter = React.createClass({
 						<option value='elf'>Elf</option>
 						<option value='halfling'>Halfling</option>
 						<option value='human'>Human</option>
-					</select>	
-				</div>	
+					</select>
+				</div>
 				<div>
 					<p>Sub-Race</p>
-					<select id="selectSubRace" ref="subRace">	
+					<select id="selectSubRace" ref="subRace">
 					</select>
 				</div>
 				<div>
@@ -136,9 +147,9 @@ var NewCharacter = React.createClass({
 					<div id="classDescription">
 					</div>
 					<div id='newCharStatBlock'>
-					</div>	
+					</div>
 				</div>
-			</div>	
+			</div>
 				)
 	}
 })
