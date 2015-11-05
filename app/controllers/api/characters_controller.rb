@@ -4,10 +4,17 @@ class Api::CharactersController < ApplicationController
   def index
     # @characters = Character.all
     @user = @current_user
+    if @current_character.present?
+      session.delete :character_id
+    end
   end
 
   def show
     @character = Character.find(params[:id])
+    if @current_character.nil?
+      session[:character_id] = @character.id
+      @current_character = Character.find_by id: session[:character_id]
+    end
   end
 
   def create
@@ -38,13 +45,13 @@ class Api::CharactersController < ApplicationController
       char_weapon = CharacterWeaponItem.create!([
         {inventory_id: @char_inventory.id, weapon_id: 1}
         ])
+
+      session[:character_id] = @character.id
     end
   end
 
   def update
-    character_params
-    @character = Character.find(params[:id])
-    if @character.update_attributes(character_params)
+    if @current_character.update_attributes(character_params)
       render :show
     end
   end

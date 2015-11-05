@@ -11,7 +11,9 @@ json.character do
     json.spells @character.character_spell_items
   end
   json.inventory do
-    json.armors @character.character_armor_items
+    json.armors @character.character_armor_items do |item|
+      json.armor_piece item.armor
+    end
     json.shields @character.character_shield_items
     json.weapons @character.character_weapon_items
   end

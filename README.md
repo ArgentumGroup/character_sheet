@@ -25,11 +25,13 @@ To update a particular character:
   type: "PATCH",
   url: "api/characters/{theIdOfWhateverCharacterYouSelect}",
   data: {
-    YOU DON'T NEED TO SEND ALL OF THESE PARAMETERS EVERY TIME YOU UPDATE
-    name: theNewNameOfTheCharacter
-    level: theNewLevelOfTheCharacter
-    race: theNewRaceOfTheCharacter
-    klass:  theNewKlassOfTheCharacter
+    character:{
+      YOU DON'T NEED TO SEND ALL OF THESE PARAMETERS EVERY TIME YOU UPDATE
+      name: theNewNameOfTheCharacter
+      level: theNewLevelOfTheCharacter
+      race: theNewRaceOfTheCharacter
+      klass:  theNewKlassOfTheCharacter
+    }
   }
 ```
 
@@ -41,4 +43,26 @@ To create a new campaign:
   data: {
     campaign:{
       name: this.refs.name.value
+```
+
+To add a new armor/shield/weapon to a particular character's inventory:
+
+```JSX
+  type: "POST"
+  url: "api/character_armor_item"
+  data: {
+    character_armor_item:{
+      armor_id: theIdOfWhateverArmorYouWantToAdd
+    }
+  }
+```
+
+To remove a armor/shield/weapon from a particular character's inventory:
+
+```JSX
+  type: "DELETE"
+  url: "api/character_armor_item"
+  data: {
+    id: theIdOfWhateverCharacterArmorItemYouWantToRemove
+  }
 ```
