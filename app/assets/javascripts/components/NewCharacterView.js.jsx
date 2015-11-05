@@ -98,6 +98,11 @@ var NewCharacter = React.createClass({
   			})
 	},
 
+	_returnToProfile(){
+
+		location.hash = 'profile'
+	},
+
 	_showAbilityScores: function(){
 
 
@@ -113,6 +118,7 @@ var NewCharacter = React.createClass({
 
 		return(
 			<div id="newCharacter">
+				<button onClick={this._returnToProfile}>Go back to profile</button>
 				<div>
 					<p>Character Name</p>
 					<input ref="charName" type='text' placeholder='Character Name'/>
