@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InventoriesControllerTest < ActionController::TestCase
+class SpellListTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

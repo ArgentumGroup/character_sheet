@@ -3,7 +3,6 @@ var CharacterList = React.createClass({
 	render: function(){
 
 		var character = this.props.character
-		console.log(character)
 
 		return(
 			<li>
@@ -12,6 +11,7 @@ var CharacterList = React.createClass({
 				<p>Class: {character.character_class}</p>
 				<p>Level: {character.character_level}</p>
 				<p>Race: {character.character_race}</p>
+				<button onClick={this._editChar}>Edit your character!</button>
 			</li>
 			)
 	}

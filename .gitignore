@@ -14,3 +14,4 @@
 
 # Ignore erd-produced database diagrams
 *.pdf
+*.jpg

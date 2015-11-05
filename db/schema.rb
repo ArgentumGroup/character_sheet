@@ -11,16 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030164104) do
+ActiveRecord::Schema.define(version: 20151102024906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ability_scores", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-    t.integer  "score"
+  create_table "ability_score_blocks", force: :cascade do |t|
+    t.integer  "strength"
+    t.integer  "dexterity"
+    t.integer  "constitution"
+    t.integer  "intelligence"
+    t.integer  "wisdom"
+    t.integer  "charisma"
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "armors", force: :cascade do |t|
@@ -41,6 +46,47 @@ ActiveRecord::Schema.define(version: 20151030164104) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "capability_blocks", force: :cascade do |t|
+    t.integer  "character_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "character_armor_items", force: :cascade do |t|
+    t.integer  "inventory_id"
+    t.integer  "armor_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "character_shield_items", force: :cascade do |t|
+    t.integer  "inventory_id"
+    t.integer  "shield_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "character_skill_items", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "character_spell_items", force: :cascade do |t|
+    t.integer  "spell_id"
+    t.integer  "capability_block_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "character_weapon_items", force: :cascade do |t|
+    t.integer  "inventory_id"
+    t.integer  "weapon_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "characters", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "campaign_id"
@@ -53,8 +99,19 @@ ActiveRecord::Schema.define(version: 20151030164104) do
   end
 
   create_table "inventories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "character_id"
+  end
+
+  create_table "shields", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "cost"
+    t.integer  "armor_class"
+    t.boolean  "stealth_disadvantage"
+    t.decimal  "weight"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "skills", force: :cascade do |t|
@@ -62,6 +119,23 @@ ActiveRecord::Schema.define(version: 20151030164104) do
     t.datetime "updated_at",        null: false
     t.string   "name"
     t.string   "governing_ability"
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "cleric"
+    t.boolean  "wizard"
+    t.integer  "level"
+    t.string   "casting_time"
+    t.string   "range"
+    t.boolean  "verbal"
+    t.boolean  "somatic"
+    t.boolean  "material"
+    t.string   "components"
+    t.string   "duration"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

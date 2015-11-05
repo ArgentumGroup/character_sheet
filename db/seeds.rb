@@ -8,12 +8,13 @@
 
 Armor.delete_all
 Weapon.delete_all
-AbilityScore.delete_all
+# AbilityScore.delete_all
 Character.delete_all
 User.delete_all
 Campaign.delete_all
 
 armors = Armor.create!([
+  {armor_type: 'None', name: 'Unarmored', cost: 0, armor_class: 10, stealth_disadvantage: false, weight: 0},
   {armor_type: 'Light', name: 'Padded', cost: 500, armor_class: 11, stealth_disadvantage: false, weight: 8},
   {armor_type: 'Light', name: 'Leather', cost: 1000, armor_class: 11, stealth_disadvantage: false, weight: 10},
   {armor_type: 'Light', name: 'Studded leather', cost: 4500, armor_class: 12, stealth_disadvantage: false, weight: 13},
@@ -26,10 +27,15 @@ armors = Armor.create!([
   {armor_type: 'Heavy', name: 'Chain mail', cost: 7500, armor_class: 16, strength_requirement: 13, stealth_disadvantage: true, weight: 55},
   {armor_type: 'Heavy', name: 'Splint', cost: 20000, armor_class: 17, strength_requirement: 15, stealth_disadvantage: true, weight: 60},
   {armor_type: 'Heavy', name: 'Plate', cost: 150000, armor_class: 18, strength_requirement: 15, stealth_disadvantage: true, weight: 65},
-  {armor_type: 'Shield', name: 'Shield', cost: 1000, armor_class: 2, stealth_disadvantage: false, weight: 6},
+  ])
+
+shields = Shield.create!([
+  {name: 'None', cost: 0, armor_class: 0, stealth_disadvantage: false, weight: 0},
+  {name: 'Shield', cost: 1000, armor_class: 2, stealth_disadvantage: false, weight: 6},
   ])
 
 weapons = Weapon.create!([
+  {weapon_type: 'Melee', category: 'Unarmed', name: 'Unarmed Strike', cost: 0, damage_die_number: 1, damage_die_type: 1, damage_type: 'bludgeoning', weight: 0},
   {weapon_type: 'Melee', category: 'Simple', name: 'Club', cost: 10, damage_die_number: 1, damage_die_type: 4, damage_type: 'bludgeoning', weight: 2},
   {weapon_type: 'Melee', category: 'Simple', name: 'Dagger', cost: 200, damage_die_number: 1, damage_die_type: 4, damage_type: 'piercing', weight: 1},
   {weapon_type: 'Melee', category: 'Simple', name: 'Greatclub', cost: 20, damage_die_number: 1, damage_die_type: 8, damage_type: 'bludgeoning', weight: 10},
@@ -69,14 +75,14 @@ weapons = Weapon.create!([
   {weapon_type: 'Ranged', category: 'Martial', name: 'Net', cost: 100, weight: 3},
   ])
 
-ability_scores = AbilityScore.create! ([
-  {name: 'Strength'},
-  {name: 'Dexterity'},
-  {name: 'Constitution'},
-  {name: 'Intelligence'},
-  {name: 'Wisdom'},
-  {name: 'Charisma'}
-  ])
+# ability_scores = AbilityScore.create! ([
+#   {name: 'Strength'},
+#   {name: 'Dexterity'},
+#   {name: 'Constitution'},
+#   {name: 'Intelligence'},
+#   {name: 'Wisdom'},
+#   {name: 'Charisma'}
+#   ])
 
 
 
@@ -105,3 +111,15 @@ users = User.create! ([
 #     end
 #   end
 # end
+
+# {"game"=>
+#   {"name"=>"championship", "teams_attributes"=>
+#     [ {"result"=>"won", "players_attributes"=>{"name"=>"Bob"}},
+#       {"result"=>"lost", "players_attributes"=>{"name"=>"Tad"}}]}}
+#
+# But should be:
+#
+# {"game"=>
+#   {"name"=>"championship", "teams_attributes"=>
+#     [ {"result"=>"won", "players_attributes"=>[{"name"=>"Bob"}]},
+#     {"result"=>"lost", "players_attributes"=>[{"name"=>"Tad"}]}]}}

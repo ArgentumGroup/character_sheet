@@ -13,7 +13,11 @@ class Api::CampaignsController < ApplicationController
     # render json: user_campaigns
   end
 
-  def show
+  def create
+    @campaign = Campaign.new params.require(:campaign).permit(:name)
+  end
 
+  def show
+    @campaign = Campaign.find(params[:id])
   end
 end

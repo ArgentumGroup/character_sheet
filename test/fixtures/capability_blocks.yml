@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  character_id: 1
+  spell_list_id: 1
+  ability_score_block_id: 1
+  skill_block_id: 1
+
+two:
+  character_id: 1
+  spell_list_id: 1
+  ability_score_block_id: 1
+  skill_block_id: 1

@@ -3,17 +3,21 @@ var SignIn = React.createClass({
 
 	_logIn: function(){
 
-		$.ajax({
-			type: "POST",
-			url: "api/sign_in",
-			data: {
-				email: this.refs.email.value,
-				password: this.refs.password.value,
-			},
-			success:(function(){
-				location.hash = 'profile'
-			}),
-		})
+		if(this.refs.email.value && this.refs.password.value !== undefined){
+
+			$.ajax({
+				type: "POST",
+				url: "api/sign_in",
+				data: {
+					email: this.refs.email.value,
+					password: this.refs.password.value,
+				},
+				success:(function(){
+					location.hash = 'profile'
+				}),
+			})
+		}
+		else alert("Please enter a valid Username and password.")
 	},
 
 	_logOut: function(){

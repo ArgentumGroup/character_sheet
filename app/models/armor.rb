@@ -1,3 +1,4 @@
 class Armor < ActiveRecord::Base
-  belongs_to :inventory
+  has_many :character_armor_items
+  has_many :inventories, through: :character_armor_items
 end
