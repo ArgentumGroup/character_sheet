@@ -27,6 +27,13 @@ var WeaponsandArmor = React.createClass({
 			)
 	},
 
+	_displayShields:function(shield){
+
+		return(
+			<option key={shield.name}>{shield.name}</option>
+			)
+	},
+
 	_equipWeapons: function(){
 
 		var self = this
@@ -52,9 +59,26 @@ var WeaponsandArmor = React.createClass({
 		var self = this
 		this.props.armorsData.forEach(function(armor){
 			if(armor.name === self.refs.selectedArmor.value){
-				self.setState({equippedArmor: armor})
+				self.setState({equippedArmor: armor.id})
 				console.log(self.state.equippedArmor)
 			}
+		})
+
+		$.ajax({
+			type: "POST",
+  			url: "api/character_armor_items",
+  			data: {character_armor_item:{
+      						armor_id: this.state.equippedArmor
+    								}
+  			}
+		})
+
+		$.ajax({
+			type:"POST",
+			url: "api/character_shield_items",
+			data: {character_shield_item:{
+							shield_id: this.state.equippedShield
+			}}
 		})
 	},
 
@@ -87,13 +111,14 @@ var WeaponsandArmor = React.createClass({
 					<select ref='selectedArmor'>
 						{this.props.armorsData.map(this._displayArmors)}
 					</select>
+					<h4>Shields</h4>
+					<select ref='selectedShield'>
+						{this.props.shieldsData.map(this._displayShields)}
+					</select>
 					<button onClick={this._equipArmor}>Equip</button>
 					<h4>Equipped Armor</h4>
 					<ul>
 						<li>Armor Name: {equippedArmor.name}</li>
-						<li>Armor Class: {equippedArmor.armor_class}</li>
-						<li>Armor Type: {equippedArmor.armor_type}</li>
-						<li>Stealth Disadvantage: {this._stealth(equippedArmor)}</li>
 					</ul>
 				</div>
 			</div>	
