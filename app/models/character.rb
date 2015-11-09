@@ -17,4 +17,8 @@ class Character < ActiveRecord::Base
 
   accepts_nested_attributes_for :capability_block
 
+  def armor_class
+    inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class
+  end
+
 end
