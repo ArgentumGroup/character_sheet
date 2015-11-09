@@ -34,7 +34,7 @@ var WeaponsandArmor = React.createClass({
 			)
 	},
 
-	_equipWeapons: function(){
+	_setWeapon:function(){
 
 		var self = this
 		this.props.weaponsData.forEach(function(weapon){
@@ -43,19 +43,10 @@ var WeaponsandArmor = React.createClass({
 				console.log(self.state.equippedWeapon)
 			}
 		})
-		console.log("posting to inventory", this.state.equippedWeapon)
-
-		$.ajax({
-			type: "POST",
-  			url: "api/character_weapon_items",
-  			data: {character_weapon_item:{
-      						weapon_id: this.state.equippedWeapon
-    								}
-  			}
-		})
 	},
 
-	_equipArmor: function(){
+	_setArmor: function(){
+
 		var self = this
 		this.props.armorsData.forEach(function(armor){
 			if(armor.name === self.refs.selectedArmor.value){
@@ -63,12 +54,43 @@ var WeaponsandArmor = React.createClass({
 				console.log(self.state.equippedArmor)
 			}
 		})
+	},
+
+	_setShield: function(){
+		var self = this
+		this.props.shieldsData.forEach(function(shield){
+			if(shield.name === self.refs.selectedShield.value){
+				self.setState({equippedShield: shield.id})
+				console.log(self.state.equippedShield)
+			}
+		})
+
+	},
+
+	_equipWeapons: function(){
+
+		var self = this
+		console.log("posting to inventory", self.state.equippedWeapon)
+
+		$.ajax({
+			type: "POST",
+  			url: "api/character_weapon_items",
+  			data: {character_weapon_item:{
+      						weapon_id: self.state.equippedWeapon
+    								}
+  			}
+		})
+	},
+
+	_equipArmor: function(){
+	
+	var self = this
 
 		$.ajax({
 			type: "POST",
   			url: "api/character_armor_items",
   			data: {character_armor_item:{
-      						armor_id: this.state.equippedArmor
+      						armor_id: self.state.equippedArmor
     								}
   			}
 		})
@@ -77,7 +99,7 @@ var WeaponsandArmor = React.createClass({
 			type:"POST",
 			url: "api/character_shield_items",
 			data: {character_shield_item:{
-							shield_id: this.state.equippedShield
+							shield_id: self.state.equippedShield
 			}}
 		})
 	},
@@ -91,7 +113,7 @@ var WeaponsandArmor = React.createClass({
 			<div id='weaponsAndArmor'>
 				<div id='weapons'>
 					<h4>Weapons</h4>
-					<select ref='selectedWeapon'>
+					<select onChange={this._setWeapon} ref='selectedWeapon'>
 						{this.props.weaponsData.map(this._displayWeapons)}
 					</select>
 					<button onClick={this._equipWeapons}>Equip</button>
@@ -108,11 +130,11 @@ var WeaponsandArmor = React.createClass({
 				</div>
 				<div id='armor'>
 					<h4>Armors</h4>
-					<select ref='selectedArmor'>
+					<select onChange={this._setArmor}ref='selectedArmor'>
 						{this.props.armorsData.map(this._displayArmors)}
 					</select>
 					<h4>Shields</h4>
-					<select ref='selectedShield'>
+					<select onChange={this._setShield}ref='selectedShield'>
 						{this.props.shieldsData.map(this._displayShields)}
 					</select>
 					<button onClick={this._equipArmor}>Equip</button>
