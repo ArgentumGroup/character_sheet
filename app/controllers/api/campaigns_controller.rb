@@ -15,6 +15,7 @@ class Api::CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new params.require(:campaign).permit(:name)
+    render json: @campaign
   end
 
   def show
