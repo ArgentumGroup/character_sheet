@@ -3,7 +3,7 @@ var WeaponsandArmor = React.createClass({
 	getInitialState: function(){
 		return {equippedWeapon: '', equippedArmor:''}
 	},
-	
+
 	_displayWeapons: function(weapon){
 		return (
 			<option key={weapon.name}>{weapon.name}</option>
@@ -108,7 +108,7 @@ var WeaponsandArmor = React.createClass({
 
 		var equippedWeapon = this.state.equippedWeapon,
 			equippedArmor = this.state.equippedArmor
-				
+
 		return(
 			<div id='weaponsAndArmor'>
 				<div id='weapons'>
@@ -119,14 +119,14 @@ var WeaponsandArmor = React.createClass({
 					<button onClick={this._equipWeapons}>Equip</button>
 					<h4>Equipped Weapons</h4>
 					<ul>
-						<p>Placeholder</p>	
+						<p>Placeholder</p>
 					</ul>
 					<div id="makeAttackBox">
 						<h4>Make an Attack</h4>
 						<div>
 							<p>{equippedWeapon.name}</p>
-						</div>	
-					</div>	 	
+						</div>
+					</div>
 				</div>
 				<div id='armor'>
 					<h4>Armors</h4>
@@ -143,7 +143,7 @@ var WeaponsandArmor = React.createClass({
 						<li>Armor Name: {equippedArmor.name}</li>
 					</ul>
 				</div>
-			</div>	
+			</div>
 			)
 	}
 })
