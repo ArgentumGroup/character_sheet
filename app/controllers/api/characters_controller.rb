@@ -22,6 +22,10 @@ class Api::CharactersController < ApplicationController
 
     if @character.save
 
+      Sheet.create!(
+      {character_id: @character.id}
+      )
+
       @capblock = CapabilityBlock.create!(
         {character_id: @character.id}
         )
@@ -60,7 +64,8 @@ class Api::CharactersController < ApplicationController
     def character_params
       params.require(:character).permit(:user_id, :campaign_id, :name, :level, :klass, :race,
         capability_block_attributes:
-          [ ability_score_block_attributes:
+          [ :id,
+            ability_score_block_attributes:
               [ :id, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma ],
             character_skill_item_attributes:
               [ :id, :skill_id ],
@@ -68,7 +73,8 @@ class Api::CharactersController < ApplicationController
               [ :id, :spell_id ]
           ],
         inventory_attributes:
-          [ character_armor_items_attributes: [],
+          [ :id,
+            character_armor_items_attributes: [],
             character_shield_items_attributes: [],
             character_weapon_items_attributes: []
           ]

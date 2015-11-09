@@ -5,7 +5,7 @@ var CampaignList = React.createClass({
 		var characters = this.props.characters,
 			currentUser = this.props.currentUser,
 			campaign = this.props.campaign.id
-		
+
 
 	console.log('ninja turtles', characters)
 
@@ -18,13 +18,13 @@ var CampaignList = React.createClass({
   				campaign_id: campaign
 				}
 				}
-		
-	}) 
-		
-	ReactDOM.render(<NewCharacter 
+
+	})
+
+	ReactDOM.render(<NewCharacter
 						charactersData={this.props.characters}
 						/>, document.querySelector('#container'))
-		
+
  	},
 
 	render: function(){
@@ -35,11 +35,11 @@ var CampaignList = React.createClass({
 			<li>
 				{campaign.name}
  				<button onClick={this._createCharacter}>Create new Character</button>
- 			</li>	
+ 			</li>
 			)
 
 
 
-		
+
 	}
 })
