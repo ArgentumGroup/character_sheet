@@ -1,7 +1,7 @@
 var NewCharacter = React.createClass({
 
 		getInitialState:function(){
-			return {currentUser:'', checked:'no', currentCharacter:''}
+			return {currentUser:'', abilityScores:'no', currentCharacter:'', str: null, dex: null, con: null, int: null, wis: null, cha: null}
 		},
 
 		componentWillMount:function(){
@@ -92,7 +92,7 @@ var NewCharacter = React.createClass({
   			ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
 
-	_returnToProfile(){
+	_returnToProfile: function(){
 
 		location.hash = 'profile'
 		ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
@@ -101,11 +101,25 @@ var NewCharacter = React.createClass({
 	_showAbilityScores: function(){
 
 
-		this.setState({checked: 'yes'})
-		ReactDOM.render(<NewCharStatBlock saveChar={this._saveChar} checked={this.state.checked}/>, document.querySelector("#newCharStatBlock"))
-		if(this.state.checked === 'yes'){
-			this.setState({checked: 'no'})
+		this.setState({abilityScores: 'yes'})
+		ReactDOM.render(<NewCharStatBlock str={this.state.str} dex={this.state.dex} con={this.state.con} int={this.state.int} wis={this.state.wis} cha={this.state.cha} saveChar={this._saveChar} parentComms={this._walkieTalkie} abilityScores={this.state.abilityScores}/>, document.querySelector("#newCharStatBlock"))
+		if(this.state.abilityScores === 'yes'){
+			this.setState({abilityScores: 'no'})
 		}
+
+	},
+
+	_walkieTalkie: function(str,dex,con,int,wis,cha){
+
+		this.setState({
+			str:str,
+			dex:dex,
+			con:con,
+			int:int,
+			wis:wis,
+			cha:cha
+		})
+
 
 	},
 
