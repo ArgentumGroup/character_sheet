@@ -8,7 +8,6 @@ var CampaignList = React.createClass({
 		
 
 	console.log('ninja turtles', characters)
-	console.log('masterblaster',lastCharacter)
 
 		$.ajax({
 		type: "POST",
