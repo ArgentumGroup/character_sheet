@@ -3,6 +3,7 @@ class Character < ActiveRecord::Base
   belongs_to :campaign
   has_one :inventory
   has_one :capability_block
+  has_one :sheet
 
   has_many :character_armor_items, through: :inventory
   has_many :character_shield_items, through: :inventory
