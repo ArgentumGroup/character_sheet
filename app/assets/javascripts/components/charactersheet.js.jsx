@@ -35,9 +35,15 @@ var CharacterSheet = React.createClass({
 		}).then(function(responseData){
 			self.setState({currentCharacter:responseData.character})
 		})
+	},
+
+	_goProfile:()=>{
+
+		location.hash = 'profile'
+
 	},	
 
-	render: function(){
+	render:()=>{
 
 
 	// function(){
@@ -49,6 +55,7 @@ var CharacterSheet = React.createClass({
 
 		return(
 			<div id="charContainer">
+				<button onClick={this._goProfile}>Go to profile</button>
 				<NameInfoBox currentCharacter={this.state.currentCharacter}/>
 				<StatsBlock />
 				<HealthandArmorClass/>
