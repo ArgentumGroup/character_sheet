@@ -6,10 +6,11 @@ var NewCharacter = React.createClass({
 
 		componentWillMount:function(){
 			var self = this
-			var character_id = this.props.charactersData[this.props.charactersData.length-1].character_id
-			var real_character_id = (character_id + 1).toString()
-			console.log(character_id);
-			console.log(real_character_id);
+
+			var charactersData = this.props.charactersData,
+				lastCharacter = _.last(charactersData),
+				real_character_id = lastCharacter.character_id
+
 			$.ajax(
  				{url: 'api/characters/' + real_character_id,
  				dataType: 'json'
@@ -86,8 +87,17 @@ var NewCharacter = React.createClass({
     			name: name,
     			level: level,
     			klass: charClass,
-    			race: selectedRace}
-  				}
+    			race: selectedRace},
+    			charater_capabilities:{
+    				ability_score_block:{
+    					strength:this.state.str,
+    					dexterity:this.state.dex,
+    					constitution: this.state.con,
+    					intelligence: this.state.int,
+    					wisdom: this.state.wis,
+    					charisma: this.state.cha}
+    				}
+    			}
   			})
   			ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
@@ -119,7 +129,6 @@ var NewCharacter = React.createClass({
 			wis:wis,
 			cha:cha
 		})
-
 
 	},
 
