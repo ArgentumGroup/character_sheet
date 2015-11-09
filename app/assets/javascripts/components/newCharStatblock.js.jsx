@@ -4,15 +4,16 @@ var NewCharStatBlock = React.createClass({
  // <button onClick={this._goToSkills}>Finished? move on to the next step!</button>
 	_handleClick: function(){
 		var parentComms = this.props.parentComms,
-			str = this.refs.str.value,
-			dex = this.refs.dex.value,
-			con = this.refs.con.value,
-			int = this.refs.int.value,
-			wis = this.refs.wis.value,
-			cha = this.refs.cha.value
+			self = this
+			str = self.refs.str.value,
+			dex = self.refs.dex.value,
+			con = self.refs.con.value,
+			int = self.refs.int.value,
+			wis = self.refs.wis.value,
+			cha = self.refs.cha.value
 
 			parentComms(str,dex,con,int,wis,cha)
-			console.log("hello", this.refs.str.value)
+			console.log("hello", self.refs.str.value)
 
 	},
 

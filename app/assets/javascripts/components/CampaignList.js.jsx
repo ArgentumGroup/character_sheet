@@ -4,7 +4,8 @@ var CampaignList = React.createClass({
 
 		var characters = this.props.characters,
 			currentUser = this.props.currentUser,
-			campaign = this.props.campaign.id
+			campaign = this.props.campaign.id,
+			self = this
 		
 
 	console.log('ninja turtles', characters)
@@ -20,6 +21,7 @@ var CampaignList = React.createClass({
 				}
 		
 	}) 
+
 		
 	ReactDOM.render(<NewCharacter 
 						charactersData={this.props.characters}

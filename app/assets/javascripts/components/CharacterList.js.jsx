@@ -13,7 +13,6 @@ var CharacterList = React.createClass({
 
 		var character = this.props.character
 
-		console.log("hello", character)
 
 		return(
 			<li>
