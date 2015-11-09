@@ -1,6 +1,6 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[], currentCharacter:[]
+		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[]
 		}
 	},
 
@@ -8,32 +8,25 @@ var CharacterSheet = React.createClass({
 
 		console.log('mounting')
 
-		var self = this
-
-	var weaponsData,
-		armorsData,
-		ajaxArmorData = {url:'api/armors',success: function(responseData){
-			armorsData = responseData
-			return (armorsData)
-		}},
-
-		ajaxWeaponData = {url: 'api/weapons', success: function(responseData){
-			weaponsData = responseData
-			return (weaponsData)
-		}}
+		var self = this,
+		ajaxArmorData = {url:'api/armors'},
+		ajaxWeaponData = {url: 'api/weapons'},
+		ajaxShieldsData = {url: 'api/shields'}
 	
-	// var weaponsData = 
-	$.ajax(ajaxWeaponData).then((d)=>{
-		this.props.weaponsData = d
-		console.log('retrieving weapons',d)
-		this.setState({weaponsData:d.weapons})
+	$.ajax(ajaxWeaponData).then((responseData)=>{
+		console.log('retrieving weapons',responseData)
+		this.setState({weaponsData:responseData.weapons})
 		})
 
-	$.ajax(ajaxArmorData).then((d)=>{
-		this.props.armorsData = d
-		console.log('retrieving armors', d)
-		this.setState({armorsData:d.armors})
+	$.ajax(ajaxArmorData).then((responseData)=>{
+		console.log('retrieving armors', responseData)
+		this.setState({armorsData:responseData.armors})
 		})
+
+	$.ajax(ajaxShieldsData).then((responseData)=>{
+		console.log('retrieving shields', responseData)
+		this.setState({shieldsData: responseData.shields})
+	})
 
 	$.ajax({
 		type:"GET",
@@ -56,10 +49,10 @@ var CharacterSheet = React.createClass({
 
 		return(
 			<div id="charContainer">
-				<NameInfoBox />
+				<NameInfoBox currentCharacter={this.state.currentCharacter}/>
 				<StatsBlock />
 				<HealthandArmorClass/>
-				<WeaponsandArmor  armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
+				<WeaponsandArmor shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
 				<SkillsAbilsMagicItems character={this.props.character} />
 				<TraitsandFlaws />
 			</div>	
@@ -95,7 +88,10 @@ var NameInfoBox = React.createClass({
 	// },
 
 	render: function(){
-	
+		
+		character = this.props.currentCharacter
+
+		console.log("namebox" , character)
 
 			
 		return(
@@ -106,17 +102,17 @@ var NameInfoBox = React.createClass({
 				</div>
 				<div>	
 					<p>Character Name</p>
-					<input id='characterName' ref="characterName" type='text' placeholder='Character Name'/>
+					<input value={character.character_name} ref="characterName" type='text' placeholder='Character Name'/>
 				</div>
 				<div>
 					<p>Race</p>
-					<input ref='race' type="text" placeholder='Race'/>
+					<input value={character.character_race}ref='race' type="text" placeholder='Race'/>
 				</div>
 				<div>
 					<p>Level</p>
-					<input ref='level' type='number'/>
+					<input value={character.character_level}ref='level' type='number'/>
 					<p>Class</p>
-					<input ref="class" type='text' placeholder="Class"/>		
+					<input value={character.character_class}ref="class" type='text' placeholder="Class"/>		
 				</div>
 				<button>Save player info.</button>
 			</div>	

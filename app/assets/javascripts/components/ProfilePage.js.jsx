@@ -1,10 +1,10 @@
  var ProfilePage = React.createClass({
 
- 	getInitialState:function(){
+ 	getInitialState(){
  		return {count: 0, charactersData:[], campaigns:[], currentUser:''}
  	},
 
- 	componentWillMount: function(){
+ 	componentWillMount(){
 
  			console.log('step 1')
  		var self = this
@@ -31,7 +31,23 @@
 			})
  	},
 
- 	_logOut: function(){
+ 	_createNewCampaign(){
+
+ 		$.ajax({
+ 			type:"POST",
+ 			url:"api/campaigns",
+ 			data:{
+ 				campaign:{
+ 					name: this.refs.campaignName.value
+ 				}
+ 			},
+ 			success: (()=>{
+ 				alert(this.refs.campaignName.value + " has been created!f")
+ 			})	
+ 		})
+ 	},
+
+ 	_logOut(){
 
  			$.ajax({
 			type: "DELETE",
@@ -43,7 +59,7 @@
 		})
  	},
 
- 	_showCharacters:function(character){
+ 	_showCharacters(character){
 
  		return(
  			<CharacterList 
@@ -53,7 +69,7 @@
  			)
  	},
 
- 	_showCampaigns:function(campaign){
+ 	_showCampaigns(campaign){
 
  		return(
  			<CampaignList 
@@ -77,6 +93,8 @@
  			<div id="ProfilePage">
  				<button onClick={this._logOut}>Log Out</button>
  				<h1>Welcome!</h1>
+ 				<input ref="campaignName" type="input" placeholder="name your campaign"></input>
+ 				<button onClick={this._createNewCampaign}>create new campaign</button>
  				<div id='characterList'>
 	 				<ul>
 	 					{characters.map(this._showCharacters)}
