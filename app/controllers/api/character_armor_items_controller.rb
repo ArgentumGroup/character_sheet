@@ -1,8 +1,14 @@
 class Api::CharacterArmorItemsController < ApplicationController
+
+  before_action do
+    @current_character = Character.find_by id: session[:character_id]
+  end
+
   def create
     @inventory = @current_character.inventory
     @character_armor_item = @inventory.character_armor_items.new(character_armor_item_params)
     @inventory.save
+    render json: @character_armor_item
   end
 
   def update

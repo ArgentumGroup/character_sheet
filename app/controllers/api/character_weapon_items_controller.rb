@@ -8,6 +8,7 @@ class Api::CharacterWeaponItemsController < ApplicationController
     @inventory = @current_character.inventory
     @character_weapon_item = @inventory.character_weapon_items.new(character_weapon_item_params)
     @inventory.save
+    render json: @character_weapon_item
   end
 
   def update
