@@ -1,4 +1,5 @@
 json.character do
+  json.armor_class @character.armor_class
   json.character_id @character.id
   json.character_user_id @character.user_id
   json.character_name @character.name

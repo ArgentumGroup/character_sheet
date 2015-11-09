@@ -22,10 +22,6 @@ class Api::CharactersController < ApplicationController
 
     if @character.save
 
-      Sheet.create!(
-      {character_id: @character.id}
-      )
-
       @capblock = CapabilityBlock.create!(
         {character_id: @character.id}
         )
