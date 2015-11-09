@@ -1,27 +1,44 @@
 var NewCharacter = React.createClass({
 
 		getInitialState:function(){
-			return {currentUser:'', abilityScores:'no', currentCharacter:'', str: null, dex: null, con: null, int: null, wis: null, cha: null}
+			return {lastCharacterId:'' ,currentUser:'', abilityScores:'no', currentCharacter:'', str: null, dex: null, con: null, int: null, wis: null, cha: null}
 		},
 
 		componentWillMount:function(){
 			var self = this
 
-			var charactersData = this.props.charactersData,
-				lastCharacter = _.last(charactersData),
-				real_character_id = lastCharacter.character_id
+			// var charactersData = this.props.charactersData,
+			// 	lastCharacter = _.last(charactersData),
+			// 	real_character_id = lastCharacter.character_id
+
 
 			$.ajax(
- 				{url: 'api/characters/' + real_character_id,
- 				dataType: 'json'
- 				}).then(function(responseData){
- 					self.setState({currentUser: responseData.character_user_id,currentCharacter: responseData.character})
- 				})
+				{url: 'api/characters',
+				dataType: 'json'
+				}).then((responseData)=>{
+					var charactersData = responseData.characters.characters,
+						lastCharacter = _.last(charactersData),
+						real_character_id = lastCharacter.character_id
+					self.setState({lastCharacterId: real_character_id})
+				}).then(function(){
+					console.log("ajax last character", self.state.lastCharacterId)
+					$.ajax(
+ 						{url: 'api/characters/' + self.state.lastCharacterId,
+ 						dataType: 'json',
+ 						success: function(responseData){
+						self.setState({currentUser: responseData.character.character_user_id,currentCharacter: responseData.character})
+ 							},
+ 						}
+					)
+				})
+
+ 				console.log("this where last character should be", self.state.lastCharacterId)
 		},
 
 		_onRaceSelect: function(){
 		var select = ReactDOM.findDOMNode(this.refs.race),
 			value = $(select).val()
+
 
 		if(value === 'dwarf'){
 			$('#selectSubRace').html("<option disabled selected>Choose Sub Race</option>\
@@ -77,9 +94,9 @@ var NewCharacter = React.createClass({
 			races = ReactDOM.findDOMNode(this.refs.subRace)
 			selectedRace = $(races).val(),
 			character_id = this.state.currentCharacter.character_id.toString()
-			console.log(character_id)
+			console.log("saving", character_id)
 
-			console.log('saving')
+
 			$.ajax({
 			type: "PATCH",
  			url: "api/characters/" + character_id,
@@ -88,8 +105,8 @@ var NewCharacter = React.createClass({
     			level: level,
     			klass: charClass,
     			race: selectedRace},
-    			charater_capabilities:{
-    				ability_score_block:{
+    			capability_block_attributes:{
+    				ability_score_block_attributes:{
     					strength:this.state.str,
     					dexterity:this.state.dex,
     					constitution: this.state.con,

@@ -1,5 +1,8 @@
  var ProfilePage = React.createClass({
 
+
+
+
  	getInitialState(){
  		return {count: 0, charactersData:[], campaigns:[], currentUser:''}
  	},
@@ -8,6 +11,7 @@
 
  			console.log('step 1')
  		var self = this
+
 
  		$.ajax(
  			{url: 'api/characters',
