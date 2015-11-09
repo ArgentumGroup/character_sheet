@@ -83,7 +83,7 @@
  	render: function(){
 
 		var characters = this.state.charactersData,
-			campaigns = this.state.campaigns
+			campaigns = this.state.campaigns,
 			lastCharacter = characters[characters.length-1]
 
 		console.log(characters)
