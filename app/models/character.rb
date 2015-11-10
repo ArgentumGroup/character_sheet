@@ -21,4 +21,16 @@ class Character < ActiveRecord::Base
     inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class
   end
 
+  def initiative
+    if capability_block.ability_score_block.dexterity < 10
+      ((capability_block.ability_score_block.dexterity - 10) / 2).to_s
+    else
+      "+#{((capability_block.ability_score_block.dexterity - 10) / 2).to_s}"
+    end
+  end
+
+  def proficiency_bonus
+
+  end
+
 end
