@@ -1,6 +1,20 @@
 json.character do
   json.armor_class @character.armor_class
   json.initiative @character.initiative
+  json.hit_points @character.hit_points
+  json.proficiency_bonus @character.proficiency_bonus
+  json.strength_modifier @character.strength_ability_modifier
+  json.dexterity_modifier @character.dexterity_ability_modifier
+  json.constitution_modifier @character.constitution_ability_modifier
+  json.intelligence_modifier @character.intelligence_ability_modifier
+  json.wisdom_modifier @character.wisdom_ability_modifier
+  json.charisma_modifier @character.charisma_ability_modifier
+  json.strength_save @character.strength_save_modifier
+  json.dexterity_save @character.dexterity_save_modifier
+  json.constitution_save @character.constitution_save_modifier
+  json.intelligence_save @character.intelligence_save_modifier
+  json.wisdom_save @character.wisdom_save_modifier
+  json.charisma_save @character.charisma_save_modifier
   json.character_id @character.id
   json.character_user_id @character.user_id
   json.character_name @character.name

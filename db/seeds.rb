@@ -87,11 +87,11 @@ weapons = Weapon.create!([
 
 
 characters = Character.create! ([
-  {name: 'First character', level: '3', race: 'Elf, wood', klass: 'Cleric', campaign_id: 1, user_id: 1},
-  {name: 'Second character', level: '8', race: 'Elf, high', klass: 'Wizard', campaign_id: 2, user_id: 1},
-  {name: 'Third character', level: '1', race: 'Human, base', klass: 'Fighter', campaign_id: 2, user_id: 2},
-  {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass: 'Rogue', campaign_id: 2, user_id: 2},
-  {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass: 'Rogue', campaign_id: 1, user_id: 2},
+  {name: 'First character', level: '3', race: 'Elf, wood', klass_id: 1, campaign_id: 1, user_id: 1},
+  {name: 'Second character', level: '8', race: 'Elf, high', klass_id: 4, campaign_id: 2, user_id: 1},
+  {name: 'Third character', level: '1', race: 'Human, base', klass_id: 2, campaign_id: 2, user_id: 2},
+  {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass_id: 3, campaign_id: 2, user_id: 2},
+  {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass_id: 3, campaign_id: 1, user_id: 2},
   ])
 
 campaigns = Campaign.create! ([
@@ -103,6 +103,14 @@ users = User.create! ([
   {name: "Dr. Fart", email: "Fart@clown.co", password: "12345678"},
   # {name: "Dr. Poop, II", email: "poop@clown.co", password: "12345678"}
 ])
+
+klasses = Klass.create! ([
+  {name: 'Cleric', description: 'A priestly champion who wields divine magic in service of a higher power', hit_die: 8, strength_save_proficiency: false, dexterity_save_proficiency: false, constitution_save_proficiency: false, intelligence_save_proficiency: false, wisdom_save_proficiency: true, charisma_save_proficiency: true, light_armor_proficiency: true, medium_armor_proficiency: true, heavy_armor_proficiency: false, simple_weapon_proficiency: true, martial_weapon_proficiency: false, shield_proficiency: true, spellcaster: true, caster_type: 'Cleric'},
+  {name: 'Fighter', description: 'A master of martial combat, skilled with a variety of weapons and armor', hit_die: 10, strength_save_proficiency: true, dexterity_save_proficiency: false, constitution_save_proficiency: true, intelligence_save_proficiency: false, wisdom_save_proficiency: false, charisma_save_proficiency: false, light_armor_proficiency: true, medium_armor_proficiency: true, heavy_armor_proficiency: true, simple_weapon_proficiency: true, martial_weapon_proficiency: true, shield_proficiency: true, spellcaster: false, caster_type: 'None'},
+  {name: 'Rogue', description:'A scoundrel who uses stealth and trickery to overcome obstacles and enemies', hit_die: 8, strength_save_proficiency: false, dexterity_save_proficiency: true, constitution_save_proficiency: false, intelligence_save_proficiency: true, wisdom_save_proficiency:false, charisma_save_proficiency: false, light_armor_proficiency: true, medium_armor_proficiency: false, heavy_armor_proficiency: false, simple_weapon_proficiency: true, martial_weapon_proficiency: false, shield_proficiency: false, spellcaster: false, caster_type: 'None'},
+  {name: 'Wizard', description: 'A scholarly magic-user capable of manipulating the structures of reality', hit_die: 6, strength_save_proficiency: false, dexterity_save_proficiency: false, constitution_save_proficiency: false, intelligence_save_proficiency: true, wisdom_save_proficiency: true, charisma_save_proficiency: false, light_armor_proficiency: false, medium_armor_proficiency: false, heavy_armor_proficiency: false, simple_weapon_proficiency: false, martial_weapon_proficiency: false, shield_proficiency: false, spellcaster: true, caster_type: 'Wizard'}
+])
+
 
 # characters.each do |character|
 #   users.each do |user|
