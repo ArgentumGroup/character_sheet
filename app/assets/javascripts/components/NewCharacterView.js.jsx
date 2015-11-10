@@ -69,7 +69,7 @@ var NewCharacter = React.createClass({
 		var select = ReactDOM.findDOMNode(this.refs.class),
 			value = $(select).val();
 
-	
+
 		// var arches = [
 		// 	{
 		// 		name: 'Rogue',
@@ -83,7 +83,7 @@ var NewCharacter = React.createClass({
 		// 		name: 'Rogue',
 		// 		desc: '<p>Do you want to skulk in the...';
 		// 	},
-			
+
 		// ];
 
 		// arches.forEach(function(archetype) {
@@ -92,7 +92,7 @@ var NewCharacter = React.createClass({
 		// 		$("#classDescription").html(archetype.desc);
 		// 	}
 		// });
-		
+
 		if(value === 'Rogue'){
 			console.log('rogue')
 			$("#classDescription").html("<h3>Rogue</h3>\
@@ -134,18 +134,18 @@ var NewCharacter = React.createClass({
     				name: name,
     				level: level,
     				klass: charClass,
-    				race: selectedRace
-    			},
-    			capability_block_attributes:{
-    				id: capabilityBlockId,
-    				ability_score_block_attributes:{
-    					id: abilityScoresId,
-    					strength:this.state.str,
-    					dexterity:this.state.dex,
-    					constitution: this.state.con,
-    					intelligence: this.state.int,
-    					wisdom: this.state.wis,
-    					charisma: this.state.cha}
+    				race: selectedRace,
+	    			capability_block_attributes:{
+	    				id: capabilityBlockId,
+	    				ability_score_block_attributes:{
+	    					id: abilityScoresId,
+	    					strength:this.state.str,
+	    					dexterity:this.state.dex,
+	    					constitution: this.state.con,
+	    					intelligence: this.state.int,
+	    					wisdom: this.state.wis,
+	    					charisma: this.state.cha}
+							}
     				}
     			}
   			})
