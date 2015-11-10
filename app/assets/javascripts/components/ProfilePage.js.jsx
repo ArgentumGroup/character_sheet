@@ -31,7 +31,7 @@
 			{url: 'api/characters',
 			dataType: 'json'
 			}).then(function(responseData){
-				self.setState({currentUser: responseData.characters.user_id})
+				self.setState({currentUser: responseData.characters})
 			})
  	},
 

@@ -3,12 +3,12 @@ var CampaignList = React.createClass({
  	_createCharacter: function(){
 
 		var characters = this.props.characters,
-			currentUser = this.props.currentUser,
+			currentUser = this.props.currentUser.user_id,
 			campaign = this.props.campaign.id,
 			self = this
 
 
-	console.log('ninja turtles', characters)
+	console.log('ninja turtles', currentUser)
 
 		$.ajax({
 		type: "POST",
@@ -16,21 +16,11 @@ var CampaignList = React.createClass({
 			data: {
 			character:{
   				user_id: currentUser,
-  				campaign_id: campaign
+  				campaign_id: campaign}
 				}
-				}
-<<<<<<< HEAD
-
-	})
+			})	
 
 	ReactDOM.render(<NewCharacter
-=======
-
-	})
-
-
-	ReactDOM.render(<NewCharacter
->>>>>>> master
 						charactersData={this.props.characters}
 						/>, document.querySelector('#container'))
 

@@ -13,19 +13,19 @@ var CharacterSheet = React.createClass({
 		ajaxWeaponData = {url: 'api/weapons'},
 		ajaxShieldsData = {url: 'api/shields'}
 	
-	$.ajax(ajaxWeaponData).then((responseData)=>{
+	$.ajax(ajaxWeaponData).then(function(responseData){
 		console.log('retrieving weapons',responseData)
-		this.setState({weaponsData:responseData.weapons})
+		self.setState({weaponsData:responseData.weapons})
 		})
 
-	$.ajax(ajaxArmorData).then((responseData)=>{
+	$.ajax(ajaxArmorData).then(function(responseData){
 		console.log('retrieving armors', responseData)
-		this.setState({armorsData:responseData.armors})
+		self.setState({armorsData:responseData.armors})
 		})
 
-	$.ajax(ajaxShieldsData).then((responseData)=>{
+	$.ajax(ajaxShieldsData).then(function(responseData){
 		console.log('retrieving shields', responseData)
-		this.setState({shieldsData: responseData.shields})
+		self.setState({shieldsData: responseData.shields})
 	})
 
 	$.ajax({
@@ -37,21 +37,23 @@ var CharacterSheet = React.createClass({
 		})
 	},
 
-	_goProfile:()=>{
+	_goProfile:function(){
 
 		location.hash = 'profile'
 
 	},	
 
-	render:()=>{
+	render:function(){
 
 
 	// function(){
 	// 	console.log(weaponsData.weapons)
 	// 	return(weaponsData.weapons)
 	// 	})
+	// 	
+	
 		
-		console.log("here is the currentCharacter" ,this.state.currentCharacter)
+		// console.log("here is the currentCharacter" ,this.state.currentCharacter)
 
 		return(
 			<div id="charContainer">
