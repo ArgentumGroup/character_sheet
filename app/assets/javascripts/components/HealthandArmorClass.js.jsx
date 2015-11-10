@@ -2,12 +2,15 @@ var HealthandArmorClass = React.createClass({
 
 	render: function(){
 
+		var currentCharacter= this.props.currentCharacter
+		console.log('heres armor')
+
 		return(
 			<div id='armorStats'>
 				<div id='armorClassBlock'>
 					<div>
 						<h3>Armor Class </h3>
-						<input type='number'/>
+						<input value={currentCharacter.armor_class} type='number'/>
 					</div>	
 					<div>
 						<h3>Initiative </h3>
