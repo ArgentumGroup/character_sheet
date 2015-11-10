@@ -144,10 +144,11 @@ var NewCharacter = React.createClass({
 	    					constitution: this.state.con,
 	    					intelligence: this.state.int,
 	    					wisdom: this.state.wis,
-	    					charisma: this.state.cha}
-							}
+	    					charisma: this.state.cha
+						}
     				}
     			}
+  			}
   			})
   			// ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
