@@ -134,20 +134,21 @@ var NewCharacter = React.createClass({
     				name: name,
     				level: level,
     				klass: charClass,
-    				race: selectedRace
-    			},
-    			capability_block_attributes:{
-    				id: capabilityBlockId,
-    				ability_score_block_attributes:{
+    				race: selectedRace,
+    				capability_block_attributes:{
+    					id: capabilityBlockId,
+    					ability_score_block_attributes:{
     					id: abilityScoresId,
     					strength:this.state.str,
     					dexterity:this.state.dex,
     					constitution: this.state.con,
     					intelligence: this.state.int,
     					wisdom: this.state.wis,
-    					charisma: this.state.cha}
+    					charisma: this.state.cha
+    					}
     				}
     			}
+  			}
   			})
   			// ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},

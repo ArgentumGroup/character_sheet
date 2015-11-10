@@ -4,6 +4,10 @@
 // 
 // 
 
+
+// ================= Character Sheet =================//
+
+
 #charContainer {
 
 	#charData{
@@ -29,6 +33,7 @@
 	position: relative;
     border: 1px solid black;
     width: 890px;
+    margin: 0;
 }
 
 #armorStats {
@@ -325,4 +330,45 @@
 	}
 
 	width:300px;
+}
+
+
+// ==================== Profile Page Styling========== //
+
+#ProfilePage {
+
+	font-family: Arial;
+}
+
+#charactersCampaigns {
+
+
+	#characterList {
+
+		ul {
+
+			list-style: none;
+		}
+
+		width: 20rem;
+	}
+
+	#campaignList {
+
+		ul {
+
+			list-style: none;
+		}
+
+		button {
+
+			float: right;
+		}
+
+		width: 20rem;
+    	padding-right: 2rem;
+	}
+
+	
+	display: flex;
 }

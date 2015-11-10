@@ -37,18 +37,20 @@
 
  	_createNewCampaign(){
 
- 		$.ajax({
- 			type:"POST",
- 			url:"api/campaigns",
- 			data:{
- 				campaign:{
- 					name: this.refs.campaignName.value
- 				}
- 			},
- 			success: (()=>{
- 				alert(this.refs.campaignName.value + " has been created!f")
- 			})	
- 		})
+ 		console.log(this.refs.campaignName.value)
+
+ 		// $.ajax({
+ 		// 	type:"POST",
+ 		// 	url:"api/campaigns",
+ 		// 	data:{
+ 		// 		campaign:{
+ 		// 			name: this.refs.campaignName.value
+ 		// 		}
+ 		// 	},
+ 		// 	success: (()=>{
+ 		// 		alert(this.refs.campaignName.value + " has been created!f")
+ 		// 	})	
+ 		// })
  	},
 
  	_logOut(){
@@ -99,19 +101,23 @@
  				<h1>Welcome!</h1>
  				<input ref="campaignName" type="input" placeholder="name your campaign"></input>
  				<button onClick={this._createNewCampaign}>create new campaign</button>
- 				<div id='characterList'>
-	 				<ul>
-	 					{characters.map(this._showCharacters)}
-	 				</ul>
- 				</div>
- 				<div id='campaignList'>
- 					<ul>
- 						{campaigns.map(this._showCampaigns)}
- 					</ul>	
- 				</div>
- 				<div id="recentActivity">
- 					<p>Recent stuff goes here.</p>
- 				</div>	
+ 				<div id="charactersCampaigns">
+	 				<div id='characterList'>
+	 				<h3>Your Characters</h3>
+		 				<ul>
+		 					{characters.map(this._showCharacters)}
+		 				</ul>
+	 				</div>
+	 				<div id='campaignList'>
+	 				<h3>Campaign List</h3>
+	 					<ul>
+	 						{campaigns.map(this._showCampaigns)}
+	 					</ul>	
+	 				</div>
+	 				<div id="recentActivity">
+	 					<p>Recent stuff goes here.</p>
+	 				</div>
+	 			</div>		
  			</div>
  			)
 
