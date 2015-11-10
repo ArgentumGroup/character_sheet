@@ -1,7 +1,7 @@
 var WeaponsandArmor = React.createClass({
 
 	getInitialState: function(){
-		return {equippedWeapon: '', equippedArmor:''}
+		return {equippedWeapon: '', equippedArmor:'', armors:'', shield:'', weapons:'', armorEquipped:'no', weaponEquipped:'no'}
 	},
 
 	_displayWeapons: function(weapon){
@@ -39,7 +39,7 @@ var WeaponsandArmor = React.createClass({
 		var self = this
 		this.props.weaponsData.forEach(function(weapon){
 			if(weapon.name === self.refs.selectedWeapon.value){
-				self.setState({equippedWeapon: weapon.id})
+				self.setState({equippedWeapon: weapon.id, weapons: weapon})
 				console.log(self.state.equippedWeapon)
 			}
 		})
@@ -50,7 +50,7 @@ var WeaponsandArmor = React.createClass({
 		var self = this
 		this.props.armorsData.forEach(function(armor){
 			if(armor.name === self.refs.selectedArmor.value){
-				self.setState({equippedArmor: armor.id})
+				self.setState({equippedArmor: armor.id, armors: armor})
 				console.log(self.state.equippedArmor)
 			}
 		})
@@ -60,7 +60,7 @@ var WeaponsandArmor = React.createClass({
 		var self = this
 		this.props.shieldsData.forEach(function(shield){
 			if(shield.name === self.refs.selectedShield.value){
-				self.setState({equippedShield: shield.id})
+				self.setState({equippedShield: shield.id, shield: shield})
 				console.log(self.state.equippedShield)
 			}
 		})
@@ -78,8 +78,9 @@ var WeaponsandArmor = React.createClass({
   			data: {character_weapon_item:{
       						weapon_id: self.state.equippedWeapon
     								}
-  			}
+    				}
 		})
+		self.setState({weaponEquipped: 'yes'})
 	},
 
 	_equipArmor: function(){
@@ -100,14 +101,19 @@ var WeaponsandArmor = React.createClass({
 			url: "api/character_shield_items",
 			data: {character_shield_item:{
 							shield_id: self.state.equippedShield
-			}}
+							}
+			}
 		})
+		self.setState({armorEquipped: 'yes'})
 	},
 
 	render: function(){
 
 		var equippedWeapon = this.state.equippedWeapon,
-			equippedArmor = this.state.equippedArmor
+			equippedArmor = this.state.equippedArmor,
+			weapons = this.state.weapons,
+			armors = this.state.armors,
+			shield = this.state.shield
 
 		return(
 			<div id='weaponsAndArmor'>
@@ -119,12 +125,12 @@ var WeaponsandArmor = React.createClass({
 					<button onClick={this._equipWeapons}>Equip</button>
 					<h4>Equipped Weapons</h4>
 					<ul>
-						<p>Placeholder</p>
+						<p>{weapons.name}</p>
 					</ul>
 					<div id="makeAttackBox">
 						<h4>Make an Attack</h4>
 						<div>
-							<p>{equippedWeapon.name}</p>
+							
 						</div>
 					</div>
 				</div>
@@ -140,7 +146,7 @@ var WeaponsandArmor = React.createClass({
 					<button onClick={this._equipArmor}>Equip</button>
 					<h4>Equipped Armor</h4>
 					<ul>
-						<li>Armor Name: {equippedArmor.name}</li>
+						<li>Armor Name: {armors.name}</li>
 					</ul>
 				</div>
 			</div>
