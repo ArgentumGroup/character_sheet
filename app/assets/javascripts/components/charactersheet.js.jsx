@@ -16,17 +16,17 @@ var CharacterSheet = React.createClass({
 	$.ajax(ajaxWeaponData).then(function(responseData){
 		console.log('retrieving weapons',responseData)
 		self.setState({weaponsData:responseData.weapons})
-		});
+		})
 
 	$.ajax(ajaxArmorData).then(function(responseData){
 		console.log('retrieving armors', responseData)
 		self.setState({armorsData:responseData.armors})
-		});
+		})
 
 	$.ajax(ajaxShieldsData).then(function(responseData){
 		console.log('retrieving shields', responseData)
 		self.setState({shieldsData: responseData.shields})
-		});
+		})
 
 	$.ajax({
 		type:"GET",
