@@ -58,11 +58,13 @@ class Api::CharactersController < ApplicationController
 
   private
     def character_params
-      params.require(:character).permit(:user_id, :campaign_id, :name, :level, :klass, :race,
+      params.require(:character).permit(:user_id, :campaign_id, :name, :level, :race, :klass_id,
         capability_block_attributes:
           [ :id,
             ability_score_block_attributes:
               [ :id, :strength, :dexterity, :constitution, :intelligence, :wisdom, :charisma ],
+            # character_klass_items_attributes:
+            #   [ :id, :klass_id ],
             character_skill_item_attributes:
               [ :id, :skill_id ],
             character_spell_item_attributes:

@@ -16,9 +16,10 @@ var CampaignList = React.createClass({
 			data: {
 			character:{
   				user_id: currentUser,
+          klass_id: 1,
   				campaign_id: campaign}
 				}
-			})	
+			})
 
 	ReactDOM.render(<NewCharacter
 						charactersData={this.props.characters}
