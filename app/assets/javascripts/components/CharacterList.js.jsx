@@ -3,6 +3,7 @@ var CharacterList = React.createClass({
 	_editChar(){
 
 		var characterId = this.props.character.character_id
+		location.hash= 'charactersheet'
 
 		ReactDOM.render(<CharacterSheet character_id={characterId}/>, document.querySelector("#container"))
 	},

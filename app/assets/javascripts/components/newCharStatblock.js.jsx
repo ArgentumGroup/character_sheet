@@ -1,7 +1,6 @@
 var NewCharStatBlock = React.createClass({				
 
-// 
- // <button onClick={this._goToSkills}>Finished? move on to the next step!</button>
+
 	_handleClick: function(){
 		var parentComms = this.props.parentComms,
 			self = this
