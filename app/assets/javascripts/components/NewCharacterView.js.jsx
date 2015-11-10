@@ -64,22 +64,49 @@ var NewCharacter = React.createClass({
 	},
 
 	_classSelect:function(){
+
+		console.log(this.state.currentCharacter.character_capabilities)
 		var select = ReactDOM.findDOMNode(this.refs.class),
-			value = $(select).val()
-		if(value === 'rogue'){
+			value = $(select).val();
+
+	
+		// var arches = [
+		// 	{
+		// 		name: 'Rogue',
+		// 		desc: '<p>Do you want to skulk in the...';
+		// 	},
+		// 	{
+		// 		name: 'Rogue',
+		// 		desc: '<p>Do you want to skulk in the...';
+		// 	},
+		// 	{
+		// 		name: 'Rogue',
+		// 		desc: '<p>Do you want to skulk in the...';
+		// 	},
+			
+		// ];
+
+		// arches.forEach(function(archetype) {
+		// 	if(value === archetype.name) {
+		// 		console.log(archetype.name);
+		// 		$("#classDescription").html(archetype.desc);
+		// 	}
+		// });
+		
+		if(value === 'Rogue'){
 			console.log('rogue')
 			$("#classDescription").html("<h3>Rogue</h3>\
 										<p>Do you want to skulk in the shadows, striking with deadly precision and tumbling from danger? If yes then Rogue is for you!</p>")
 		}
-		if(value === 'fighter'){
+		if(value === 'Fighter'){
 			$("#classDescription").html("<h3>Fighter</h3>\
 										<p>Do you like to rush head first into battle, wielding all manner of deadly weapons? Do you like being the biggest, strongest, most threatening person in the room? Then Fighter will be your calling.</p>")
 		}
-		if(value === 'cleric'){
+		if(value === 'Cleric'){
 			$("#classDescription").html("<h3>Cleric</h3>\
 										<p>Do you want to wear your faith like armor, smiting your foes and healing your friends with the power of the gods? Reach out and touch faith, with a Cleric</p>")
 		}
-		if(value === 'wizard'){
+		if(value === 'Wizard'){
 			$("#classDescription").html("<h3>Wizard</h3>\
 										<p>Are you fan of dusty tomes, eldritch formulae, and pulling back the curtain of reality? Do you want to tap into the ambient energy of nature, bending it to your will? Wizard will be your calling.</p>")
 		}
@@ -88,25 +115,31 @@ var NewCharacter = React.createClass({
 	_saveChar: function(){
 
 		var classes = ReactDOM.findDOMNode(this.refs.class),
-			charClass = $(classes).val()
+			charClass = $(classes).val(),
 			name = this.refs.charName.value,
 			level = this.refs.level.value,
-			races = ReactDOM.findDOMNode(this.refs.subRace)
+			races = ReactDOM.findDOMNode(this.refs.subRace),
 			selectedRace = $(races).val(),
-			character_id = this.state.currentCharacter.character_id.toString()
-			console.log("saving", character_id)
+			character_id = this.state.currentCharacter.character_id.toString(),
+			capabilityBlockId = this.state.currentCharacter.character_capabilities.ability_scores.capability_block_id,
+			abilityScoresId = this.state.currentCharacter.character_capabilities.ability_scores.id
+			console.log("saving", capabilityBlockId, abilityScoresId)
 
 
 			$.ajax({
 			type: "PATCH",
  			url: "api/characters/" + character_id,
-  			data: {character:{
-    			name: name,
-    			level: level,
-    			klass: charClass,
-    			race: selectedRace},
+  			data: {
+  				character:{
+    				name: name,
+    				level: level,
+    				klass: charClass,
+    				race: selectedRace
+    			},
     			capability_block_attributes:{
+    				id: capabilityBlockId,
     				ability_score_block_attributes:{
+    					id: abilityScoresId,
     					strength:this.state.str,
     					dexterity:this.state.dex,
     					constitution: this.state.con,
@@ -116,7 +149,7 @@ var NewCharacter = React.createClass({
     				}
     			}
   			})
-  			ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
+  			// ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
 
 	_returnToProfile: function(){
@@ -146,6 +179,7 @@ var NewCharacter = React.createClass({
 			wis:wis,
 			cha:cha
 		})
+		console.log('wheeeee', this.state.str)
 
 	},
 
