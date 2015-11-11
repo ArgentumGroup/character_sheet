@@ -25,6 +25,22 @@
 
 	font-family: 'Quicksand', sans-serif;
 	text-align: center;
+	margin: 15% auto;
+	background-color: rgba(238, 238, 238, .8);
+	width: 19%;
+	padding: 2%;
+	border-radius: 6px;
+	.SignInButton {
+		background-color: #292E10;
+		color: #F0F6EA;
+		font-size: 1em;
+		height: 42px;
+		width: 200px;
+		margin-top: 1.67em;
+		margin-bottom: 1.67em;
+		border-radius: 6px;
+		margin-bottom: 1em;
+	}
 
 }
 
@@ -36,10 +52,10 @@
 	}
 
 	button {
-
+		text-align: center;
 		width: 50%;
-		margin-left: 25%;
-		margin-right: 25%;
+		// margin-left: 25%;
+		// margin-right: 25%;
 		margin-bottom: 5%;
 	}
 

@@ -39,9 +39,8 @@ var SignIn = React.createClass({
 				<div id="inputBox">
 					<input ref='email' type='text' placeholder='Email Address'/>
 					<input ref='password' type='password' placeholder='Password'/>
-					<button onClick={this._logIn}>Click to Sign in</button>
+					<button className='SignInButton' onClick={this._logIn}>Sign in</button>
 					<a href="/#signup">Don't have an account? Sign up here!</a>
-					<button onClick={this._logOut}>Log Out</button>
 				</div>
 			</div>
 			)
