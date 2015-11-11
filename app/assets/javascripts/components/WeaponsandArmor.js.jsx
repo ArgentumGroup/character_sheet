@@ -74,40 +74,44 @@ var WeaponsandArmor = React.createClass({
 
 		$.ajax({
 			type: "POST",
-  			url: "api/character_weapon_items",
-  			data: {character_weapon_item:{
+  			url:	"api/character_weapon_items",
+  			data:	{character_weapon_item:{
       						weapon_id: self.state.equippedWeapon
-    								}
+							},
+							character_id: self.props.currentCharacter.character_id
     				}
 		})
 		self.setState({weaponEquipped: 'yes'})
+		console.log(self.props.currentCharacter.character_id);
 	},
 
 	_equipArmor: function(){
-	
+
 	var self = this;
 	var parentComms = this.props.parentComms
 
 		$.ajax({
 			type: "POST",
-  			url: "api/character_armor_items",
+  			url:	"api/character_armor_items",
   			data: {character_armor_item:{
-      						armor_id: self.state.equippedArmor
-    								}
+									armor_id: self.state.equippedArmor
+    					},
+							character_id: self.props.currentCharacter.character_id
   			},
   			success: function(){
   					$.ajax({
 						type:"POST",
 						url: "api/character_shield_items",
 						data: {character_shield_item:{
-										shield_id: self.state.equippedShield
-										}
+											shield_id: self.state.equippedShield
+									},
+									character_id: self.props.currentCharacter.character_id
 						}
 					})}
 		})
 
-		
-		
+
+
 		parentComms()
 	},
 
@@ -134,7 +138,7 @@ var WeaponsandArmor = React.createClass({
 					<div id="makeAttackBox">
 						<h4>Make an Attack</h4>
 						<div>
-							
+
 						</div>
 					</div>
 				</div>
