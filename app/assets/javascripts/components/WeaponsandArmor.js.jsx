@@ -1,7 +1,7 @@
 var WeaponsandArmor = React.createClass({
 
 	getInitialState: function(){
-		return {equippedWeapon: '', equippedArmor:'', armors:'', shield:'', weapons:'', armorEquipped:'no', weaponEquipped:'no'}
+		return {equippedWeapon: '', equippedArmor:'', armors:'', shield:'', weapons:''}
 	},
 
 	_displayWeapons: function(weapon){
@@ -85,7 +85,8 @@ var WeaponsandArmor = React.createClass({
 
 	_equipArmor: function(){
 	
-	var self = this
+	var self = this;
+	var parentComms = this.props.parentComms
 
 		$.ajax({
 			type: "POST",
@@ -104,7 +105,8 @@ var WeaponsandArmor = React.createClass({
 							}
 			}
 		})
-		self.setState({armorEquipped: 'yes'})
+		
+		parentComms(1)
 	},
 
 	render: function(){
@@ -137,10 +139,12 @@ var WeaponsandArmor = React.createClass({
 				<div id='armor'>
 					<h4>Armors</h4>
 					<select onChange={this._setArmor}ref='selectedArmor'>
+						<option disabled selected>Choose Armor</option>
 						{this.props.armorsData.map(this._displayArmors)}
 					</select>
 					<h4>Shields</h4>
 					<select onChange={this._setShield}ref='selectedShield'>
+						<option disabled selected>Choose your shield</option>
 						{this.props.shieldsData.map(this._displayShields)}
 					</select>
 					<button onClick={this._equipArmor}>Equip</button>

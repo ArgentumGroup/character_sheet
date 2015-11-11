@@ -1,7 +1,6 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: []
-		}
+		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: [], characterClass:[], armors: 0 }
 	},
 
 	componentWillMount: function(){
@@ -34,13 +33,24 @@ var CharacterSheet = React.createClass({
 		dataType:'json'
 		}).then(function(responseData){
 			self.setState({currentCharacter:responseData.character,
-				capabilityBlock: responseData.character.character_capabilities.ability_scores})
+				capabilityBlock: responseData.character.character_capabilities.ability_scores, characterClass: responseData.character.character_class})
 		});
 	},
 
 	_goProfile:function(){
 
 		location.hash = 'profile';
+
+	},
+
+	_walkieTalkie:function(count){
+
+		var self = this
+
+		self.setState({
+			
+			armorsEquipped: (self.state.armorsEquipped = self.state.armorsEquipped + count)
+		})
 
 	},	
 
@@ -50,10 +60,10 @@ var CharacterSheet = React.createClass({
 		return(
 			<div id="charContainer">
 				<button onClick={this._goProfile}>Go to profile</button>
-				<NameInfoBox currentCharacter={this.state.currentCharacter}/>
+				<NameInfoBox currentCharacter={this.state.currentCharacter} characterClass={this.state.characterClass}/>
 				<StatsBlock capabilityBlock={this.state.capabilityBlock}/>
 				<HealthandArmorClass currentCharacter={this.state.currentCharacter}/>
-				<WeaponsandArmor currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
+				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
 				<SkillsAbilsMagicItems currentCharacter={this.state.currentCharacter} />
 				<TraitsandFlaws />
 			</div>	
@@ -68,6 +78,7 @@ var NameInfoBox = React.createClass({
 	render: function(){
 		
 		character = this.props.currentCharacter
+		characterClass = this.props.characterClass
 
 		console.log("namebox" , character)
 
@@ -90,7 +101,7 @@ var NameInfoBox = React.createClass({
 					<p>Level</p>
 					<input value={character.character_level}ref='level' type='number'/>
 					<p>Class</p>
-					<input value={character.character_class}ref="class" type='text' placeholder="Class"/>		
+					<input value={characterClass.name}ref="class" type='text' placeholder="Class"/>		
 				</div>
 				<button>Save player info.</button>
 			</div>	
