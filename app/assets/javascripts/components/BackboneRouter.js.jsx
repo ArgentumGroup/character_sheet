@@ -23,8 +23,13 @@ $( document ).ready(function() {
 		},
 
 		showProfile(){
+			
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
+		},
 
+		viewCharacter(){
+
+			ReactDOM.render( <CharacterSheet />, document.querySelector('#container'))
 		},
 
 		initialize: function(){
