@@ -48,3 +48,4 @@ end
 gem 'react-rails', '~> 1.4.0'
 gem 'rails-erd'
 gem 'underscore-rails'
+gem 'rails_12factor', group: :production
