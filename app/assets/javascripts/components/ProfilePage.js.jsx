@@ -38,19 +38,30 @@
  	_createNewCampaign(){
 
  		console.log(this.refs.campaignName.value)
+ 		var self = this
 
  		$.ajax({
  			type:"POST",
  			url:"api/campaigns",
  			data:{
  				campaign:{
- 					name: this.refs.campaignName.value
+ 					name: self.refs.campaignName.value
  				}
  			},
- 			success: (()=>{
- 				alert(this.refs.campaignName.value + " has been created!")
+ 			success: (function(){
+ 			
+ 				alert(self.refs.campaignName.value + " has been created!")
+ 				self.setState({count: self.state.count + 1})
+ 					$.ajax(
+ 						{url: 'api/campaigns',
+ 						dataType: 'json'
+ 						}).then(function(responseData){
+ 						self.setState({campaigns: responseData.campaigns})
+ 						})
  			})
  		})
+ 		
+ 		console.log(self.state.count)
  	},
 
  	_logOut(){
@@ -83,7 +94,33 @@
  				campaign={campaign}
  				characters={this.state.charactersData}
  				currentUser={this.state.currentUser}
+ 				count={this.state.count}
  				/>)
+ 	},
+
+ 	_createCharacter: function(){
+
+		var characters = this.state.charactersData,
+			currentUser = this.state.currentUser.user_id,
+			self = this
+
+
+	console.log('ninja turtles', currentUser)
+
+		$.ajax({
+		type: "POST",
+			url: "api/characters",
+			data: {
+			character:{
+  				user_id: currentUser,
+          klass_id: 1}
+				}
+			})
+
+	ReactDOM.render(<NewCharacter
+						charactersData={this.state.charactersData}
+						/>, document.querySelector('#container'))
+
  	},
 
  	render: function(){
@@ -104,6 +141,9 @@
 	 				<h3>Your Characters</h3>
 	 				<div id='characterList'>
 		 			{characters.map(this._showCharacters)}
+		 			<span onClick={this._createCharacter} className="characters">
+		 				<h3>Create a new Character</h3>
+		 			</span>	
 	 				</div>
 	 				<div id='campaignList'>
 	 				<h3>Campaign List</h3>

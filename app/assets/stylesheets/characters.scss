@@ -15,6 +15,12 @@
 
 // ================= Character Sheet =================//
 
+.modifiers {
+
+	float: right;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
 
 #charContainer {
 
@@ -38,6 +44,7 @@
 		height: 180px;
 	}
 
+	font-family: 'Quicksand', sans-serif;
 	position: relative;
     border: 1px solid black;
     width: 890px;
@@ -56,7 +63,7 @@
 				text-align: right;
 			}
 
-			height: 128px;
+			height: 139px;
     		margin-left: 25px;
 		}
 
@@ -71,7 +78,7 @@
     position: absolute;
     border: 1px solid black;
     width: 498px;
-    top: 1.6%;
+    top: 1.7%;
     right: 88px;
     background-color: rgba(238, 238, 238, 0.8);
 }
@@ -89,20 +96,15 @@
 
 				margin: 5px;
 			}
-
-			input {
-
-				margin: 0px;
-				text-align: right;
-			}
+			
 			width: 39%;
 			text-align: center;
 		}
 
 	border: 1px solid black;
 	display:flex;
-	height: 285px;
-    padding-top: 21px;
+	height: 310px;
+    padding-top: 3px;
     background-color: rgba(238, 238, 238, 0.8);
 }
 
@@ -386,9 +388,12 @@
 
 		.characters {
 		    
-		    margin-left: 1.6rem;
-		    margin-right: 1.6rem;
-		}
+		    margin-left: 0.6rem;
+		    margin-right: 0.6rem;
+		    margin-bottom: 1.2rem;
+		    padding: 20px;
+		    border: black solid 1px;
+		    width: 226px;		}
 
 		width: 870px;
 		display: flex;
