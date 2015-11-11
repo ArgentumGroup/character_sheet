@@ -15,6 +15,7 @@ class Api::CharacterWeaponItemsController < ApplicationController
   end
 
   def destroy
+    @curr_char = Character.find_by id: params[:character_id]
     @inventory = @current_character.inventory
     @character_weapon_item = @inventory.character_weapon_items.find(params[:id])
     @character_weapon_item.destroy
