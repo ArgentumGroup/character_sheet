@@ -19,7 +19,15 @@ class Character < ActiveRecord::Base
   accepts_nested_attributes_for :capability_block
 
   def armor_class
-    inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class
+    if inventory.character_armor_items.last.armor.armor_type == "None" || inventory.character_armor_items.last.armor.armor_type == "Light"
+      inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class + dexterity_ability_modifier
+    elsif inventory.character_armor_items.last.armor.armor_type == "Medium" && dexterity_ability_modifier < 3
+      inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class + dexterity_ability_modifier
+    elsif inventory.character_armor_items.last.armor.armor_type == "Medium" && dexterity_ability_modifier > 2
+      inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class + 2
+    else
+      inventory.character_armor_items.last.armor.armor_class + inventory.character_shield_items.last.shield.armor_class
+    end
   end
 
   def initiative
