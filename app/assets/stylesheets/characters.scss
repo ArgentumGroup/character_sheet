@@ -5,6 +5,14 @@
 //
 
 
+#container {
+
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	width: 900px;
+	margin: auto;
+}
+
 // ================= Character Sheet =================//
 
 
@@ -34,6 +42,7 @@
     border: 1px solid black;
     width: 890px;
     margin: 0;
+    background-color: rgba(238, 238, 238, 0.8);
 }
 
 #armorStats {
@@ -47,21 +56,24 @@
 				text-align: right;
 			}
 
-			margin-left: 25px;
+			height: 128px;
+    		margin-left: 25px;
 		}
 
 		text-align: center;
-		margin: 5px;
-		display: flex;
-		height: 102px;
+	    margin: 5px;
+	    display: flex;
+	    height: 138px;
+	    padding-top: 2rem;
 	}
 
 	margin: 0;
     position: absolute;
     border: 1px solid black;
     width: 498px;
-    top: 0%;
+    top: 1.6%;
     right: 88px;
+    background-color: rgba(238, 238, 238, 0.8);
 }
 
 #healthandDeathSaves {
@@ -89,8 +101,9 @@
 
 	border: 1px solid black;
 	display:flex;
-	height: 294px;
-    padding-top: 15px;
+	height: 285px;
+    padding-top: 21px;
+    background-color: rgba(238, 238, 238, 0.8);
 }
 
 #saves {
@@ -106,6 +119,7 @@
 			margin: 0;
 		}
 	}
+	background-color: rgba(238, 238, 238, 0.8);
 }
 
 #statsBlock {
@@ -120,10 +134,20 @@
 		float: right;
 		margin-right: 8px;
 		text-align: right;
+		width: 2rem;
+	}
+
+	#modifier {
+
+		float: right;
+    	margin-left: 50%;
+    	margin-right: .8rem;
 	}
 
 	border: 1px solid black;
 	width: 300px;
+	background-color: rgba(238, 238, 238, 0.8);
+
 }
 
 #weaponsAndArmor {
@@ -144,6 +168,7 @@
 	    height: 370px;
 	    width: 380px;
 	    padding-left: 20px;
+
 	}
 
 	#armor {
@@ -167,6 +192,7 @@
 	display: flex;
 	border: 1px solid black;
 	width: 800px;
+	background-color: rgba(238, 238, 238, 0.8);
 }
 
 #skillsAbilsMagicItems {
@@ -194,7 +220,7 @@
 			    height: 700px;
 			    width: 475px;
 			    border: 1px solid black;
-			    background-color: white;
+				background-color: rgba(238, 238, 238, 1);
 			    visibility: hidden;
 			}
 
@@ -219,7 +245,7 @@
     			height: 700px;
     			width: 475px;
 			    border: 1px solid black;
-			    background-color: white;
+				background-color: rgba(238, 238, 238, 1);
 			    visibility: hidden;
 			}
 
@@ -244,7 +270,7 @@
 				height: 700px;
 				width: 475px;
 			    border: 1px solid black;
-			    background-color: white;
+				background-color: rgba(238, 238, 238, 1);
 			    visibility: hidden;
 			}
 
@@ -270,7 +296,7 @@
 				height: 700px;
 				width: 475px;
 			    border: 1px solid black;
-			    background-color: white;
+				background-color: rgba(238, 238, 238, 1);
 			    visibility: hidden;
 			}
 
@@ -292,6 +318,8 @@
     border: 1px solid black;
     transform: rotate(90deg);
     display: flex;
+	background-color: rgba(238, 238, 238, 0.8);
+
 }
 
 #traitsBox {
@@ -312,7 +340,12 @@
     width: 800px;
     height: 277px;
     border: 1px solid black;
+	background-color: rgba(238, 238, 238, 0.8);
+
 }
+
+
+// =============== New Character creation Styling ========//
 
 #newCharacter {
 
@@ -330,6 +363,8 @@
 	}
 
 	width:300px;
+	background-color: rgba(238, 238, 238, 0.8);
+
 }
 
 
@@ -338,6 +373,9 @@
 #ProfilePage {
 
 	font-family: 'Quicksand', sans-serif;
+	background-color: rgba(238, 238, 238, 0.8);
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 #charactersCampaigns {
@@ -350,7 +388,7 @@
 			list-style: none;
 		}
 
-		width: 20rem;
+		width: 18rem;
 	}
 
 	#campaignList {

@@ -14,7 +14,7 @@ var HealthandArmorClass = React.createClass({
 					</div>	
 					<div>
 						<h3>Initiative </h3>
-						<input type='number' />
+						<input value={currentCharacter.initiative}type='string' />
 					</div>
 					<div>
 						<h3>Speed </h3>

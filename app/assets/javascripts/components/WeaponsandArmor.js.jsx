@@ -94,19 +94,21 @@ var WeaponsandArmor = React.createClass({
   			data: {character_armor_item:{
       						armor_id: self.state.equippedArmor
     								}
-  			}
+  			},
+  			success: function(){
+  					$.ajax({
+						type:"POST",
+						url: "api/character_shield_items",
+						data: {character_shield_item:{
+										shield_id: self.state.equippedShield
+										}
+						}
+					})}
 		})
 
-		$.ajax({
-			type:"POST",
-			url: "api/character_shield_items",
-			data: {character_shield_item:{
-							shield_id: self.state.equippedShield
-							}
-			}
-		})
 		
-		parentComms(1)
+		
+		parentComms()
 	},
 
 	render: function(){
