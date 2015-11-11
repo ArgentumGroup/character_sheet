@@ -15,6 +15,26 @@ json.character do
   json.intelligence_save @character.intelligence_save_modifier
   json.wisdom_save @character.wisdom_save_modifier
   json.charisma_save @character.charisma_save_modifier
+  json.skill_proficiencies do
+    json.acrobatics @character.acrobatics
+    json.animal_handling @character.animal_handling
+    json.arcana @character.arcana
+    json.athletics @character.athletics
+    json.deception @character.deception
+    json.history @character.history
+    json.insight @character.insight
+    json.intimidation @character.intimidation
+    json.investigation @character.investigation
+    json.medicine @character.medicine
+    json.nature @character.nature
+    json.perception @character.perception
+    json.performance @character.performance
+    json.persuasion @character.persuasion
+    json.religion @character.religion
+    json.sleight_of_hand @character.sleight_of_hand
+    json.stealth @character.stealth
+    json.survival @character.survival
+  end
   json.character_id @character.id
   json.character_user_id @character.user_id
   json.character_name @character.name

@@ -118,4 +118,291 @@ class Character < ActiveRecord::Base
     "+2"
   end
 
+  def acrobatics
+    if capability_block.character_skill_items.find_by skill_id: 1
+      if dexterity_ability_modifier + proficiency_bonus.to_i < 0
+        (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(dexterity_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if dexterity_ability_modifier < 0
+        dexterity_ability_modifier.to_s
+      else
+        "+#{dexterity_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def animal_handling
+    if capability_block.character_skill_items.find_by skill_id: 2
+      if wisdom_ability_modifier + proficiency_bonus.to_i < 0
+        (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(wisdom_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if wisdom_ability_modifier < 0
+        wisdom_ability_modifier.to_s
+      else
+        "+#{wisdom_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def arcana
+    if capability_block.character_skill_items.find_by skill_id: 3
+      if intelligence_ability_modifier + proficiency_bonus.to_i < 0
+        (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(intelligence_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if intelligence_ability_modifier < 0
+        intelligence_ability_modifier.to_s
+      else
+        "+#{intelligence_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def athletics
+    if capability_block.character_skill_items.find_by skill_id: 4
+      if strength_ability_modifier + proficiency_bonus.to_i < 0
+        (strength_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(strength_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if strength_ability_modifier < 0
+        strength_ability_modifier.to_s
+      else
+        "+#{strength_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def deception
+    if capability_block.character_skill_items.find_by skill_id: 5
+      if charisma_ability_modifier + proficiency_bonus.to_i < 0
+        (charisma_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(charisma_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if charisma_ability_modifier < 0
+        charisma_ability_modifier.to_s
+      else
+        "+#{charisma_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def history
+    if capability_block.character_skill_items.find_by skill_id: 6
+      if intelligence_ability_modifier + proficiency_bonus.to_i < 0
+        (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(intelligence_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if intelligence_ability_modifier < 0
+        intelligence_ability_modifier.to_s
+      else
+        "+#{intelligence_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def insight
+    if capability_block.character_skill_items.find_by skill_id: 7
+      if wisdom_ability_modifier + proficiency_bonus.to_i < 0
+        (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(wisdom_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if wisdom_ability_modifier < 0
+        wisdom_ability_modifier.to_s
+      else
+        "+#{wisdom_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def intimidation
+    if capability_block.character_skill_items.find_by skill_id: 8
+      if charisma_ability_modifier + proficiency_bonus.to_i < 0
+        (charisma_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(charisma_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if charisma_ability_modifier < 0
+        charisma_ability_modifier.to_s
+      else
+        "+#{charisma_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def investigation
+    if capability_block.character_skill_items.find_by skill_id: 9
+      if intelligence_ability_modifier + proficiency_bonus.to_i < 0
+        (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(intelligence_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if intelligence_ability_modifier < 0
+        intelligence_ability_modifier.to_s
+      else
+        "+#{intelligence_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def medicine
+    if capability_block.character_skill_items.find_by skill_id: 10
+      if wisdom_ability_modifier + proficiency_bonus.to_i < 0
+        (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(wisdom_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if wisdom_ability_modifier < 0
+        wisdom_ability_modifier.to_s
+      else
+        "+#{wisdom_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def nature
+    if capability_block.character_skill_items.find_by skill_id: 11
+      if wisdom_ability_modifier + proficiency_bonus.to_i < 0
+        (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(wisdom_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if wisdom_ability_modifier < 0
+        wisdom_ability_modifier.to_s
+      else
+        "+#{wisdom_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def perception
+    if capability_block.character_skill_items.find_by skill_id: 12
+      if wisdom_ability_modifier + proficiency_bonus.to_i < 0
+        (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(wisdom_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if wisdom_ability_modifier < 0
+        wisdom_ability_modifier.to_s
+      else
+        "+#{wisdom_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def performance
+    if capability_block.character_skill_items.find_by skill_id: 13
+      if charisma_ability_modifier + proficiency_bonus.to_i < 0
+        (charisma_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(charisma_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if charisma_ability_modifier < 0
+        charisma_ability_modifier.to_s
+      else
+        "+#{charisma_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def persuasion
+    if capability_block.character_skill_items.find_by skill_id: 14
+      if charisma_ability_modifier + proficiency_bonus.to_i < 0
+        (charisma_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(charisma_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if charisma_ability_modifier < 0
+        charisma_ability_modifier.to_s
+      else
+        "+#{charisma_ability_modifier.to_s}"
+      end
+    end
+  end
+  def religion
+    if capability_block.character_skill_items.find_by skill_id: 15
+      if intelligence_ability_modifier + proficiency_bonus.to_i < 0
+        (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(intelligence_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if intelligence_ability_modifier < 0
+        intelligence_ability_modifier.to_s
+      else
+        "+#{intelligence_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def sleight_of_hand
+    if capability_block.character_skill_items.find_by skill_id: 16
+      if dexterity_ability_modifier + proficiency_bonus.to_i < 0
+        (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(dexterity_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if dexterity_ability_modifier < 0
+        dexterity_ability_modifier.to_s
+      else
+        "+#{dexterity_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def stealth
+    if capability_block.character_skill_items.find_by skill_id: 17
+      if dexterity_ability_modifier + proficiency_bonus.to_i < 0
+        (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(dexterity_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if dexterity_ability_modifier < 0
+        dexterity_ability_modifier.to_s
+      else
+        "+#{dexterity_ability_modifier.to_s}"
+      end
+    end
+  end
+
+  def survival
+    if capability_block.character_skill_items.find_by skill_id: 18
+      if wisdom_ability_modifier + proficiency_bonus.to_i < 0
+        (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{(wisdom_ability_modifier + proficiency_bonus.to_i).to_s}"
+      end
+    else
+      if wisdom_ability_modifier < 0
+        wisdom_ability_modifier.to_s
+      else
+        "+#{wisdom_ability_modifier.to_s}"
+      end
+    end
+  end
+
 end
