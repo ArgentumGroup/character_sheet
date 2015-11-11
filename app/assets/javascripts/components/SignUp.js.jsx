@@ -34,6 +34,9 @@ var SignUp = React.createClass({
 					<input ref='password' type='password' placeholder="Password"/>
 					<input ref='confirm_password' type='password' placeholder="Confirm Password"/>
 					<button onClick={this._getUsernameandPassword}>Create User!</button>
+					<div>
+						<a href='#signin'>Have an account? Go back to Sign In</a>
+					</div>	
 				</div>	
 			</div>	
 			)

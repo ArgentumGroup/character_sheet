@@ -16,14 +16,14 @@ var CharacterList = React.createClass({
 
 
 		return(
-			<li>
-				<h3>{character.character_name}</h3>
-				<h4>Campaign: {character.character_campaign.name}</h4>
-				<p>Class: {character.character_class.name}</p>
-				<p>Level: {character.character_level}</p>
-				<p>Race: {character.character_race}</p>
-				<button onClick={this._editChar}>Edit your character!</button>
-			</li>
+				<span className="characters">
+					<h3>{character.character_name}</h3>
+					<h4>Campaign: {character.character_campaign.name}</h4>
+					<p>Class: {character.character_class.name}</p>
+					<p>Level: {character.character_level}</p>
+					<p>Race: {character.character_race}</p>
+					<button onClick={this._editChar}>Edit your character!</button>
+				</span>
 			)
 	}
 })
