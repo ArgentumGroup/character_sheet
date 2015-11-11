@@ -14,4 +14,6 @@
 
 # Ignore erd-produced database diagrams
 *.pdf
-*.jpg
+
+# Ignore stupid mac generated bullshit
+.DS_Store
