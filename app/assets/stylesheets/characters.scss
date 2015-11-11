@@ -376,6 +376,7 @@
 	background-color: rgba(238, 238, 238, 0.8);
 	padding-left: 1rem;
 	padding-right: 1rem;
+	border-radius: 2%;
 }
 
 #charactersCampaigns {
@@ -383,12 +384,15 @@
 
 	#characterList {
 
-		ul {
-
-			list-style: none;
+		.characters {
+		    
+		    margin-left: 1.6rem;
+		    margin-right: 1.6rem;
 		}
 
-		width: 18rem;
+		width: 870px;
+		display: flex;
+    	flex-wrap: wrap;
 	}
 
 	#campaignList {
@@ -408,5 +412,5 @@
 	}
 
 
-	display: flex;
+	
 }

@@ -98,15 +98,12 @@
  		return (
  			<div id="ProfilePage">
  				<button onClick={this._logOut}>Log Out</button>
- 				<h1>Welcome!</h1>
  				<input ref="campaignName" type="input" placeholder="name your campaign"></input>
  				<button onClick={this._createNewCampaign}>create new campaign</button>
  				<div id="charactersCampaigns">
-	 				<div id='characterList'>
 	 				<h3>Your Characters</h3>
-		 				<ul>
-		 					{characters.map(this._showCharacters)}
-		 				</ul>
+	 				<div id='characterList'>
+		 			{characters.map(this._showCharacters)}
 	 				</div>
 	 				<div id='campaignList'>
 	 				<h3>Campaign List</h3>
