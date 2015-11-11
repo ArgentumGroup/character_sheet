@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+
+body {
+  background-image: image-url("sign_in_background.jpg");
+  background-size: cover;
+}

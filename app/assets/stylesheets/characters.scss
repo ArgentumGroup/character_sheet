@@ -1,8 +1,8 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// 
-// 
+//
+//
 
 
 // ================= Character Sheet =================//
@@ -105,7 +105,7 @@
 		input {
 			margin: 0;
 		}
-	}	
+	}
 }
 
 #statsBlock {
@@ -176,7 +176,7 @@
 			div {
 
 				p{
-		
+
 					text-align: right;
 					margin-right: 16%;
 				}
@@ -232,7 +232,7 @@
 
 			visibility: visible;
 		}
-		
+
 		#spellsBar {
 
 			div {
@@ -337,7 +337,7 @@
 
 #ProfilePage {
 
-	font-family: Arial;
+	font-family: 'Quicksand', sans-serif;
 }
 
 #charactersCampaigns {
@@ -369,6 +369,6 @@
     	padding-right: 2rem;
 	}
 
-	
+
 	display: flex;
 }

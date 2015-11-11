@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102024906) do
+ActiveRecord::Schema.define(version: 20151110221511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,14 +94,36 @@ ActiveRecord::Schema.define(version: 20151102024906) do
     t.integer  "level"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "klass"
     t.string   "race"
+    t.integer  "klass_id"
   end
 
   create_table "inventories", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "character_id"
+  end
+
+  create_table "klasses", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "hit_die"
+    t.boolean  "strength_save_proficiency"
+    t.boolean  "dexterity_save_proficiency"
+    t.boolean  "constitution_save_proficiency"
+    t.boolean  "intelligence_save_proficiency"
+    t.boolean  "wisdom_save_proficiency"
+    t.boolean  "charisma_save_proficiency"
+    t.boolean  "light_armor_proficiency"
+    t.boolean  "medium_armor_proficiency"
+    t.boolean  "heavy_armor_proficiency"
+    t.boolean  "simple_weapon_proficiency"
+    t.boolean  "martial_weapon_proficiency"
+    t.boolean  "shield_proficiency"
+    t.boolean  "spellcaster"
+    t.string   "caster_type"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "shields", force: :cascade do |t|
