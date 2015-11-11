@@ -93,20 +93,20 @@ var NewCharacter = React.createClass({
 		// 	}
 		// });
 
-		if(value === 'Rogue'){
+		if(value === '3'){
 			console.log('rogue')
 			$("#classDescription").html("<h3>Rogue</h3>\
 										<p>Do you want to skulk in the shadows, striking with deadly precision and tumbling from danger? If yes then Rogue is for you!</p>")
 		}
-		if(value === 'Fighter'){
+		if(value === '2'){
 			$("#classDescription").html("<h3>Fighter</h3>\
 										<p>Do you like to rush head first into battle, wielding all manner of deadly weapons? Do you like being the biggest, strongest, most threatening person in the room? Then Fighter will be your calling.</p>")
 		}
-		if(value === 'Cleric'){
+		if(value === '1'){
 			$("#classDescription").html("<h3>Cleric</h3>\
 										<p>Do you want to wear your faith like armor, smiting your foes and healing your friends with the power of the gods? Reach out and touch faith, with a Cleric</p>")
 		}
-		if(value === 'Wizard'){
+		if(value === '4'){
 			$("#classDescription").html("<h3>Wizard</h3>\
 										<p>Are you fan of dusty tomes, eldritch formulae, and pulling back the curtain of reality? Do you want to tap into the ambient energy of nature, bending it to your will? Wizard will be your calling.</p>")
 		}
@@ -116,6 +116,7 @@ var NewCharacter = React.createClass({
 
 		var classes = ReactDOM.findDOMNode(this.refs.class),
 			charClass = $(classes).val(),
+			charClassId = parseInt(charClass),
 			name = this.refs.charName.value,
 			level = this.refs.level.value,
 			races = ReactDOM.findDOMNode(this.refs.subRace),
@@ -133,7 +134,7 @@ var NewCharacter = React.createClass({
   				character:{
     				name: name,
     				level: level,
-    				klass: charClass,
+    				klass_id: charClassId,
     				race: selectedRace,
 	    			capability_block_attributes:{
 	    				id: capabilityBlockId,
@@ -214,10 +215,10 @@ var NewCharacter = React.createClass({
 					<p>Class</p>
 					<select  id="classSelect" onChange={this._classSelect} ref="class">
 						<option disabled selected>Class</option>
-						<option value="Rogue">Rogue</option>
-						<option value="Fighter">Fighter</option>
-						<option value="Wizard">Wa-wa-wa-wyzzrrddd</option>
-						<option value="Cleric" >Cleric</option>
+						<option value='3'>Rogue</option>
+						<option value='2'>Fighter</option>
+						<option value='4'>Wizard</option>
+						<option value='1'>Cleric</option>
 					</select>
 					<input onClick={this._showAbilityScores} type="checkbox"/>
 					<div id="classDescription">

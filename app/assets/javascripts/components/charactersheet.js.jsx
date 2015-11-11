@@ -1,7 +1,6 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[]
-		}
+		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: [], characterClass:[], armors: 0 }
 	},
 
 	componentWillMount: function(){
@@ -26,43 +25,59 @@ var CharacterSheet = React.createClass({
 	$.ajax(ajaxShieldsData).then(function(responseData){
 		console.log('retrieving shields', responseData)
 		self.setState({shieldsData: responseData.shields})
-	})
+		})
 
 	$.ajax({
 		type:"GET",
 		url: "api/characters/" + this.props.character_id.toString(),
 		dataType:'json'
 		}).then(function(responseData){
-			self.setState({currentCharacter:responseData.character})
-		})
+			self.setState({currentCharacter:responseData.character,
+				capabilityBlock: responseData.character.character_capabilities.ability_scores, characterClass: responseData.character.character_class})
+		});
 	},
 
 	_goProfile:function(){
 
-		location.hash = 'profile'
+		location.hash = 'profile';
+
+	},
+
+	_walkieTalkie:function(){
+
+		var self = this
+
+		var count = 1
+
+		self.setState({
+			
+			armors: count++
+		})
+		console.log(self.state.armors)
+
+		$.ajax({
+		type:"GET",
+		url: "api/characters/" + this.props.character_id.toString(),
+		dataType:'json'
+		}).then(function(responseData){
+			self.setState({currentCharacter:responseData.character,
+				capabilityBlock: responseData.character.character_capabilities.ability_scores, characterClass: responseData.character.character_class})
+		});
+
 
 	},	
 
 	render:function(){
 
 
-	// function(){
-	// 	console.log(weaponsData.weapons)
-	// 	return(weaponsData.weapons)
-	// 	})
-	// 	
-	
-		
-		// console.log("here is the currentCharacter" ,this.state.currentCharacter)
-
 		return(
 			<div id="charContainer">
 				<button onClick={this._goProfile}>Go to profile</button>
-				<NameInfoBox currentCharacter={this.state.currentCharacter}/>
-				<StatsBlock />
-				<HealthandArmorClass/>
-				<WeaponsandArmor shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
-				<SkillsAbilsMagicItems character={this.props.character} />
+				<NameInfoBox currentCharacter={this.state.currentCharacter} characterClass={this.state.characterClass}/>
+				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock}/>
+				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors}/>
+				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
+				<SkillsAbilsMagicItems currentCharacter={this.state.currentCharacter} />
 				<TraitsandFlaws />
 			</div>	
 			)
@@ -72,33 +87,11 @@ var CharacterSheet = React.createClass({
 
 var NameInfoBox = React.createClass({
 
-	// _onRaceSelect: function(){
-	// 	var subRace,
-	// 		select = ReactDOM.findDOMNode(this.refs.race),
-	// 		value = $(select).val()
-			
-	// 	if(value === 'dwarf'){
-	// 		$("#subRace1").text('Mountain Dwarf')
-	// 		$("#subRace2").text('Hill Dwarf')
-	// 	}
-	// 	if(value === 'elf'){
-	// 		$("#subRace1").text('High Elf')
-	// 		$("#subRace2").text('Wood Elf')
-	// 	}			
-	// 	if(value === 'halfling'){
-	// 		$("#subRace1").text('Stout')
-	// 		$("#subRace2").text('Lightfoot')
-	// 	}
-	// 	if(value === 'human'){
-	// 		$("#subRace1").text('Human')
-	// 		$("#subRace2").text('Hooman')
-	// 	}
-	// 	this.forceUpdate()
-	// },
 
 	render: function(){
 		
 		character = this.props.currentCharacter
+		characterClass = this.props.characterClass
 
 		console.log("namebox" , character)
 
@@ -121,7 +114,7 @@ var NameInfoBox = React.createClass({
 					<p>Level</p>
 					<input value={character.character_level}ref='level' type='number'/>
 					<p>Class</p>
-					<input value={character.character_class}ref="class" type='text' placeholder="Class"/>		
+					<input value={characterClass.name}ref="class" type='text' placeholder="Class"/>		
 				</div>
 				<button>Save player info.</button>
 			</div>	
