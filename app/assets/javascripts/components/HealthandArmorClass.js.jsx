@@ -24,12 +24,18 @@ var HealthandArmorClass = React.createClass({
 				<div id="healthandDeathSaves">
 					<div id="saves">
 						<h4>Saves</h4>
-						<p>Strength<input type="number"/></p>
-						<p>Dexterity<input type="number"/></p>
-						<p>Constitution<input type="number"/></p>
-						<p>Intelligence<input type="number"/></p>
-						<p>Wisdom<input type="number"/></p>
-						<p>Charisma<input type="number"/></p>
+						<p>Strength</p>
+						<span>{currentCharacter.strength_save}</span>
+						<p>Dexterity</p>
+						<span>{currentCharacter.dexterity_save}</span>
+						<p>Constitution</p>
+						<span>{currentCharacter.constitution_save}</span>
+						<p>Intelligence</p>
+						<span>{currentCharacter.intelligence_save}</span>
+						<p>Wisdom</p>
+						<span>{currentCharacter.wisdom_save}</span>
+						<p>Charisma</p>
+						<span>{currentCharacter.charisma_save}</span>
 					</div>
 					<div>
 						<h4>Health</h4>
