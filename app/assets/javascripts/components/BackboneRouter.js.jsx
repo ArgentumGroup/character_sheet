@@ -4,7 +4,7 @@ $( document ).ready(function() {
 	var App = Backbone.Router.extend({
 
 		routes:{
-
+			'': 'showSignIn',
 			'signup': 'showSignUp',
 			'profile': 'showProfile',
 			'signin': 'showSignIn',
@@ -13,7 +13,7 @@ $( document ).ready(function() {
 		},
 
 		showSignIn(){
-	
+
 			ReactDOM.render( <SignIn/>, document.querySelector('#container'))
 		},
 
@@ -24,9 +24,9 @@ $( document ).ready(function() {
 
 		showProfile(){
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
-		
+
 		},
-		
+
 		initialize: function(){
 			console.log('getting routey')
 			Backbone.history.start()
@@ -37,5 +37,3 @@ $( document ).ready(function() {
 	var route = new App()
 
 });
-
-
