@@ -29,8 +29,8 @@ class Api::CharactersController < ApplicationController
       @abilscores = AbilityScoreBlock.create!(
         {strength: 8, dexterity: 8, constitution: 8, intelligence: 8, wisdom: 8, charisma: 8, capability_block_id: @capblock.id}
         )
-      @skillblock = CharacterSkillItem.create!({capability_block_id: @capblock.id})
-      @spelllist = CharacterSpellItem.create!({capability_block_id: @capblock.id})
+      @skillblock = CharacterSkillItem.create!([{capability_block_id: @capblock.id, skill_id: null}])
+      @spelllist = CharacterSpellItem.create!([{capability_block_id: @capblock.id, spell_id: null}])
 
       @char_inventory = Inventory.create!(
         {character_id: @character.id}
