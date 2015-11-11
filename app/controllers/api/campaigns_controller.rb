@@ -2,7 +2,8 @@ class Api::CampaignsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    @user = @current_user
+    @campaigns = Campaign.all
+    # @user = @current_user
     # current_user = User.find_by id: session[:user_id]
     # user_campaigns = []
     #  Campaign.all.each do |f|
@@ -15,6 +16,7 @@ class Api::CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new params.require(:campaign).permit(:name)
+    @campaign.save
     render json: @campaign
   end
 

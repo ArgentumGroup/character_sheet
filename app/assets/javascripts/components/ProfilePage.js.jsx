@@ -25,7 +25,7 @@
  			dataType: 'json'
  			}).then(function(responseData){
  				self.setState({campaigns: responseData.campaigns})
- 				})	
+ 				})
 
 		$.ajax(
 			{url: 'api/characters',
@@ -39,18 +39,18 @@
 
  		console.log(this.refs.campaignName.value)
 
- 		// $.ajax({
- 		// 	type:"POST",
- 		// 	url:"api/campaigns",
- 		// 	data:{
- 		// 		campaign:{
- 		// 			name: this.refs.campaignName.value
- 		// 		}
- 		// 	},
- 		// 	success: (()=>{
- 		// 		alert(this.refs.campaignName.value + " has been created!f")
- 		// 	})	
- 		// })
+ 		$.ajax({
+ 			type:"POST",
+ 			url:"api/campaigns",
+ 			data:{
+ 				campaign:{
+ 					name: this.refs.campaignName.value
+ 				}
+ 			},
+ 			success: (()=>{
+ 				alert(this.refs.campaignName.value + " has been created!")
+ 			})
+ 		})
  	},
 
  	_logOut(){
@@ -68,7 +68,7 @@
  	_showCharacters(character){
 
  		return(
- 			<CharacterList 
+ 			<CharacterList
  				characterlist={this.state.characterData}
  				character={character}
  				/>
@@ -78,7 +78,7 @@
  	_showCampaigns(campaign){
 
  		return(
- 			<CampaignList 
+ 			<CampaignList
  				campaigns={this.state.campaigns}
  				campaign={campaign}
  				characters={this.state.charactersData}
@@ -109,12 +109,12 @@
 	 				<h3>Campaign List</h3>
 	 					<ul>
 	 						{campaigns.map(this._showCampaigns)}
-	 					</ul>	
+	 					</ul>
 	 				</div>
 	 				<div id="recentActivity">
 	 					<p>Recent stuff goes here.</p>
 	 				</div>
-	 			</div>		
+	 			</div>
  			</div>
  			)
 
