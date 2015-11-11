@@ -9,11 +9,11 @@ var SkillsAbilsMagicItems = React.createClass({
 				type: "POST",
 				url: 'api/character_skill_items',
 				data: {character_skill_item:{
-							skill_id: 1
-								},
-								character_id: 7
-								},
-				success:(function(){console.log('successful')})				
+								skill_id: 1
+							},
+							character_id: 1
+						},
+				success:(function(){console.log('successful')})
 			})
 
 		}
@@ -22,14 +22,14 @@ var SkillsAbilsMagicItems = React.createClass({
 				type: "DELETE",
 				url: 'api/character_skill_items',
 				data: {character_skill_item:{
-							skill_id: 1
-								},
-								character_id: 7
-								},
-				success:(function(){console.log('successful')})				
+								skill_id: 1
+							},
+							character_id: 1
+						},
+				success:(function(){console.log('successful')})
 			})
 		}
-		
+
 	},
 
 
@@ -77,10 +77,10 @@ var SkillsAbilsMagicItems = React.createClass({
 					<h2>Items</h2>
 					<div>
 						<p>Items List</p>
-					</div>	
+					</div>
 				</div>
-				
-			</div>	
+
+			</div>
 			)
 	}
 })
