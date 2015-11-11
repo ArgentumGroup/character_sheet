@@ -1,5 +1,38 @@
 var SkillsAbilsMagicItems = React.createClass({
 
+	_proficientOrNot:function(event){
+
+		console.log("hello")
+		if(event.target.checked === true){
+			console.log('checked')
+			$.ajax({
+				type: "POST",
+				url: 'api/character_skill_items',
+				data: {character_skill_item:{
+							skill_id: 1
+								},
+								character_id: 7
+								},
+				success:(function(){console.log('successful')})				
+			})
+
+		}
+		if(event.target.checked === false){
+			$.ajax({
+				type: "DELETE",
+				url: 'api/character_skill_items',
+				data: {character_skill_item:{
+							skill_id: 1
+								},
+								character_id: 7
+								},
+				success:(function(){console.log('successful')})				
+			})
+		}
+		
+	},
+
+
 	render: function(){
 
 		return(
@@ -8,7 +41,7 @@ var SkillsAbilsMagicItems = React.createClass({
 					<h2>Skills</h2>
 					<div>
 
-						<p><input type='checkbox'/><input type='number'/>Acrobatics(dex)</p>
+						<p><input onChange={this._proficientOrNot} type='checkbox'/><input type='number'/>Acrobatics(dex)</p>
 						<p><input type='checkbox'/><input type='number'/>Animal Handling(wis)</p>
 						<p><input type='checkbox'/><input type='number'/>Arcana(int)</p>
 						<p><input type='checkbox'/><input type='number'/>Athletics(str)</p>
@@ -18,12 +51,12 @@ var SkillsAbilsMagicItems = React.createClass({
 						<p><input type='checkbox'/><input type='number'/>Intimidation(cha)</p>
 						<p><input type='checkbox'/><input type='number'/>Investigation(int)</p>
 						<p><input type='checkbox'/><input type='number'/>Medicine(wis)</p>
-						<p><input type='checkbox'/><input type='number'/>Nature(wis)</p>
+						<p><input type='checkbox'/><input type='number'/>Nature(int)</p>
 						<p><input type='checkbox'/><input type='number'/>Perception(wis)</p>
 						<p><input type='checkbox'/><input type='number'/>Performance(cha)</p>
 						<p><input type='checkbox'/><input type='number'/>Persuasion(cha)</p>
 						<p><input type='checkbox'/><input type='number'/>Religion(int)</p>
-						<p><input type='checkbox'/><input type='number'/>Slight of Hand(dex)</p>
+						<p><input type='checkbox'/><input type='number'/>Sleight of Hand(dex)</p>
 						<p><input type='checkbox'/><input type='number'/>Stealth(dex)</p>
 						<p><input type='checkbox'/><input type='number'/>Survival(wis)</p>
 					</div>
