@@ -12,6 +12,7 @@ Weapon.delete_all
 Character.delete_all
 User.delete_all
 Campaign.delete_all
+Skill.delete_all
 
 armors = Armor.create!([
   {armor_type: 'None', name: 'Unarmored', cost: 0, armor_class: 10, stealth_disadvantage: false, weight: 0},
@@ -86,23 +87,23 @@ weapons = Weapon.create!([
 
 
 
-characters = Character.create! ([
-  {name: 'First character', level: '3', race: 'Elf, wood', klass_id: 1, campaign_id: 1, user_id: 1},
-  {name: 'Second character', level: '8', race: 'Elf, high', klass_id: 4, campaign_id: 2, user_id: 1},
-  {name: 'Third character', level: '1', race: 'Human, base', klass_id: 2, campaign_id: 2, user_id: 2},
-  {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass_id: 3, campaign_id: 2, user_id: 2},
-  {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass_id: 3, campaign_id: 1, user_id: 2},
-  ])
+# characters = Character.create! ([
+#   {name: 'First character', level: '3', race: 'Elf, wood', klass_id: 1, campaign_id: 1, user_id: 1},
+#   {name: 'Second character', level: '8', race: 'Elf, high', klass_id: 4, campaign_id: 2, user_id: 1},
+#   {name: 'Third character', level: '1', race: 'Human, base', klass_id: 2, campaign_id: 2, user_id: 2},
+#   {name: 'Fourth character', level: '10', race: 'Dwarf, mountain', klass_id: 3, campaign_id: 2, user_id: 2},
+#   {name: 'Fifth character', level: '20', race: 'Dwarf, hill', klass_id: 3, campaign_id: 1, user_id: 2},
+#   ])
 
-campaigns = Campaign.create! ([
-  {name: 'First Campaign'},
-  {name: 'Second Campaign'}
-  ])
+# campaigns = Campaign.create! ([
+#   {name: 'First Campaign'},
+#   {name: 'Second Campaign'}
+#   ])
 
-users = User.create! ([
-  {name: "Dr. Fart", email: "Fart@clown.co", password: "12345678"},
-  # {name: "Dr. Poop, II", email: "poop@clown.co", password: "12345678"}
-])
+# users = User.create! ([
+#   {name: "Dr. Fart", email: "Fart@clown.co", password: "12345678"},
+#   # {name: "Dr. Poop, II", email: "poop@clown.co", password: "12345678"}
+# ])
 
 klasses = Klass.create! ([
   {name: 'Cleric', description: 'A priestly champion who wields divine magic in service of a higher power', hit_die: 8, strength_save_proficiency: false, dexterity_save_proficiency: false, constitution_save_proficiency: false, intelligence_save_proficiency: false, wisdom_save_proficiency: true, charisma_save_proficiency: true, light_armor_proficiency: true, medium_armor_proficiency: true, heavy_armor_proficiency: false, simple_weapon_proficiency: true, martial_weapon_proficiency: false, shield_proficiency: true, spellcaster: true, caster_type: 'Cleric'},
@@ -110,6 +111,27 @@ klasses = Klass.create! ([
   {name: 'Rogue', description:'A scoundrel who uses stealth and trickery to overcome obstacles and enemies', hit_die: 8, strength_save_proficiency: false, dexterity_save_proficiency: true, constitution_save_proficiency: false, intelligence_save_proficiency: true, wisdom_save_proficiency:false, charisma_save_proficiency: false, light_armor_proficiency: true, medium_armor_proficiency: false, heavy_armor_proficiency: false, simple_weapon_proficiency: true, martial_weapon_proficiency: false, shield_proficiency: false, spellcaster: false, caster_type: 'None'},
   {name: 'Wizard', description: 'A scholarly magic-user capable of manipulating the structures of reality', hit_die: 6, strength_save_proficiency: false, dexterity_save_proficiency: false, constitution_save_proficiency: false, intelligence_save_proficiency: true, wisdom_save_proficiency: true, charisma_save_proficiency: false, light_armor_proficiency: false, medium_armor_proficiency: false, heavy_armor_proficiency: false, simple_weapon_proficiency: false, martial_weapon_proficiency: false, shield_proficiency: false, spellcaster: true, caster_type: 'Wizard'}
 ])
+
+skills = Skill.create! ([
+{name: "Acrobatics", governing_ability: "Dexterity"},
+{name: "Animal handling", governing_ability: "Wisdom"},
+{name: "Arcana", governing_ability: "Intelligence"},
+{name: "Athletics", governing_ability: "Strength"},
+{name: "Deception", governing_ability: "Charisma"},
+{name: "History", governing_ability: "Intelligence"},
+{name: "Insight", governing_ability: "Wisdom"},
+{name: "Intimidation", governing_ability: "Charisma"},
+{name: "Investigation", governing_ability: "Intelligence"},
+{name: "Medicine", governing_ability: "Wisdom"},
+{name: "Nature", governing_ability: "Intelligence"},
+{name: "Perception", governing_ability: "Wisdom"},
+{name: "Performance", governing_ability: "Charisma"},
+{name: "Persuasion", governing_ability: "Charisma"},
+{name: "Religion", governing_ability: "Intelligence"},
+{name: "Sleight of hand", governing_ability: "Dexterity"},
+{name: "Stealth", governing_ability: "Dexterity"},
+{name: "Survival", governing_ability: "Wisdom"},
+  ])
 
 
 # characters.each do |character|
