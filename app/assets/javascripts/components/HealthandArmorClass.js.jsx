@@ -39,7 +39,6 @@ var HealthandArmorClass = React.createClass({
 						<input type='number'/>
 						<p>Temporary Health</p>
 						<input type='number'/>
-						<button>Save Data to Character</button>
 					</div>
 					<div>
 						<h3>Death Saves</h3>
