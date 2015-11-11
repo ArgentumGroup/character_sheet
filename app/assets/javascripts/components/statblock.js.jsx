@@ -19,7 +19,7 @@ var StatsBlock = React.createClass({
 				<p>Profiency Bonus <input value={currentCharacter.proficiency_bonus}ref='proficiency' type='string'/></p>
 				<p id='modifier'>Score / Modifier</p>
 				<div>	
-					<p>Strength<input value={strength_modifier} type='string'/><input value={capabilityBlock.strength} ref='str' type='number'/></p>
+					<p>Strength<input value={strength_modifier} type='string'/><input ref='str' type='number'/>{capabilityBlock.strength}</p>
 					<p>Dexterity<input value={dexterity_modifier} type='string'/><input value={capabilityBlock.dexterity}ref='dex' type='number'/></p>
 					<p>Constitution<input value={constitution_modifier} type='string'/><input value={capabilityBlock.constitution}ref='con' type='number'/></p>
 					<p>Intelligence<input value={intelligence_modifier}type='string'/><input value={capabilityBlock.intelligence} ref='int' type='number'/></p>
