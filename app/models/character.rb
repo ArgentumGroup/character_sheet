@@ -38,6 +38,22 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def weapon_to_hit
+    if inventory.character_weapon_items.last.weapon.weapon_type == "Melee"
+      if strength_ability_modifier + proficiency_bonus.to_i < 0
+        (strength_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{strength_ability_modifier + proficiency_bonus.to_i}"
+      end
+    else
+      if dexterity_ability_modifier + proficiency_bonus.to_i < 0
+        (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
+      else
+        "+#{dexterity_ability_modifier + proficiency_bonus.to_i}"
+      end
+    end
+  end
+
   def strength_ability_modifier
     ((capability_block.ability_score_block.strength - 10) / 2)
   end

@@ -1,5 +1,6 @@
 json.character do
   json.armor_class @character.armor_class
+  json.weapon_to_hit @character.weapon_to_hit
   json.initiative @character.initiative
   json.hit_points @character.hit_points
   json.proficiency_bonus @character.proficiency_bonus
