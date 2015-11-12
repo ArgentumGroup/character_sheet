@@ -123,20 +123,34 @@
 
  	},
 
+ 		// campaign stuff that we probably won't ever ever need.
+ 		// 
+ 		// <div id='campaignList'>
+	 	// 			<h3>Campaign List</h3>
+	 	// 				<ul>
+	 	// 					{campaigns.map(this._showCampaigns)}
+	 	// 				</ul>
+	 	// 			</div>
+	 	// 			<div id="recentActivity">
+	 	// 				<p>Recent stuff goes here.</p>
+	 	// 			</div>
+	 	// 	========================
+	 	// 		more stuff we probably won't ever ever need
+	 	// 					
+	 	// 			<input ref="campaignName" type="input" placeholder="name your campaign"></input>
+ 		// 			<button onClick={this._createNewCampaign}>create new campaign</button>
+
  	render: function(){
 
 		var characters = this.state.charactersData,
-			campaigns = this.state.campaigns,
-			lastCharacter = characters[characters.length-1]
+			campaigns = this.state.campaigns
+			
 
 		console.log(characters)
-		console.log('heres last character',lastCharacter)
 
  		return (
  			<div id="ProfilePage">
- 				<button onClick={this._logOut}>Log Out</button>
- 				<input ref="campaignName" type="input" placeholder="name your campaign"></input>
- 				<button onClick={this._createNewCampaign}>create new campaign</button>
+ 				<button id='logOutButton' onClick={this._logOut}>Log Out</button>
  				<div id="charactersCampaigns">
 	 				<h3>Your Characters</h3>
 	 				<div id='characterList'>
@@ -144,15 +158,6 @@
 		 			<span onClick={this._createCharacter} className="characters">
 		 				<h3>Create a new Character</h3>
 		 			</span>	
-	 				</div>
-	 				<div id='campaignList'>
-	 				<h3>Campaign List</h3>
-	 					<ul>
-	 						{campaigns.map(this._showCampaigns)}
-	 					</ul>
-	 				</div>
-	 				<div id="recentActivity">
-	 					<p>Recent stuff goes here.</p>
 	 				</div>
 	 			</div>
  			</div>

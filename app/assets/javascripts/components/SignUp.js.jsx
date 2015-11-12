@@ -15,7 +15,6 @@ var SignUp = React.createClass({
 				} 
 			},
 			success:(function(){
-				alert('Success!')
 				location.hash = 'profile'
 			}),
 			dataType: 'json'

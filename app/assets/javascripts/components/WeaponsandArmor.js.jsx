@@ -118,10 +118,15 @@ var WeaponsandArmor = React.createClass({
 	render: function(){
 
 		var equippedWeapon = this.state.equippedWeapon,
-			equippedArmor = this.state.equippedArmor,
 			weapons = this.state.weapons,
 			armors = this.state.armors,
-			shield = this.state.shield
+			shield = this.state.shield,
+			damageDice = 'd' + weapons.damage_die_type,
+			numDice = weapons.damage_die_number,
+			equippedArmor = this.state.equippedArmor,
+			currentCharacter = this.props.currentCharacter
+
+			console.log("damge dice")
 
 		return(
 			<div id='weaponsAndArmor'>
@@ -136,9 +141,13 @@ var WeaponsandArmor = React.createClass({
 						<p>{weapons.name}</p>
 					</ul>
 					<div id="makeAttackBox">
-						<h4>Make an Attack</h4>
+						<h4>To Hit</h4>
 						<div>
-
+							<p>Add this to your roll {currentCharacter.strength_modifier} {currentCharacter.proficiency_bonus}</p>
+						</div>
+						<h4>Damage</h4>
+						<div>
+							<p>Roll these and add it up {numDice}{damageDice}</p>
 						</div>
 					</div>
 				</div>
