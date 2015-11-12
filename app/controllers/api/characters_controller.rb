@@ -58,7 +58,7 @@ class Api::CharactersController < ApplicationController
 
   private
     def character_params
-      params.require(:character).permit(:user_id, :campaign_id, :name, :level, :race, :klass_id, :acrobatics, :animal_handling, :arcana, :athletics, :deception, :history, :insight, :intimidation, :investigation, :medicine
+      params.require(:character).permit(:user_id, :campaign_id, :name, :level, :race, :klass_id, :acrobatics, :animal_handling, :arcana, :athletics, :deception, :history, :insight, :intimidation, :investigation, :medicine, :nature, :perception, :performance, :persuasion, :religion, :sleight_of_hand, :stealth, :survival,
         capability_block_attributes:
           [ :id,
             ability_score_block_attributes:
