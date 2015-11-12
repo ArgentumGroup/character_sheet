@@ -1,6 +1,6 @@
 var SkillsList = React.createClass({
 
-	
+
 	_proficientOrNot:function(event){
 
 		var character_id = this.props.currentCharacter.character_id
@@ -9,11 +9,11 @@ var SkillsList = React.createClass({
 		console.log("hello")
 
 		var clickedSkillId = event.target.getAttribute('data')
-		
+
 		var updated_skill_model = this.props.skills.find(function(skill_model){
 			return skill_model.id === parseInt(clickedSkillId)
 		})
-		
+
 		console.log("skill model plss.....")
 		console.log(updated_skill_model)
 
@@ -23,16 +23,18 @@ var SkillsList = React.createClass({
 		// 	console.log('checked')
 
 		// 	var attrChanged = event.target
-		// 	
+		//
 		var params4Rails = {
-			character: {}
+			character: {
+				character_id: character_id
+			}
 		}
 
 		params4Rails.character[ updated_skill_model.name.toLowerCase().replace(/ /g,"_") ] = event.target.checked
 
 			$.ajax({
 				type: "PATCH",
-				url: 'api/character/' + character_id,
+				url: 'api/characters/' + character_id,
 				data: params4Rails,
 			}).then(function(data){
 				//do ish w data
