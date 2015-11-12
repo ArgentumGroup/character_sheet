@@ -13,19 +13,18 @@ var StatsBlock = React.createClass({
 		var charisma_modifier = currentCharacter.charisma_modifier;
 		
 
-		console.log('heres stats block', capabilityBlock.strength)
-
+		
 		return(
 			<div id='statsBlock'>
-				<p>Profiency Bonus <input value={currentCharacter.proficiency_bonus}ref='proficiency' type='string'/></p>
+				<p>Profiency Bonus <span className='profBonus'>{currentCharacter.proficiency_bonus}</span></p>
 				<p id='modifier'>Score / Modifier</p>
 				<div>	
-					<p>Strength<span className='modifiers'>{strength_modifier}</span><input value={capabilityBlock.strength}ref='str' type='number'/></p>
-					<p>Dexterity<span className='modifiers'>{dexterity_modifier}</span><input value={capabilityBlock.dexterity}ref='dex' type='number'/></p>
-					<p>Constitution<span className='modifiers'>{constitution_modifier}</span><input value={capabilityBlock.constitution}ref='con' type='number'/></p>
-					<p>Intelligence<span className='modifiers'>{intelligence_modifier}</span><input value={capabilityBlock.intelligence} ref='int' type='number'/></p>
-					<p>Wisdom<span className='modifiers'>{wisdom_modifier}</span><input value={capabilityBlock.wisdom}  ref='wis' type='number'/></p>
-					<p>Charisma<span className='modifiers'>{charisma_modifier}</span><input value={capabilityBlock.charisma} ref='cha' type='number'/></p>
+					<p>Strength<span className='modifiers'>{strength_modifier}</span><span className='abilityScores'>{capabilityBlock.strength}</span></p>
+					<p>Dexterity<span className='modifiers'>{dexterity_modifier}</span><span className='abilityScores'>{capabilityBlock.dexterity}</span></p>
+					<p>Constitution<span className='modifiers'>{constitution_modifier}</span><span className='abilityScores'>{capabilityBlock.constitution}</span></p>
+					<p>Intelligence<span className='modifiers'>{intelligence_modifier}</span><span className='abilityScores'>{capabilityBlock.intelligence}</span></p>
+					<p>Wisdom<span className='modifiers'>{wisdom_modifier}</span><span className='abilityScores'>{capabilityBlock.wisdom}</span></p>
+					<p>Charisma<span className='modifiers'>{charisma_modifier}</span><span className='abilityScores'>{capabilityBlock.charisma}</span></p>
 				</div>	
 			</div>	
 			)

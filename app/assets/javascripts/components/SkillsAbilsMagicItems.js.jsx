@@ -3,7 +3,7 @@ var SkillsAbilsMagicItems = React.createClass({
 
 	_showSkills:function(skill){
 
-		console.log('s',this.props)
+		
 		return(
 			<SkillsList
 				skill={skill}
@@ -15,11 +15,29 @@ var SkillsAbilsMagicItems = React.createClass({
 			)
 	},
 
+	_showSpells:function(spell){
+
+		var characterClass = this.props.currentCharacter.character_class.name.toLowerCase()
+
+
+		if(spell[characterClass] === true){
+		return(
+			<SpellList
+				spell={spell}
+				spells={this.props.spells}
+				currentCharacter={this.props.currentCharacter}
+				/>)
+		}
+		else null
+				
+
+	},
+
 
 	render: function(){
 
-		console.log("skills list", this.props.skills)
-		var skills = this.props.skills
+		var skills = this.props.skills;
+		var spells = this.props.spells;
 
 			
 		return(
@@ -33,7 +51,7 @@ var SkillsAbilsMagicItems = React.createClass({
 				<div id='spellsBar'>
 					<h2>Spells</h2>
 					<div>
-						<p>Spell List</p>
+						{spells.map(this._showSpells)}
 					</div>
 				</div>
 			</div>

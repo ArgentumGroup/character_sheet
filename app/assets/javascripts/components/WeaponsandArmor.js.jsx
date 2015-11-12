@@ -1,7 +1,7 @@
 var WeaponsandArmor = React.createClass({
 
 	getInitialState: function(){
-		return {equippedWeapon: '', equippedArmor:'', armors:'', shield:'', weapons:''}
+		return {equippedWeapon: '', equippedArmor:'', armors: 'Unarmored', shield: 'None', weapons:'Unarmed Strike'}
 	},
 
 	_displayWeapons: function(weapon){
@@ -40,7 +40,6 @@ var WeaponsandArmor = React.createClass({
 		this.props.weaponsData.forEach(function(weapon){
 			if(weapon.name === self.refs.selectedWeapon.value){
 				self.setState({equippedWeapon: weapon.id, weapons: weapon})
-				console.log(self.state.equippedWeapon)
 			}
 		})
 	},
@@ -51,7 +50,7 @@ var WeaponsandArmor = React.createClass({
 		this.props.armorsData.forEach(function(armor){
 			if(armor.name === self.refs.selectedArmor.value){
 				self.setState({equippedArmor: armor.id, armors: armor})
-				console.log(self.state.equippedArmor)
+				
 			}
 		})
 	},
@@ -61,7 +60,7 @@ var WeaponsandArmor = React.createClass({
 		this.props.shieldsData.forEach(function(shield){
 			if(shield.name === self.refs.selectedShield.value){
 				self.setState({equippedShield: shield.id, shield: shield})
-				console.log(self.state.equippedShield)
+				
 			}
 		})
 
@@ -70,7 +69,7 @@ var WeaponsandArmor = React.createClass({
 	_equipWeapons: function(){
 
 		var self = this
-		console.log("posting to inventory", self.state.equippedWeapon)
+		
 
 		$.ajax({
 			type: "POST",
@@ -82,7 +81,6 @@ var WeaponsandArmor = React.createClass({
     				}
 		})
 		self.setState({weaponEquipped: 'yes'})
-		console.log(self.props.currentCharacter.character_id);
 	},
 
 	_equipArmor: function(){
@@ -126,7 +124,6 @@ var WeaponsandArmor = React.createClass({
 			equippedArmor = this.state.equippedArmor,
 			currentCharacter = this.props.currentCharacter
 
-			console.log("damge dice")
 
 		return(
 			<div id='weaponsAndArmor'>
@@ -154,12 +151,10 @@ var WeaponsandArmor = React.createClass({
 				<div id='armor'>
 					<h4>Armors</h4>
 					<select onChange={this._setArmor}ref='selectedArmor'>
-						<option disabled selected>Choose Armor</option>
 						{this.props.armorsData.map(this._displayArmors)}
 					</select>
 					<h4>Shields</h4>
 					<select onChange={this._setShield}ref='selectedShield'>
-						<option disabled selected>Choose your shield</option>
 						{this.props.shieldsData.map(this._displayShields)}
 					</select>
 					<button onClick={this._equipArmor}>Equip</button>

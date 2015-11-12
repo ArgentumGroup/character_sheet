@@ -3,7 +3,6 @@ var HealthandArmorClass = React.createClass({
 	render: function(){
 
 		var currentCharacter= this.props.currentCharacter
-		console.log('heres armor')
 
 		return(
 			<div id='armorStats'>
@@ -18,7 +17,7 @@ var HealthandArmorClass = React.createClass({
 					</div>
 					<div>
 						<h3>Speed </h3>
-						<input value='30' type='number' />
+						<input value='30ft' type='string' />
 					</div>	
 				</div>
 				<div id="healthandDeathSaves">
@@ -40,7 +39,7 @@ var HealthandArmorClass = React.createClass({
 					<div>
 						<h4>Health</h4>
 						<p>Maximum Health</p>
-						<input value={currentCharacter.hit_points} type='number'/>
+						<p>{currentCharacter.hit_points}</p>
 						<p>Current Health</p>
 						<input type='number'/>
 						<p>Temporary Health</p>
