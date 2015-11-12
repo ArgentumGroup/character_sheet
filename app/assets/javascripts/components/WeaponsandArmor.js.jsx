@@ -1,7 +1,7 @@
 var WeaponsandArmor = React.createClass({
 
 	getInitialState: function(){
-		return {equippedWeapon: '', equippedArmor:'', armors: 'Unarmored', shield: 'None', weapons:'Unarmed Strike'}
+		return {equippedWeapon: '', equippedShield: 1, equippedArmor:'', armors: 'Unarmored', shield: 'None', weapons:'Unarmed Strike'}
 	},
 
 	_displayWeapons: function(weapon){
