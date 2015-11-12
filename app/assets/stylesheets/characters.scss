@@ -24,6 +24,37 @@
     text-align: center;
 }
 
+.abilityScores {
+
+	float: right;
+	margin-right: 1rem;
+	margin-left: 1rem;
+	width: 43px;
+	text-align: center;
+}
+.spellName {
+
+	float: left;
+    margin-left: 2rem;
+    width: 22rem;
+    margin-top: .6rem;
+}
+
+.castTime {
+
+	float: right;
+	margin-right: 1rem;
+}
+
+.profBonus{
+
+	float: right;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	width: 2rem;
+	text-align: center;
+}
+
 .proficiencyBonus {
 
 	float: left;
@@ -42,6 +73,7 @@
 			}
 
 			margin: 5px;
+    		padding-top: 1rem;
 		}
 
 		border: 1px solid black;
@@ -50,6 +82,7 @@
 		flex-wrap: wrap;
 		margin: 0;
 		height: 180px;
+    	background-color: rgba(238, 238, 238, 0.8);
 	}
 
 	font-family: 'Quicksand', sans-serif;
@@ -57,7 +90,6 @@
     border: 1px solid black;
     width: 890px;
     margin: 0;
-    background-color: rgba(238, 238, 238, 0.8);
 }
 
 #armorStats {
@@ -86,7 +118,7 @@
     position: absolute;
     border: 1px solid black;
     width: 498px;
-    top: 1.7%;
+    top: 2.2%;
     right: 88px;
     background-color: rgba(238, 238, 238, 0.8);
 }
@@ -229,7 +261,7 @@
 				}
 
 			    position: absolute;
-			    right: 50%;
+			    right: 32%;
     			top: -99%;
 			    transform: rotate(-90deg);
 			    height: 700px;
@@ -254,31 +286,32 @@
 			div {
 
 				position: absolute;
-				right: 12%;
-				top: -27%;
+				right: 23%;
+				top: -78%;
 				transform: rotate(-90deg);
 				height: 700px;
-				width: 475px;
+				width: 386px;
 			    border: 1px solid black;
 				background-color: rgba(238, 238, 238, 1);
 			    visibility: hidden;
 			}
 
 			width: 50%;
-			text-align: center;
-			border: 1px solid black;
+    		text-align: center;
+    		border: 1px solid black;
 		}
 
 		#spellsBar:hover > div {
 
-			visibility: visible;
+			text-align: left;
+    		visibility: visible;
 		}
 
 
     position: absolute;
-    top: 47.1%;
-    right: -59.7%;
-    width: 1150px;
+    top: 46.1%;
+    right: -43.8%;
+    width: 868px;
     height: 88px;
     border: 1px solid black;
     transform: rotate(90deg);

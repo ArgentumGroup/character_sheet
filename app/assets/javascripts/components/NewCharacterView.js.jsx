@@ -21,7 +21,6 @@ var NewCharacter = React.createClass({
 						real_character_id = lastCharacter.character_id
 					self.setState({lastCharacterId: real_character_id})
 				}).then(function(){
-					console.log("ajax last character", self.state.lastCharacterId)
 					$.ajax(
  						{url: 'api/characters/' + self.state.lastCharacterId,
  						dataType: 'json',
@@ -31,8 +30,6 @@ var NewCharacter = React.createClass({
  						}
 					)
 				})
-
- 				console.log("this where last character should be", self.state.lastCharacterId)
 		},
 
 		_onRaceSelect: function(){
@@ -94,7 +91,6 @@ var NewCharacter = React.createClass({
 		// });
 
 		if(value === '3'){
-			console.log('rogue')
 			$("#classDescription").html("<h3>Rogue</h3>\
 										<p>Do you want to skulk in the shadows, striking with deadly precision and tumbling from danger? If yes then Rogue is for you!</p>")
 		}
@@ -118,13 +114,11 @@ var NewCharacter = React.createClass({
 			charClass = $(classes).val(),
 			charClassId = parseInt(charClass),
 			name = this.refs.charName.value,
-			level = this.refs.level.value,
 			races = ReactDOM.findDOMNode(this.refs.subRace),
 			selectedRace = $(races).val(),
 			character_id = this.state.currentCharacter.character_id.toString(),
 			capabilityBlockId = this.state.currentCharacter.character_capabilities.ability_scores.capability_block_id,
 			abilityScoresId = this.state.currentCharacter.character_capabilities.ability_scores.id
-			console.log("saving", capabilityBlockId, abilityScoresId)
 
 
 			$.ajax({

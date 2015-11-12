@@ -37,7 +37,7 @@
 
  	_createNewCampaign(){
 
- 		console.log(this.refs.campaignName.value)
+ 		
  		var self = this
 
  		$.ajax({
@@ -61,7 +61,7 @@
  			})
  		})
  		
- 		console.log(self.state.count)
+ 	
  	},
 
  	_logOut(){
@@ -105,7 +105,7 @@
 			self = this
 
 
-	console.log('ninja turtles', currentUser)
+
 
 		$.ajax({
 		type: "POST",
@@ -146,7 +146,7 @@
 			campaigns = this.state.campaigns
 			
 
-		console.log(characters)
+
 
  		return (
  			<div id="ProfilePage">

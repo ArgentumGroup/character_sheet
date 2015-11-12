@@ -1,6 +1,6 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: [], characterClass:[], armors: 0, skills:[], skillProficiencies:[] }
+		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: [], characterClass:[], armors: 0, skills:[], skillProficiencies:[], spells:[]}
 	},
 
 	componentWillMount: function(){
@@ -13,17 +13,14 @@ var CharacterSheet = React.createClass({
 		ajaxShieldsData = {url: 'api/shields'}
 	
 	$.ajax(ajaxWeaponData).then(function(responseData){
-		console.log('retrieving weapons',responseData)
 		self.setState({weaponsData:responseData.weapons})
 		})
 
 	$.ajax(ajaxArmorData).then(function(responseData){
-		console.log('retrieving armors', responseData)
 		self.setState({armorsData:responseData.armors})
 		})
 
 	$.ajax(ajaxShieldsData).then(function(responseData){
-		console.log('retrieving shields', responseData)
 		self.setState({shieldsData: responseData.shields})
 		})
 
@@ -43,6 +40,14 @@ var CharacterSheet = React.createClass({
 		}).then(function(responseData){
 			self.setState({skills:responseData.skills})
 		})
+
+	$.ajax({
+		type:"GET",
+		url:"api/spells",
+		dataType:'json'
+		}).then(function(responseData){
+			self.setState({spells:responseData.spells})
+		})	
 	},
 
 	_goProfile:function(){
@@ -61,7 +66,6 @@ var CharacterSheet = React.createClass({
 			
 			armors: count++
 		})
-		console.log(self.state.armors)
 
 		$.ajax({
 		type:"GET",
@@ -82,10 +86,10 @@ var CharacterSheet = React.createClass({
 			<div id="charContainer">
 				<button onClick={this._goProfile}>Go to profile</button>
 				<NameInfoBox currentCharacter={this.state.currentCharacter} characterClass={this.state.characterClass}/>
-				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock}/>
-				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors}/>
+				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock} />
+				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors} />
 				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} capabilityBlock={this.state.capabilityBlock} weaponsData={this.state.weaponsData}/>
-				<SkillsAbilsMagicItems skillProfs={this.state.skillProficiencies} skills={this.state.skills} currentCharacter={this.state.currentCharacter} />
+				<SkillsAbilsMagicItems skillProfs={this.state.skillProficiencies} skills={this.state.skills} spells={this.state.spells} currentCharacter={this.state.currentCharacter} />
 			</div>	
 			)
 	}
@@ -100,7 +104,7 @@ var NameInfoBox = React.createClass({
 		character = this.props.currentCharacter
 		characterClass = this.props.characterClass
 
-		console.log("namebox" , character)
+		
 
 			
 		return(
@@ -116,10 +120,11 @@ var NameInfoBox = React.createClass({
 				<div>
 					<p>Level</p>
 					<input value={character.character_level}ref='level' type='number'/>
+				</div>
+				<div>
 					<p>Class</p>
 					<input value={characterClass.name}ref="class" type='text' placeholder="Class"/>	
 				</div>
-				<button>Save player info.</button>
 			</div>	
 			)
 	}
