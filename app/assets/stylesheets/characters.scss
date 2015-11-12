@@ -24,6 +24,12 @@
     text-align: center;
 }
 
+.proficiencyBonus {
+
+	float: left;
+    margin-left: 3rem;
+}
+
 #charContainer {
 
 	#charData{
@@ -62,7 +68,7 @@
 
 			input {
 
-				text-align: right;
+				text-align: center;
 			}
 
 			height: 139px;
@@ -100,6 +106,11 @@
 			}
 			
 			width: 39%;
+			text-align: center;
+		}
+
+		input {
+
 			text-align: center;
 		}
 
@@ -218,47 +229,22 @@
 				}
 
 			    position: absolute;
-			    right: 46%;
-			    top: -26%;
+			    right: 50%;
+    			top: -99%;
 			    transform: rotate(-90deg);
 			    height: 700px;
-			    width: 475px;
+			    width: 350px;
 			    border: 1px solid black;
 				background-color: rgba(238, 238, 238, 1);
 			    visibility: hidden;
 			}
 
-			width: 25%;
+			width: 50%;
 			text-align: center;
 			border: 1px solid black;
 		}
 
 		#skillsBar:hover > div {
-
-			visibility: visible;
-		}
-
-		#abilitiesBar {
-
-			div {
-
-				position: absolute;
-			    right: 43%;
-    			top: -27%;
-    			transform: rotate(-90deg);
-    			height: 700px;
-    			width: 475px;
-			    border: 1px solid black;
-				background-color: rgba(238, 238, 238, 1);
-			    visibility: hidden;
-			}
-
-			width: 25%;
-			text-align: center;
-			border: 1px solid black;
-		}
-
-		#abilitiesBar:hover > div {
 
 			visibility: visible;
 		}
@@ -278,7 +264,7 @@
 			    visibility: hidden;
 			}
 
-			width: 25%;
+			width: 50%;
 			text-align: center;
 			border: 1px solid black;
 		}
@@ -289,36 +275,11 @@
 		}
 
 
-	#itemsBar {
-
-			div {
-
-				position: absolute;
-				right: 11%;
-				top: -26%;
-				transform: rotate(-90deg);
-				height: 700px;
-				width: 475px;
-			    border: 1px solid black;
-				background-color: rgba(238, 238, 238, 1);
-			    visibility: hidden;
-			}
-
-			width: 25%;
-			text-align: center;
-			border: 1px solid black;
-		}
-
-		#itemsBar:hover > div {
-
-			visibility: visible;
-		}
-
-	position: absolute;
-    top: 46%;
-    right: -57.5%;
-    width: 1110px;
-    height: 89px;
+    position: absolute;
+    top: 47.1%;
+    right: -59.7%;
+    width: 1150px;
+    height: 88px;
     border: 1px solid black;
     transform: rotate(90deg);
     display: flex;
@@ -355,6 +316,7 @@
 
 	#classSelect{
 
+
 		margin-bottom: 20px;
 	}
 
@@ -366,7 +328,10 @@
 		}
 	}
 
-	width:300px;
+	width: 800px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 2%;
 	background-color: rgba(238, 238, 238, 0.8);
 
 }
@@ -395,7 +360,9 @@
 		    margin-bottom: 1.2rem;
 		    padding: 20px;
 		    border: black solid 1px;
-		    width: 226px;		}
+		    width: 226px;
+		    text-align: center;		
+		}
 
 		width: 870px;
 		display: flex;

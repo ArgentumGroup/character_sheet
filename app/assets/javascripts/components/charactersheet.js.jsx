@@ -1,6 +1,6 @@
 var CharacterSheet = React.createClass({
 	getInitialState:function(){
-		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: [], characterClass:[], armors: 0 }
+		return {count:0,weaponsData:[], armorsData:[], shieldsData: [], currentCharacter:[], capabilityBlock: [], characterClass:[], armors: 0, skills:[], skillProficiencies:[] }
 	},
 
 	componentWillMount: function(){
@@ -33,8 +33,16 @@ var CharacterSheet = React.createClass({
 		dataType:'json'
 		}).then(function(responseData){
 			self.setState({currentCharacter:responseData.character,
-				capabilityBlock: responseData.character.character_capabilities.ability_scores, characterClass: responseData.character.character_class})
-		});
+				capabilityBlock: responseData.character.character_capabilities.ability_scores, characterClass: responseData.character.character_class, skillProficiencies: responseData.character.skill_proficiencies})
+		})
+
+	$.ajax({
+		type:"GET",
+		url: "api/skills",
+		dataType:'json'
+		}).then(function(responseData){
+			self.setState({skills:responseData.skills})
+		})
 	},
 
 	_goProfile:function(){
@@ -77,7 +85,7 @@ var CharacterSheet = React.createClass({
 				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock}/>
 				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors}/>
 				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
-				<SkillsAbilsMagicItems currentCharacter={this.state.currentCharacter} />
+				<SkillsAbilsMagicItems skillProfs={this.state.skillProficiencies} skills={this.state.skills} currentCharacter={this.state.currentCharacter} />
 				<TraitsandFlaws />
 			</div>	
 			)
@@ -121,4 +129,8 @@ var NameInfoBox = React.createClass({
 			)
 	}
 })	
+
+
+
+
 
