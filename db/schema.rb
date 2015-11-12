@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110221511) do
+ActiveRecord::Schema.define(version: 20151112011950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,10 +92,28 @@ ActiveRecord::Schema.define(version: 20151110221511) do
     t.integer  "campaign_id"
     t.string   "name"
     t.integer  "level"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "race"
     t.integer  "klass_id"
+    t.boolean  "acrobatics",      default: false
+    t.boolean  "animal_handling", default: false
+    t.boolean  "arcana",          default: false
+    t.boolean  "athletics",       default: false
+    t.boolean  "deception",       default: false
+    t.boolean  "history",         default: false
+    t.boolean  "insight",         default: false
+    t.boolean  "intimidation",    default: false
+    t.boolean  "investigation",   default: false
+    t.boolean  "medicine",        default: false
+    t.boolean  "nature",          default: false
+    t.boolean  "perception",      default: false
+    t.boolean  "performance",     default: false
+    t.boolean  "persuasion",      default: false
+    t.boolean  "religion",        default: false
+    t.boolean  "sleight_of_hand", default: false
+    t.boolean  "stealth",         default: false
+    t.boolean  "survival",        default: false
   end
 
   create_table "inventories", force: :cascade do |t|
