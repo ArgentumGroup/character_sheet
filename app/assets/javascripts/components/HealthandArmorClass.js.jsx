@@ -40,7 +40,7 @@ var HealthandArmorClass = React.createClass({
 					<div>
 						<h4>Health</h4>
 						<p>Maximum Health</p>
-						<input type='number'/>
+						<input value={currentCharacter.hit_points} type='number'/>
 						<p>Current Health</p>
 						<input type='number'/>
 						<p>Temporary Health</p>

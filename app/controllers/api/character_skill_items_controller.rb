@@ -9,10 +9,11 @@ class Api::CharacterSkillItemsController < ApplicationController
   end
 
   def destroy
-    @curr_char = Character.find_by id: params[:character_id]
-    @capabilities = @curr_char.capability_block
-    @character_skill_item = @capabilities.character_skill_items.find(params[:id])
+    # @curr_char = Character.find_by id: params[:character_id]
+    # @capabilities = @curr_char.capability_block
+    @character_skill_item = CharacterSkillItem.find(params[:id])
     @character_skill_item.destroy
+    render json: @capabilities
   end
 
   private
