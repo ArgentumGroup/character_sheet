@@ -51,8 +51,9 @@ class Api::CharactersController < ApplicationController
   end
 
   def update
-    if @current_character.update_attributes(character_params)
-      render json: @current_character
+    @curr_char = Character.find_by id: params[:id]
+    if @curr_char.update_attributes(character_params)
+      render json: @curr_char
     end
   end
 
