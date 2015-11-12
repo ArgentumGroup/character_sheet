@@ -18,7 +18,7 @@ var HealthandArmorClass = React.createClass({
 					</div>
 					<div>
 						<h3>Speed </h3>
-						<input type='number' />
+						<input value='30' type='number' />
 					</div>	
 				</div>
 				<div id="healthandDeathSaves">
