@@ -151,6 +151,11 @@ var NewCharacter = React.createClass({
     			}
   			}
   			})
+  		
+		location.hash= 'charactersheet'
+
+		ReactDOM.render(<CharacterSheet character_id={characterId}/>, document.querySelector("#container"))
+	},
   			// ReactDOM.render(<ProfilePage />, document.querySelector("#container"))
 	},
 
