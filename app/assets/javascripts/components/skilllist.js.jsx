@@ -32,7 +32,7 @@ var SkillsList = React.createClass({
 
 			$.ajax({
 				type: "PATCH",
-				url: 'api/character/' + character_id,
+				url: 'api/characters/' + character_id,
 				data: params4Rails,
 			}).then(function(data){
 				//do ish w data
