@@ -133,7 +133,7 @@ var NewCharacter = React.createClass({
   			data: {
   				character:{
     				name: name,
-    				level: level,
+    				level: 1,
     				klass_id: charClassId,
     				race: selectedRace,
 	    			capability_block_attributes:{
@@ -214,8 +214,6 @@ var NewCharacter = React.createClass({
 					</select>
 				</div>
 				<div>
-					<p>Level</p>
-					<input ref='level' type='number'/>
 					<p>Class</p>
 					<select  id="classSelect" onChange={this._classSelect} ref="class">
 						<option disabled selected>Class</option>

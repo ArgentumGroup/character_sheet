@@ -84,9 +84,8 @@ var CharacterSheet = React.createClass({
 				<NameInfoBox currentCharacter={this.state.currentCharacter} characterClass={this.state.characterClass}/>
 				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock}/>
 				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors}/>
-				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} weaponsData={this.state.weaponsData}/>
+				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} capabilityBlock={this.state.capabilityBlock} weaponsData={this.state.weaponsData}/>
 				<SkillsAbilsMagicItems skillProfs={this.state.skillProficiencies} skills={this.state.skills} currentCharacter={this.state.currentCharacter} />
-				<TraitsandFlaws />
 			</div>	
 			)
 	}
@@ -106,10 +105,6 @@ var NameInfoBox = React.createClass({
 			
 		return(
 			<div id='charData'>	
-				<div>				
-					<p>Player Name</p>
-					<input ref='playerName' type='text' placeholder='Player Name'/>
-				</div>
 				<div>	
 					<p>Character Name</p>
 					<input value={character.character_name} ref="characterName" type='text' placeholder='Character Name'/>
@@ -122,7 +117,7 @@ var NameInfoBox = React.createClass({
 					<p>Level</p>
 					<input value={character.character_level}ref='level' type='number'/>
 					<p>Class</p>
-					<input value={characterClass.name}ref="class" type='text' placeholder="Class"/>		
+					<input value={characterClass.name}ref="class" type='text' placeholder="Class"/>	
 				</div>
 				<button>Save player info.</button>
 			</div>	
