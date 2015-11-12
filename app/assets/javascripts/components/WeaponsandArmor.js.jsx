@@ -143,7 +143,7 @@ var WeaponsandArmor = React.createClass({
 					<div id="makeAttackBox">
 						<h4>To Hit</h4>
 						<div>
-							<p>Add this to your roll {currentCharacter.strength_modifier} {currentCharacter.proficiency_bonus}</p>
+							<p>Add this to your roll {currentCharacter.weapon_to_hit}</p>
 						</div>
 						<h4>Damage</h4>
 						<div>
