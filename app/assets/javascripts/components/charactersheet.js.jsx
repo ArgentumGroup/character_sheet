@@ -77,7 +77,20 @@ var CharacterSheet = React.createClass({
 		});
 
 
+	},
+
+	_otherTalkie:function(){
+
+		var self = this
+		$.ajax({
+		type:"GET",
+		url: "api/characters/" + this.props.character_id.toString(),
+		dataType:'json'
+		}).then(function(responseData){
+			self.setState({skillProficiencies: responseData.character.skill_proficiencies})
+		})
 	},	
+
 
 	render:function(){
 
@@ -89,7 +102,7 @@ var CharacterSheet = React.createClass({
 				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock} />
 				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors} />
 				<WeaponsandArmor parentComms={this._walkieTalkie} currentCharacter={this.state.currentCharacter} shieldsData={this.state.shieldsData} armorsData={this.state.armorsData} capabilityBlock={this.state.capabilityBlock} weaponsData={this.state.weaponsData}/>
-				<SkillsAbilsMagicItems skillProfs={this.state.skillProficiencies} skills={this.state.skills} spells={this.state.spells} currentCharacter={this.state.currentCharacter} />
+				<SkillsAbilsMagicItems parentComms={this._otherTalkie} skillProfs={this.state.skillProficiencies} skills={this.state.skills} spells={this.state.spells} currentCharacter={this.state.currentCharacter} />
 			</div>	
 			)
 	}
@@ -110,20 +123,20 @@ var NameInfoBox = React.createClass({
 		return(
 			<div id='charData'>	
 				<div>	
-					<p>Character Name</p>
-					<input value={character.character_name} ref="characterName" type='text' placeholder='Character Name'/>
+					<h2>Character Name</h2>
+					<span>{character.character_name}</span>
 				</div>
 				<div>
-					<p>Race</p>
-					<input value={character.character_race}ref='race' type="text" placeholder='Race'/>
+					<h2>Race</h2>
+					<span>{character.character_race}</span>
 				</div>
 				<div>
-					<p>Level</p>
-					<input value={character.character_level}ref='level' type='number'/>
+					<h2>Level</h2>
+					<span>{character.character_level}</span>
 				</div>
 				<div>
-					<p>Class</p>
-					<input value={characterClass.name}ref="class" type='text' placeholder="Class"/>	
+					<h2>Class</h2>
+					<span>{characterClass.name}</span>	
 				</div>
 			</div>	
 			)

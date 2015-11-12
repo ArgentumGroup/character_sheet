@@ -16,15 +16,15 @@ var StatsBlock = React.createClass({
 		
 		return(
 			<div id='statsBlock'>
-				<p>Profiency Bonus <span className='profBonus'>{currentCharacter.proficiency_bonus}</span></p>
+				<h3>Profiency Bonus <span className='profBonus'>{currentCharacter.proficiency_bonus}</span></h3>
 				<p id='modifier'>Score / Modifier</p>
 				<div>	
-					<p>Strength<span className='modifiers'>{strength_modifier}</span><span className='abilityScores'>{capabilityBlock.strength}</span></p>
-					<p>Dexterity<span className='modifiers'>{dexterity_modifier}</span><span className='abilityScores'>{capabilityBlock.dexterity}</span></p>
-					<p>Constitution<span className='modifiers'>{constitution_modifier}</span><span className='abilityScores'>{capabilityBlock.constitution}</span></p>
-					<p>Intelligence<span className='modifiers'>{intelligence_modifier}</span><span className='abilityScores'>{capabilityBlock.intelligence}</span></p>
-					<p>Wisdom<span className='modifiers'>{wisdom_modifier}</span><span className='abilityScores'>{capabilityBlock.wisdom}</span></p>
-					<p>Charisma<span className='modifiers'>{charisma_modifier}</span><span className='abilityScores'>{capabilityBlock.charisma}</span></p>
+					<h3>Strength<span className='modifiers'>{strength_modifier}</span><span className='abilityScores'>{capabilityBlock.strength}</span></h3>
+					<h3>Dexterity<span className='modifiers'>{dexterity_modifier}</span><span className='abilityScores'>{capabilityBlock.dexterity}</span></h3>
+					<h3>Constitution<span className='modifiers'>{constitution_modifier}</span><span className='abilityScores'>{capabilityBlock.constitution}</span></h3>
+					<h3>Intelligence<span className='modifiers'>{intelligence_modifier}</span><span className='abilityScores'>{capabilityBlock.intelligence}</span></h3>
+					<h3>Wisdom<span className='modifiers'>{wisdom_modifier}</span><span className='abilityScores'>{capabilityBlock.wisdom}</span></h3>
+					<h3>Charisma<span className='modifiers'>{charisma_modifier}</span><span className='abilityScores'>{capabilityBlock.charisma}</span></h3>
 				</div>	
 			</div>	
 			)

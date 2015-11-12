@@ -1,7 +1,7 @@
 var WeaponsandArmor = React.createClass({
 
 	getInitialState: function(){
-		return {equippedWeapon: '', equippedShield: 1, equippedArmor:'', armors: 'Unarmored', shield: 'None', weapons:'Unarmed Strike'}
+		return {equippedWeapon: '', equippedShield: 1, equippedArmor:'', armors: '', shield: 'None', weapons:'Unarmed Strike'}
 	},
 
 	_displayWeapons: function(weapon){
@@ -69,6 +69,7 @@ var WeaponsandArmor = React.createClass({
 	_equipWeapons: function(){
 
 		var self = this
+		var parentComms = this.props.parentComms
 		
 
 		$.ajax({
@@ -81,6 +82,7 @@ var WeaponsandArmor = React.createClass({
     				}
 		})
 		self.setState({weaponEquipped: 'yes'})
+		parentComms()
 	},
 
 	_equipArmor: function(){
@@ -128,37 +130,37 @@ var WeaponsandArmor = React.createClass({
 		return(
 			<div id='weaponsAndArmor'>
 				<div id='weapons'>
-					<h4>Weapons</h4>
+					<h3>Weapons</h3>
 					<select onChange={this._setWeapon} ref='selectedWeapon'>
 						{this.props.weaponsData.map(this._displayWeapons)}
 					</select>
 					<button onClick={this._equipWeapons}>Equip</button>
-					<h4>Equipped Weapons</h4>
+					<h3>Equipped Weapons</h3>
 					<ul>
 						<p>{weapons.name}</p>
 					</ul>
 					<div id="makeAttackBox">
-						<h4>To Hit</h4>
+						<h3>To Hit</h3>
 						<div>
 							<p>Add this to your roll {currentCharacter.weapon_to_hit}</p>
 						</div>
-						<h4>Damage</h4>
+						<h3>Damage</h3>
 						<div>
-							<p>Roll these and add it up {numDice}{damageDice}</p>
+							<p>Roll {numDice}{damageDice} and add it up</p>
 						</div>
 					</div>
 				</div>
 				<div id='armor'>
-					<h4>Armors</h4>
+					<h3>Armors</h3>
 					<select onChange={this._setArmor}ref='selectedArmor'>
 						{this.props.armorsData.map(this._displayArmors)}
 					</select>
-					<h4>Shields</h4>
+					<h3>Shields</h3>
 					<select onChange={this._setShield}ref='selectedShield'>
 						{this.props.shieldsData.map(this._displayShields)}
 					</select>
 					<button onClick={this._equipArmor}>Equip</button>
-					<h4>Equipped Armor</h4>
+					<h3>Equipped Armor</h3>
 					<ul>
 						<li>Armor Name: {armors.name}</li>
 					</ul>

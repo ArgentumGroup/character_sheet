@@ -70,7 +70,6 @@
 			type: "DELETE",
 			url: "api/sign_in",
 			success: (function(){
-				alert('logging you out.')
 				location.hash = "signin"
 			})
 		})

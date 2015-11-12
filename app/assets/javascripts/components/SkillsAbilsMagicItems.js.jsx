@@ -11,6 +11,7 @@ var SkillsAbilsMagicItems = React.createClass({
 				skillProfs={this.props.skillProfs}
 				procifientOrNot={this._proficientOrNot}
 				currentCharacter={this.props.currentCharacter}
+				parentComms={this.props.parentComms}
 				/>
 			)
 	},
@@ -18,6 +19,8 @@ var SkillsAbilsMagicItems = React.createClass({
 	_showSpells:function(spell){
 
 		var characterClass = this.props.currentCharacter.character_class.name.toLowerCase()
+
+		console.log(characterClass)
 
 
 		if(spell[characterClass] === true){
