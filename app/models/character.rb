@@ -118,8 +118,8 @@ class Character < ActiveRecord::Base
     "+2"
   end
 
-  def acrobatics
-    if capability_block.character_skill_items.find_by skill_id: 1
+  def acrobatics_modifier
+    if acrobatics
       if dexterity_ability_modifier + proficiency_bonus.to_i < 0
         (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -134,8 +134,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def animal_handling
-    if capability_block.character_skill_items.find_by skill_id: 2
+  def animal_handling_modifier
+    if animal_handling
       if wisdom_ability_modifier + proficiency_bonus.to_i < 0
         (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -150,8 +150,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def arcana
-    if capability_block.character_skill_items.find_by skill_id: 3
+  def arcana_modifier
+    if arcana
       if intelligence_ability_modifier + proficiency_bonus.to_i < 0
         (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -166,8 +166,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def athletics
-    if capability_block.character_skill_items.find_by skill_id: 4
+  def athletics_modifier
+    if athletics
       if strength_ability_modifier + proficiency_bonus.to_i < 0
         (strength_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -182,8 +182,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def deception
-    if capability_block.character_skill_items.find_by skill_id: 5
+  def deception_modifier
+    if deception
       if charisma_ability_modifier + proficiency_bonus.to_i < 0
         (charisma_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -198,8 +198,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def history
-    if capability_block.character_skill_items.find_by skill_id: 6
+  def history_modifier
+    if history
       if intelligence_ability_modifier + proficiency_bonus.to_i < 0
         (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -214,8 +214,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def insight
-    if capability_block.character_skill_items.find_by skill_id: 7
+  def insight_modifier
+    if insight
       if wisdom_ability_modifier + proficiency_bonus.to_i < 0
         (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -230,8 +230,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def intimidation
-    if capability_block.character_skill_items.find_by skill_id: 8
+  def intimidation_modifier
+    if intimidation
       if charisma_ability_modifier + proficiency_bonus.to_i < 0
         (charisma_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -246,8 +246,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def investigation
-    if capability_block.character_skill_items.find_by skill_id: 9
+  def investigation_modifier
+    if investigation
       if intelligence_ability_modifier + proficiency_bonus.to_i < 0
         (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -262,8 +262,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def medicine
-    if capability_block.character_skill_items.find_by skill_id: 10
+  def medicine_modifier
+    if medicine
       if wisdom_ability_modifier + proficiency_bonus.to_i < 0
         (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -278,8 +278,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def nature
-    if capability_block.character_skill_items.find_by skill_id: 11
+  def nature_modifier
+    if nature
       if wisdom_ability_modifier + proficiency_bonus.to_i < 0
         (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -294,8 +294,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def perception
-    if capability_block.character_skill_items.find_by skill_id: 12
+  def perception_modifier
+    if perception
       if wisdom_ability_modifier + proficiency_bonus.to_i < 0
         (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -310,8 +310,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def performance
-    if capability_block.character_skill_items.find_by skill_id: 13
+  def performance_modifier
+    if performance
       if charisma_ability_modifier + proficiency_bonus.to_i < 0
         (charisma_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -326,8 +326,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def persuasion
-    if capability_block.character_skill_items.find_by skill_id: 14
+  def persuasion_modifier
+    if persuasion
       if charisma_ability_modifier + proficiency_bonus.to_i < 0
         (charisma_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -341,8 +341,8 @@ class Character < ActiveRecord::Base
       end
     end
   end
-  def religion
-    if capability_block.character_skill_items.find_by skill_id: 15
+  def religion_modifier
+    if religion
       if intelligence_ability_modifier + proficiency_bonus.to_i < 0
         (intelligence_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -357,8 +357,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def sleight_of_hand
-    if capability_block.character_skill_items.find_by skill_id: 16
+  def sleight_of_hand_modifier
+    if sleight_of_hand
       if dexterity_ability_modifier + proficiency_bonus.to_i < 0
         (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -373,8 +373,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def stealth
-    if capability_block.character_skill_items.find_by skill_id: 17
+  def stealth_modifier
+    if stealth
       if dexterity_ability_modifier + proficiency_bonus.to_i < 0
         (dexterity_ability_modifier + proficiency_bonus.to_i).to_s
       else
@@ -389,8 +389,8 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def survival
-    if capability_block.character_skill_items.find_by skill_id: 18
+  def survival_modifier
+    if survival
       if wisdom_ability_modifier + proficiency_bonus.to_i < 0
         (wisdom_ability_modifier + proficiency_bonus.to_i).to_s
       else
