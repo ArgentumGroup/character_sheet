@@ -151,7 +151,7 @@
  			<div id="ProfilePage">
  				<button id='logOutButton' onClick={this._logOut}>Log Out</button>
  				<div id="charactersCampaigns">
-	 				<h3>Your Characters</h3>
+	 				<h2 id='charTitle'>Your Characters</h2>
 	 				<div id='characterList'>
 		 			{characters.map(this._showCharacters)}
 		 			<span onClick={this._createCharacter} className="characters">

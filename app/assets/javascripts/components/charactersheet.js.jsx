@@ -97,7 +97,7 @@ var CharacterSheet = React.createClass({
 
 		return(
 			<div id="charContainer">
-				<button onClick={this._goProfile}>Go to profile</button>
+				<button id='charProfileButton' onClick={this._goProfile}>Go to profile</button>
 				<NameInfoBox currentCharacter={this.state.currentCharacter} characterClass={this.state.characterClass}/>
 				<StatsBlock currentCharacter={this.state.currentCharacter} capabilityBlock={this.state.capabilityBlock} />
 				<HealthandArmorClass currentCharacter={this.state.currentCharacter} armors={this.state.armors} />
