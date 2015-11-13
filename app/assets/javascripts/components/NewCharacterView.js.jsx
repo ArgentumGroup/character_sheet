@@ -187,28 +187,30 @@ var NewCharacter = React.createClass({
 
 		return(
 			<div id="newCharacter">
-				<button onClick={this._returnToProfile}>Go back to profile</button>
+				<button id="returnToProfile" onClick={this._returnToProfile}>Go back to profile</button>
+				<div id='nameBlock'>
+					<div>
+						<h2>Character Name</h2>
+						<input ref="charName" type='text' placeholder='Character Name'/>
+					</div>
+					<div>
+						<h2>Race</h2>
+						<select onChange={this._onRaceSelect} id='race' ref="race">
+							<option disabled selected>Race</option>
+							<option value='dwarf'>Dwarf</option>
+							<option value='elf'>Elf</option>
+							<option value='halfling'>Halfling</option>
+							<option value='human'>Human</option>
+						</select>
+					</div>
+					<div>
+						<h2>Sub-Race</h2>
+						<select id="selectSubRace" ref="subRace">
+						</select>
+					</div>
+				</div>	
 				<div>
-					<p>Character Name</p>
-					<input ref="charName" type='text' placeholder='Character Name'/>
-				</div>
-				<div>
-					<p>Race</p>
-					<select onChange={this._onRaceSelect} id='race' ref="race">
-						<option disabled selected>Race</option>
-						<option value='dwarf'>Dwarf</option>
-						<option value='elf'>Elf</option>
-						<option value='halfling'>Halfling</option>
-						<option value='human'>Human</option>
-					</select>
-				</div>
-				<div>
-					<p>Sub-Race</p>
-					<select id="selectSubRace" ref="subRace">
-					</select>
-				</div>
-				<div>
-					<p>Class</p>
+					<h2>Class</h2>
 					<select  id="classSelect" onChange={this._classSelect} ref="class">
 						<option disabled selected>Class</option>
 						<option value='3'>Rogue</option>
@@ -218,7 +220,7 @@ var NewCharacter = React.createClass({
 					</select>
 					<input onClick={this._showAbilityScores} type="checkbox"/>
 					<div id="classDescription">
-					</div>
+					</div>	
 					<div id='newCharStatBlock'>
 					</div>
 				</div>

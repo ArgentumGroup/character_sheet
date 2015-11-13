@@ -23,14 +23,14 @@ var NewCharStatBlock = React.createClass({
 		if(abilityScores === 'no'){
 				return(
 					<div id='newCharStatBlock'>
-						<p>Strength <input ref='str' type='number'/></p>
-						<p>Dexterity <input ref='dex' type='number'/></p>
-						<p>Constitution <input ref='con' type='number'/></p>
-						<p>Intelligence <input ref='int' type='number'/></p>
-						<p>Wisdom <input ref='wis' type='number'/></p>
-						<p>Charisma <input ref='cha' type='number'/></p>
-						<p>Finished? Save these stats and move on!<input onClick={this._handleClick} type='checkbox'/></p>
-						<button onClick={this.props.saveChar}>Save your character!</button>
+						<h3>Strength <input ref='str' type='number'/></h3>
+						<h3>Dexterity <input ref='dex' type='number'/></h3>
+						<h3>Constitution <input ref='con' type='number'/></h3>
+						<h3>Intelligence <input ref='int' type='number'/></h3>
+						<h3>Wisdom <input ref='wis' type='number'/></h3>
+						<h3>Charisma <input ref='cha' type='number'/></h3>
+						<h3>Finished? Save these stats and move on!<input onClick={this._handleClick} type='checkbox'/></h3>
+						<button id='saveCharButton' onClick={this.props.saveChar}>Save your character!</button>
 					</div>	
 						)}
 		else return null

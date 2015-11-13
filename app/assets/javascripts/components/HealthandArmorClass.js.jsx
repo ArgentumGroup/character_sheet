@@ -9,15 +9,15 @@ var HealthandArmorClass = React.createClass({
 				<div id='armorClassBlock'>
 					<div>
 						<h3>Armor Class </h3>
-						<input value={currentCharacter.armor_class} type='number'/>
+						<h4>{currentCharacter.armor_class}</h4>
 					</div>	
 					<div>
 						<h3>Initiative </h3>
-						<input value={currentCharacter.initiative}type='string' />
+						<h4>{currentCharacter.initiative}</h4>
 					</div>
 					<div>
 						<h3>Speed </h3>
-						<input value='30ft' type='string' />
+						<h4>30ft</h4>
 					</div>	
 				</div>
 				<div id="healthandDeathSaves">
@@ -41,22 +41,24 @@ var HealthandArmorClass = React.createClass({
 					</div>
 					<div>
 						<h3>Death Saves</h3>
-						<p>Successes:&nbsp;
+						<p>Successes:</p>
+						<span className='deathSaves'>
 							<select>
 								<option>0</option>
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 							</select> of 3
-						</p>
-						<p>Failures:&nbsp; 
+						</span>
+						<p>Failures:</p>
+						<span className='deathSaves'> 
 							<select>
 								<option>0</option>
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 							</select> of 3
-						</p>	
+						</span>		
 					</div>	
 				</div>
 			</div>	
