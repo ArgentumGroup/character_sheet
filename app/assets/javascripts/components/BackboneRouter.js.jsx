@@ -4,10 +4,8 @@ $( document ).ready(function() {
 	var App = Backbone.Router.extend({
 
 		routes:{
-			'': 'showSignIn',
-			'signup': 'showSignUp',
+			'': 'showProfile',
 			'profile': 'showProfile',
-			'signin': 'showSignIn',
 			'viewcharacter' : 'viewCharacter'
 
 		},
@@ -23,7 +21,7 @@ $( document ).ready(function() {
 		},
 
 		showProfile(){
-			
+
 			ReactDOM.render( <ProfilePage />, document.querySelector('#container'))
 		},
 
